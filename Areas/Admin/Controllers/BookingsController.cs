@@ -64,10 +64,12 @@ namespace BookingTour.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,CustomerID,TourID,BookingDate,NumberOfPeople,TotalAmount,CreatedDate,CreatedBy,ModifierDate,ModifierBy")] Booking booking)
+        public async Task<IActionResult> Create([Bind("Id,CustomerID,TourID,BookingDate,NumberOfPeople,TotalAmount")] Booking booking)
         {
             if (ModelState.IsValid)
             {
+                booking.CreatedBy = booking.ModifierBy = "Cuong";
+                booking.CreatedDate = booking.ModifierDate = DateTime.Now;
                 _context.Add(booking);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
