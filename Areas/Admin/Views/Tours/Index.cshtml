@@ -7,16 +7,13 @@
 }
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a class="btn-primary btn" asp-action="Create">Create New</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Rate)
@@ -26,9 +23,6 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.AvailableSeats)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Slug)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.StartDate)
@@ -49,9 +43,6 @@
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.Rate)
             </td>
             <td>
@@ -59,9 +50,6 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.AvailableSeats)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Slug)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.StartDate)
