@@ -42,5 +42,8 @@ namespace BookingTour.Models
         [ForeignKey("LocationID")]
         public Location? Location { set; get; }
 
+        [Display(Name = "Hình ảnh")]
+        public string? Image { set; get; }
+
     }
 }

@@ -9837,6 +9837,38 @@
       "PackagePath": "staticwebassets\\summernote\\summernote-0.8.20\\yarn.lock"
     },
     {
+      "Id": "D:\\projectcode\\BookingTour\\BookingTour\\wwwroot\\uploads\\392947884_653117100291696_3294305481437054426_n.jpg",
+      "PackagePath": "staticwebassets\\uploads\\392947884_653117100291696_3294305481437054426_n.jpg"
+    },
+    {
+      "Id": "D:\\projectcode\\BookingTour\\BookingTour\\wwwroot\\uploads\\393393810_702880238616070_4374232155571270157_n.jpg",
+      "PackagePath": "staticwebassets\\uploads\\393393810_702880238616070_4374232155571270157_n.jpg"
+    },
+    {
+      "Id": "D:\\projectcode\\BookingTour\\BookingTour\\wwwroot\\uploads\\393743296_122098229294087236_5846645400364917853_n (1).jpg",
+      "PackagePath": "staticwebassets\\uploads\\393743296_122098229294087236_5846645400364917853_n (1).jpg"
+    },
+    {
+      "Id": "D:\\projectcode\\BookingTour\\BookingTour\\wwwroot\\uploads\\393864640_278411741829892_7633052718814735012_n.jpg",
+      "PackagePath": "staticwebassets\\uploads\\393864640_278411741829892_7633052718814735012_n.jpg"
+    },
+    {
+      "Id": "D:\\projectcode\\BookingTour\\BookingTour\\wwwroot\\uploads\\393953439_278009428536790_6842515122632667693_n.jpg",
+      "PackagePath": "staticwebassets\\uploads\\393953439_278009428536790_6842515122632667693_n.jpg"
+    },
+    {
+      "Id": "D:\\projectcode\\BookingTour\\BookingTour\\wwwroot\\uploads\\394074063_278009411870125_5356587798101474893_n.jpg",
+      "PackagePath": "staticwebassets\\uploads\\394074063_278009411870125_5356587798101474893_n.jpg"
+    },
+    {
+      "Id": "D:\\projectcode\\BookingTour\\BookingTour\\wwwroot\\uploads\\394106979_278009485203451_1032385255871537757_n.jpg",
+      "PackagePath": "staticwebassets\\uploads\\394106979_278009485203451_1032385255871537757_n.jpg"
+    },
+    {
+      "Id": "D:\\projectcode\\BookingTour\\BookingTour\\wwwroot\\uploads\\394295737_278007381870328_3584556184816710654_n.jpg",
+      "PackagePath": "staticwebassets\\uploads\\394295737_278007381870328_3584556184816710654_n.jpg"
+    },
+    {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.BookingTour.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },
