@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Http; 
 using BookingTour.Models;
 
 namespace BookingTour.Areas.Admin.Controllers
@@ -14,9 +15,10 @@ namespace BookingTour.Areas.Admin.Controllers
     public class ToursController : Controller
     {
         private readonly TourContext _context;
-
-        public ToursController(TourContext context)
+        private readonly IWebHostEnvironment _evn;
+        public ToursController(TourContext context, IWebHostEnvironment evn)
         {
+            _evn = evn;
             _context = context;
         }
 
@@ -49,6 +51,7 @@ namespace BookingTour.Areas.Admin.Controllers
         // GET: Admin/Tours/Create
         public IActionResult Create()
         {
+            Console.WriteLine("fileName: ");
             var locations = from l in _context.locations
                             select new
                             {
@@ -59,13 +62,27 @@ namespace BookingTour.Areas.Admin.Controllers
             return View();
         }
 
-        // POST: Admin/Tours/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Description,Rate,Price,AvailableSeats,Slug,StartDate,EndDate,LocationID")] Tours tours)
+        public async Task<IActionResult> Create([Bind("Id,Name,Description,Image, Rate,Price,AvailableSeats,Slug,StartDate,EndDate,LocationID")] Tours tours, IFormFile file)
         {
+            if (file != null)
+            {
+                var fileNamePath = new FileInfo(file.FileName);
+
+                // lấy đường dẫn thư mục uploads gốc 
+                var webPath = _evn.WebRootPath;
+                var path = Path.Combine("", webPath + @"\uploads\" + fileNamePath);
+
+                var pathToSave = @"/uploads/" + fileNamePath;
+
+                using (var stream = new FileStream(path, FileMode.Create))
+                {
+                    await file.CopyToAsync(stream);
+                }
+                tours.Image = pathToSave;
+            }
             if (ModelState.IsValid)
             {
                 _context.Add(tours);
@@ -104,18 +121,43 @@ namespace BookingTour.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Description,Rate,Price,AvailableSeats,Slug,StartDate,EndDate,LocationID")] Tours tours)
+        public async Task<IActionResult> Edit(int id, [Bind("Name,Description,Image,Rate,Price,AvailableSeats,Slug,StartDate,EndDate,LocationID")] Tours tours, IFormFile? file)
         {
-            if (id != tours.Id)
+            var tourEdit = (from c in _context.tours
+                           where c.Id == id
+                           select c).FirstOrDefault();
+            if (file != null)
             {
-                return NotFound();
-            }
+                var fileNamePath = new FileInfo(file.FileName);
 
+                // lấy đường dẫn thư mục uploads gốc 
+                var webPath = _evn.WebRootPath;
+                var path = Path.Combine("", webPath + @"\uploads\" + fileNamePath);
+
+                var pathToSave = @"/uploads/" + fileNamePath;
+
+                using (var stream = new FileStream(path, FileMode.Create))
+                {
+                    await file.CopyToAsync(stream);
+                }
+                tours.Image = pathToSave;
+            }
+            else { tours.Image = tourEdit.Image;}
             if (ModelState.IsValid)
             {
                 try
                 {
-                    _context.Update(tours);
+                    tourEdit.Name = tours.Name;
+                    tourEdit.Description = tours.Description;
+                    tourEdit.Rate = tours.Rate;
+                    tourEdit.Price = tours.Price;
+                    tourEdit.AvailableSeats = tours.AvailableSeats;
+                    tourEdit.Slug = tours.Slug;
+                    tourEdit.StartDate = tours.StartDate;
+                    tourEdit.EndDate = tours.EndDate;
+                    tourEdit.LocationID = tours.LocationID;
+                    tourEdit.Image = tours.Image;
+                    _context.Update(tourEdit);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
