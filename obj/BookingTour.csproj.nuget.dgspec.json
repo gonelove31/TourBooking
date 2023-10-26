@@ -43,7 +43,11 @@
           "dependencies": {
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[6.0.0, )"
+              "version": "[6.0.23, )"
+            },
+            "Microsoft.AspNetCore.Identity.UI": {
+              "target": "Package",
+              "version": "[6.0.23, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",

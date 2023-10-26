@@ -14,7 +14,6 @@ services.AddDbContext<TourContext>(options =>
     options.UseSqlServer(url);
 });
 
-
 services.AddIdentity<AppUser, IdentityRole>().AddEntityFrameworkStores<TourContext>().AddDefaultTokenProviders();
 
 var app = builder.Build();
@@ -32,6 +31,8 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
