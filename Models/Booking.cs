@@ -22,5 +22,8 @@ namespace BookingTour.Models
 
         public Tours? Tour { set; get; }
 
+        [Display(Name = "Trạng thái")]
+        public int? Status { set; get; }
+
     }
 }
