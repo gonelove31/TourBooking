@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BookingTour.Models;
+using BookingTour.Common;
+using X.PagedList;
 
 namespace BookingTour.Areas.Admin.Controllers
 {
@@ -22,11 +24,17 @@ namespace BookingTour.Areas.Admin.Controllers
         }
 
         // GET: Admin/Locations
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? page, string? searchString)
         {
-              return _context.locations != null ? 
-                          View(await _context.locations.ToListAsync()) :
-                          Problem("Entity set 'TourContext.locations'  is null.");
+
+            int pageSize = 5;
+            int pageNumber = page ?? 1;
+            var locations = from l in _context.locations select l;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                locations = locations.Where(b => b.Name.Contains(searchString));
+            }
+            return View(locations.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Admin/Locations/Details/5
@@ -76,6 +84,7 @@ namespace BookingTour.Areas.Admin.Controllers
                 }
                 location.Image = pathToSave;
             }
+            if (location.Slug == null) location.Slug = ConvertSlug.GenerateSlug(location.Name);
             if (ModelState.IsValid)
             {
                 location.CreatedBy = location.ModifierBy = "Cuong";
@@ -107,8 +116,8 @@ namespace BookingTour.Areas.Admin.Controllers
         public async Task<IActionResult> Edit(int id, [Bind("Name,Description,Slug, Image")] Location location, IFormFile file)
         {
             var locationEdit = (from c in _context.locations
-                            where c.Id == id
-                            select c).FirstOrDefault();
+                                where c.Id == id
+                                select c).FirstOrDefault();
 
             if (file != null)
             {
@@ -141,7 +150,7 @@ namespace BookingTour.Areas.Admin.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    
+
                 }
                 return RedirectToAction(nameof(Index));
             }
@@ -180,14 +189,14 @@ namespace BookingTour.Areas.Admin.Controllers
             {
                 _context.locations.Remove(location);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool LocationExists(int id)
         {
-          return (_context.locations?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.locations?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

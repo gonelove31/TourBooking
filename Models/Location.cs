@@ -10,7 +10,7 @@ namespace BookingTour.Models
         public int Id { get; set; }
 
         [Display(Name = "Địa chỉ")]
-        public string? Name { get; set; }
+        public string Name { get; set; }
 
         [Display(Name = "Mô tả")]
         public string? Description { set; get; }
