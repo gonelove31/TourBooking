@@ -255,3 +255,6 @@ D:\projectcode\BookingTour\BookingTour\bin\Debug\net6.0\Microsoft.AspNetCore.Ide
 D:\projectcode\BookingTour\BookingTour\bin\Debug\net6.0\Microsoft.Extensions.FileProviders.Embedded.dll
 D:\projectcode\BookingTour\BookingTour\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
 D:\projectcode\BookingTour\BookingTour\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
+D:\projectcode\BookingTour\BookingTour\bin\Debug\net6.0\JetBrains.Annotations.dll
+D:\projectcode\BookingTour\BookingTour\bin\Debug\net6.0\X.PagedList.dll
+D:\projectcode\BookingTour\BookingTour\bin\Debug\net6.0\X.PagedList.Mvc.Core.dll

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BookingTour.Models;
+using X.PagedList;
 
 namespace BookingTour.Areas.Admin.Controllers
 {
@@ -21,10 +22,15 @@ namespace BookingTour.Areas.Admin.Controllers
         }
 
         // GET: Admin/Bookings
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? page)
         {
+            int pageSize = 5;
+            int pageNumber = page ?? 1;
             var tourContext = _context.bookings.Include(b => b.Tour);
-            return View(await tourContext.ToListAsync());
+
+            return View(tourContext.ToPagedList(pageNumber, pageSize));
+
+
         }
 
         // GET: Admin/Bookings/Details/5
@@ -76,7 +82,7 @@ namespace BookingTour.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,CustomerID,TourID,BookingDate,NumberOfPeople,TotalAmount, Status")] Booking booking)
+        public async Task<IActionResult> Create([Bind("Id,CustomerID,TourID,BookingDate,NumberOfAdult, NumberOfChildren,TotalAmount, Status")] Booking booking)
         {
             if (ModelState.IsValid)
             {
@@ -134,7 +140,7 @@ namespace BookingTour.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("CustomerID,TourID,BookingDate,NumberOfPeople,TotalAmount, Status")] Booking booking)
+        public async Task<IActionResult> Edit(int id, [Bind("CustomerID,TourID,BookingDate,NumberOfChildren,NumberOfAdult,TotalAmount, Status")] Booking booking)
         {
             if (ModelState.IsValid)
             {
@@ -147,7 +153,8 @@ namespace BookingTour.Areas.Admin.Controllers
                     bookingEdit.CustomerID = booking.CustomerID;
                     bookingEdit.TourID = booking.TourID;
                     bookingEdit.BookingDate = booking.BookingDate;
-                    bookingEdit.NumberOfPeople = booking.NumberOfPeople;
+                    bookingEdit.NumberOfChildren = booking.NumberOfChildren;
+                    bookingEdit.NumberOfAdult = booking.NumberOfAdult;
                     bookingEdit.TotalAmount = booking.TotalAmount;
                     bookingEdit.Status = booking.Status;
                     bookingEdit.ModifierDate = DateTime.Now;

@@ -8,11 +8,16 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 var services = builder.Services;
+
+services.AddRazorPages();
 services.AddDbContext<TourContext>(options =>
 {
     string url = builder.Configuration.GetConnectionString("TourContext");
     options.UseSqlServer(url);
 });
+
+
+
 
 services.AddIdentity<AppUser, IdentityRole>().AddEntityFrameworkStores<TourContext>().AddDefaultTokenProviders();
 
@@ -38,5 +43,6 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
 
 app.Run();
