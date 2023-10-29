@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\.github",
+    "\\.github\\workflows",
+    "\\Migrations",
+    "\\wwwroot",
+    "\\wwwroot\\dist",
+    "\\wwwroot\\js",
+    "\\wwwroot\\lib",
+    "\\wwwroot\\plugins",
+    "\\wwwroot\\summernote"
+  ],
+  "SelectedNode": "\\Models\\Common.cs",
+  "PreviewInSolutionExplorer": false
+}
