@@ -77,10 +77,10 @@ namespace BookingTour.Areas.Identity.Pages.Account
                 pageHandler: null,
                 values: new { userId = userId, code = code },
                 protocol: Request.Scheme);
-            await _emailSender.SendEmailAsync(
-                Input.Email,
-                "Confirm your email",
-                $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+            var stringurl = HtmlEncoder.Default.Encode(callbackUrl);
+            stringurl = stringurl.Replace(";", "&");
+            await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
+                $"kik vao day  <a href='{stringurl}'>clicking here</a>.");
 
             ModelState.AddModelError(string.Empty, "Verification email sent. Please check your email.");
             return Page();

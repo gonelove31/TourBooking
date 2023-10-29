@@ -89,6 +89,10 @@
               "target": "Package",
               "version": "[6.0.16, )"
             },
+            "MimeKit": {
+              "target": "Package",
+              "version": "[4.2.0, )"
+            },
             "System.Data.SqlClient": {
               "target": "Package",
               "version": "[4.8.5, )"

@@ -5,6 +5,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using System;
+using static Album.Mail.SendMailService;
+using  Album.Mail;
+using System.Configuration;
+using Microsoft.AspNetCore.Hosting;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -51,13 +55,22 @@ services.Configure<IdentityOptions>(options => {
     // Cấu hình đăng nhập.
     options.SignIn.RequireConfirmedEmail = true;            // Cấu hình xác thực địa chỉ email (email phải tồn tại)
     options.SignIn.RequireConfirmedPhoneNumber = false;     // Xác thực số điện thoại
-
+    options.SignIn.RequireConfirmedAccount = true; // cau hinh bat xac thuc email moi duoc dang ky
 });
 
 
-var app = builder.Build();
+
+
+
+services.AddOptions();
+var mailsetting =builder.Configuration.GetSection("MailSettings");
+services.Configure<MailSettings>(mailsetting);
+services.AddSingleton<IEmailSender, SendMailService>();
+
+
 
 // Configure the HTTP request pipeline.
+var app = builder.Build();
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
@@ -77,6 +90,7 @@ app.UseAuthorization(); // sau khi xac thuc , thi dc lam gi
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+//doc thong tin 1 user , kiem tra 1 user co dang nhap khong 
 
 app.MapRazorPages();
 app.Run();
