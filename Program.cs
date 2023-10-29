@@ -9,6 +9,9 @@ using static Album.Mail.SendMailService;
 using  Album.Mail;
 using System.Configuration;
 using Microsoft.AspNetCore.Hosting;
+using App.Menu;
+using Microsoft.AspNetCore.Cors.Infrastructure;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -66,6 +69,12 @@ services.AddOptions();
 var mailsetting =builder.Configuration.GetSection("MailSettings");
 services.Configure<MailSettings>(mailsetting);
 services.AddSingleton<IEmailSender, SendMailService>();
+
+
+
+
+services.AddTransient<IActionContextAccessor, ActionContextAccessor>();
+services.AddTransient<AdminSidebarService>();
 
 
 
