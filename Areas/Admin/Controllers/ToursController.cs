@@ -13,7 +13,7 @@ using X.PagedList;
 namespace BookingTour.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Route("/admin/tours/[action]/{id?}")]
+    [Route("/Admin/Tours/[action]/{id?}")]
     public class ToursController : Controller
     {
         private readonly TourContext _context;
