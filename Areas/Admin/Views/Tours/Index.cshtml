@@ -75,12 +75,12 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.EndDate)
                 </td>
-                <td>
+                @*<td>
                     @{
                         var locationName = _context.locations.FirstOrDefault(l => item.Location.Id == l.Id)?.Name;
                         @locationName
                     }
-                </td>
+                </td>*@
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                     <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
