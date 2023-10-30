@@ -32,10 +32,6 @@ namespace BookingTour.Models
         public DbSet<Booking>? bookings { set; get; }
         public DbSet<Location> locations { set; get; }
         public DbSet<Tours> tours { set; get; }
-<<<<<<< HEAD
        
-=======
-
->>>>>>> 4c842c812f06e20ada81e43f658d8bca9ea4877d
     }
 }

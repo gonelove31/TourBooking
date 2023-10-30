@@ -8,11 +8,8 @@
     ".NETCoreApp,Version=v6.0": {
       "BookingTour/1.0.0": {
         "dependencies": {
-<<<<<<< HEAD
           "MailKit": "4.2.0",
           "Microsoft.AspNetCore.Authentication.Cookies": "2.2.0",
-=======
->>>>>>> 4c842c812f06e20ada81e43f658d8bca9ea4877d
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.23",
           "Microsoft.AspNetCore.Identity.UI": "6.0.23",
           "Microsoft.EntityFrameworkCore": "6.0.23",
@@ -22,12 +19,9 @@
           "Microsoft.EntityFrameworkCore.Tools": "6.0.23",
           "Microsoft.Extensions.DependencyInjection": "6.0.1",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "6.0.16",
-<<<<<<< HEAD
           "MimeKit": "4.2.0",
-          "System.Data.SqlClient": "4.8.5"
-=======
-          "X.PagedList.Mvc.Core": "8.4.7"
->>>>>>> 4c842c812f06e20ada81e43f658d8bca9ea4877d
+          "System.Data.SqlClient": "4.8.5",
+          "X.PagedList.Mvc.Core": "8.4.5"
         },
         "runtime": {
           "BookingTour.dll": {}
@@ -581,7 +575,14 @@
           }
         }
       },
-<<<<<<< HEAD
+      "JetBrains.Annotations/2022.3.1": {
+        "runtime": {
+          "lib/netstandard2.0/JetBrains.Annotations.dll": {
+            "assemblyVersion": "4242.42.42.42",
+            "fileVersion": "2022.3.1.0"
+          }
+        }
+      },
       "MailKit/4.2.0": {
         "dependencies": {
           "MimeKit": "4.2.0"
@@ -590,13 +591,6 @@
           "lib/net6.0/MailKit.dll": {
             "assemblyVersion": "4.2.0.0",
             "fileVersion": "4.2.0.0"
-=======
-      "JetBrains.Annotations/2022.3.1": {
-        "runtime": {
-          "lib/netstandard2.0/JetBrains.Annotations.dll": {
-            "assemblyVersion": "4242.42.42.42",
-            "fileVersion": "2022.3.1.0"
->>>>>>> 4c842c812f06e20ada81e43f658d8bca9ea4877d
           }
         }
       },
@@ -626,7 +620,6 @@
         }
       },
       "MessagePackAnalyzer/2.1.152": {},
-<<<<<<< HEAD
       "Microsoft.AspNetCore.Authentication/2.2.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Authentication.Core": "2.2.0",
@@ -665,16 +658,6 @@
           }
         }
       },
-=======
-      "Microsoft.AspNetCore.Cryptography.Internal/6.0.23": {
-        "runtime": {
-          "lib/net6.0/Microsoft.AspNetCore.Cryptography.Internal.dll": {
-            "assemblyVersion": "6.0.0.0",
-            "fileVersion": "6.0.2323.48007"
-          }
-        }
-      },
->>>>>>> 4c842c812f06e20ada81e43f658d8bca9ea4877d
       "Microsoft.AspNetCore.Cryptography.KeyDerivation/6.0.23": {
         "dependencies": {
           "Microsoft.AspNetCore.Cryptography.Internal": "6.0.23"
@@ -686,7 +669,6 @@
           }
         }
       },
-<<<<<<< HEAD
       "Microsoft.AspNetCore.DataProtection/2.2.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Cryptography.Internal": "6.0.23",
@@ -742,8 +724,6 @@
           "Microsoft.Extensions.Primitives": "6.0.0"
         }
       },
-=======
->>>>>>> 4c842c812f06e20ada81e43f658d8bca9ea4877d
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore/6.0.23": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore.Relational": "6.0.23",
@@ -1450,7 +1430,6 @@
         }
       },
       "Microsoft.Extensions.DependencyInjection.Abstractions/6.0.0": {},
-<<<<<<< HEAD
       "Microsoft.Extensions.DependencyModel/6.0.0": {
         "dependencies": {
           "System.Buffers": "4.5.1",
@@ -1471,13 +1450,6 @@
           "Microsoft.Extensions.Primitives": "6.0.0"
         }
       },
-=======
-      "Microsoft.Extensions.FileProviders.Abstractions/6.0.0": {
-        "dependencies": {
-          "Microsoft.Extensions.Primitives": "6.0.0"
-        }
-      },
->>>>>>> 4c842c812f06e20ada81e43f658d8bca9ea4877d
       "Microsoft.Extensions.FileProviders.Embedded/6.0.23": {
         "dependencies": {
           "Microsoft.Extensions.FileProviders.Abstractions": "6.0.0"
@@ -1489,7 +1461,6 @@
           }
         }
       },
-<<<<<<< HEAD
       "Microsoft.Extensions.Hosting.Abstractions/2.2.0": {
         "dependencies": {
           "Microsoft.Extensions.Configuration.Abstractions": "6.0.0",
@@ -1498,8 +1469,6 @@
           "Microsoft.Extensions.Logging.Abstractions": "6.0.0"
         }
       },
-=======
->>>>>>> 4c842c812f06e20ada81e43f658d8bca9ea4877d
       "Microsoft.Extensions.Identity.Core/6.0.23": {
         "dependencies": {
           "Microsoft.AspNetCore.Cryptography.KeyDerivation": "6.0.23",
@@ -3037,25 +3006,25 @@
           "System.Xml.ReaderWriter": "4.3.0"
         }
       },
-      "X.PagedList/8.4.7": {
+      "X.PagedList/8.4.5": {
         "dependencies": {
           "JetBrains.Annotations": "2022.3.1"
         },
         "runtime": {
           "lib/net6.0/X.PagedList.dll": {
-            "assemblyVersion": "8.4.7.0",
-            "fileVersion": "8.4.7.0"
+            "assemblyVersion": "8.4.3.0",
+            "fileVersion": "8.4.3.0"
           }
         }
       },
-      "X.PagedList.Mvc.Core/8.4.7": {
+      "X.PagedList.Mvc.Core/8.4.5": {
         "dependencies": {
-          "X.PagedList": "8.4.7"
+          "X.PagedList": "8.4.5"
         },
         "runtime": {
           "lib/net6.0/X.PagedList.Mvc.Core.dll": {
-            "assemblyVersion": "8.4.7.0",
-            "fileVersion": "8.4.7.0"
+            "assemblyVersion": "8.4.3.0",
+            "fileVersion": "8.4.3.0"
           }
         }
       }
@@ -3424,21 +3393,19 @@
       "path": "humanizer.core.zh-hant/2.14.1",
       "hashPath": "humanizer.core.zh-hant.2.14.1.nupkg.sha512"
     },
-<<<<<<< HEAD
-    "MailKit/4.2.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-NXm66YkEHyLXSyH1Ga/dUS8SB0vYTlGESUluLULa7pG0/eK8c/R9JzMyH0KbKQsgpLGwbji9quAlrcUOL0OjPA==",
-      "path": "mailkit/4.2.0",
-      "hashPath": "mailkit.4.2.0.nupkg.sha512"
-=======
     "JetBrains.Annotations/2022.3.1": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-11nsS3+lFICGkztVs9PP2NRItxf9fF+qD6xEW/T0YGto52zj07wseUeBdMAU1ah9HNVTDZyRC1u4NWdtJScwhw==",
       "path": "jetbrains.annotations/2022.3.1",
       "hashPath": "jetbrains.annotations.2022.3.1.nupkg.sha512"
->>>>>>> 4c842c812f06e20ada81e43f658d8bca9ea4877d
+    },
+    "MailKit/4.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-NXm66YkEHyLXSyH1Ga/dUS8SB0vYTlGESUluLULa7pG0/eK8c/R9JzMyH0KbKQsgpLGwbji9quAlrcUOL0OjPA==",
+      "path": "mailkit/4.2.0",
+      "hashPath": "mailkit.4.2.0.nupkg.sha512"
     },
     "MessagePack/2.1.152": {
       "type": "package",
@@ -3461,7 +3428,6 @@
       "path": "messagepackanalyzer/2.1.152",
       "hashPath": "messagepackanalyzer.2.1.152.nupkg.sha512"
     },
-<<<<<<< HEAD
     "Microsoft.AspNetCore.Authentication/2.2.0": {
       "type": "package",
       "serviceable": true,
@@ -3563,25 +3529,6 @@
     "Microsoft.AspNetCore.Identity.EntityFrameworkCore/6.0.23": {
       "type": "package",
       "serviceable": true,
-=======
-    "Microsoft.AspNetCore.Cryptography.Internal/6.0.23": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-m/LACmFx927uyIINU1EWJG1KCwUDGO2OxesdQjbjHXRrPZGfgFNPRnnW3qe4/p3iBEqUB3bc1q79I68dMh4VXQ==",
-      "path": "microsoft.aspnetcore.cryptography.internal/6.0.23",
-      "hashPath": "microsoft.aspnetcore.cryptography.internal.6.0.23.nupkg.sha512"
-    },
-    "Microsoft.AspNetCore.Cryptography.KeyDerivation/6.0.23": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-bGLn6VqStKJR09K4NmfKdxYLIF93ILurFmx+qP9zV99SPRzaa05sOUBkWrZbhZGiQoeo8o6pNAAVy+zR3mm7SQ==",
-      "path": "microsoft.aspnetcore.cryptography.keyderivation/6.0.23",
-      "hashPath": "microsoft.aspnetcore.cryptography.keyderivation.6.0.23.nupkg.sha512"
-    },
-    "Microsoft.AspNetCore.Identity.EntityFrameworkCore/6.0.23": {
-      "type": "package",
-      "serviceable": true,
->>>>>>> 4c842c812f06e20ada81e43f658d8bca9ea4877d
       "sha512": "sha512-yNEHYuOOdAiZzgopbmYLe3csZ9gstrKu++HzG/1lfujDL997QzSe30U3GTbK/fzI/GGo+XCEKy8KVzmu8DJIDw==",
       "path": "microsoft.aspnetcore.identity.entityframeworkcore/6.0.23",
       "hashPath": "microsoft.aspnetcore.identity.entityframeworkcore.6.0.23.nupkg.sha512"
@@ -3838,7 +3785,6 @@
       "path": "microsoft.extensions.dependencyinjection.abstractions/6.0.0",
       "hashPath": "microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512"
     },
-<<<<<<< HEAD
     "Microsoft.Extensions.DependencyModel/6.0.0": {
       "type": "package",
       "serviceable": true,
@@ -3856,23 +3802,10 @@
     "Microsoft.Extensions.FileProviders.Embedded/6.0.23": {
       "type": "package",
       "serviceable": true,
-=======
-    "Microsoft.Extensions.FileProviders.Abstractions/6.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-0pd4/fho0gC12rQswaGQxbU34jOS1TPS8lZPpkFCH68ppQjHNHYle9iRuHeev1LhrJ94YPvzcRd8UmIuFk23Qw==",
-      "path": "microsoft.extensions.fileproviders.abstractions/6.0.0",
-      "hashPath": "microsoft.extensions.fileproviders.abstractions.6.0.0.nupkg.sha512"
-    },
-    "Microsoft.Extensions.FileProviders.Embedded/6.0.23": {
-      "type": "package",
-      "serviceable": true,
->>>>>>> 4c842c812f06e20ada81e43f658d8bca9ea4877d
       "sha512": "sha512-Z1tdhh0ro8v11pkRXR1llOTt+SGWP8Wi780oLQGIDcmwx6EMQCbgq5RghnIQOtShlTHWkEGeyVBbBUsbxdMb0A==",
       "path": "microsoft.extensions.fileproviders.embedded/6.0.23",
       "hashPath": "microsoft.extensions.fileproviders.embedded.6.0.23.nupkg.sha512"
     },
-<<<<<<< HEAD
     "Microsoft.Extensions.Hosting.Abstractions/2.2.0": {
       "type": "package",
       "serviceable": true,
@@ -3880,8 +3813,6 @@
       "path": "microsoft.extensions.hosting.abstractions/2.2.0",
       "hashPath": "microsoft.extensions.hosting.abstractions.2.2.0.nupkg.sha512"
     },
-=======
->>>>>>> 4c842c812f06e20ada81e43f658d8bca9ea4877d
     "Microsoft.Extensions.Identity.Core/6.0.23": {
       "type": "package",
       "serviceable": true,
@@ -4911,19 +4842,19 @@
       "path": "system.xml.xdocument/4.3.0",
       "hashPath": "system.xml.xdocument.4.3.0.nupkg.sha512"
     },
-    "X.PagedList/8.4.7": {
+    "X.PagedList/8.4.5": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-ZA1WcyNviMUhivCgwKAm/5/YsNP3Yf/n81SzrPaHSJOcFzavA9MrXTT8M+ZX4fvHwLCL1bY6BPXvwZF5pRtgTg==",
-      "path": "x.pagedlist/8.4.7",
-      "hashPath": "x.pagedlist.8.4.7.nupkg.sha512"
+      "sha512": "sha512-J+k5n2eIQWsX7HLYkTFl9sv6eYFn6ypVBuBGgAGrors+Iuuv3UtTk7fVXOxx/8oMZkvTuJlzZ1ALiONtwnQQPQ==",
+      "path": "x.pagedlist/8.4.5",
+      "hashPath": "x.pagedlist.8.4.5.nupkg.sha512"
     },
-    "X.PagedList.Mvc.Core/8.4.7": {
+    "X.PagedList.Mvc.Core/8.4.5": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-dS8sJr/aT3AoV9ePaqmF4wijh/2vqS9rxpOvzjPPStkQcR8rUaGPVezPgY/kJwWCZ2hdgKNralbU08So0otNxw==",
-      "path": "x.pagedlist.mvc.core/8.4.7",
-      "hashPath": "x.pagedlist.mvc.core.8.4.7.nupkg.sha512"
+      "sha512": "sha512-xpqkOdvclpRRDQPCpqVwYO4SkFYx16Qs6Wj7wB+pYA6nTaqIkaawrS7TRCDx8KvlJZ16kollf3c9dFe70qiOXQ==",
+      "path": "x.pagedlist.mvc.core/8.4.5",
+      "hashPath": "x.pagedlist.mvc.core.8.4.5.nupkg.sha512"
     }
   }
 }

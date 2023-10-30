@@ -7,11 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-<<<<<<< HEAD
     <PackageReference Include="MailKit" Version="4.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Cookies" Version="2.2.0" />
-=======
->>>>>>> 4c842c812f06e20ada81e43f658d8bca9ea4877d
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.23" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.23" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.23" />
@@ -27,24 +24,16 @@
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.1" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.16" />
-<<<<<<< HEAD
     <PackageReference Include="MimeKit" Version="4.2.0" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
-=======
-    <PackageReference Include="X.PagedList.Mvc.Core" Version="8.4.7" />
->>>>>>> 4c842c812f06e20ada81e43f658d8bca9ea4877d
+    <PackageReference Include="X.PagedList.Mvc.Core" Version="8.4.5" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Areas\Admin\Data\" />
-<<<<<<< HEAD
     <Folder Include="Areas\Admin\Views\user\" />
     <Folder Include="Areas\Identity\Pages\Shared\" />
     <Folder Include="mailssave\" />
-=======
-    <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="wwwroot\uploads\" />
->>>>>>> 4c842c812f06e20ada81e43f658d8bca9ea4877d
   </ItemGroup>
 
 </Project>
