@@ -10,17 +10,17 @@
 <h4>Booking</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-12">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">  
+            <div class="form-group">
                 <label asp-for="CustomerID" class="control-label"></label>
                 <input asp-for="CustomerID" class="form-control" />
                 <span asp-validation-for="CustomerID" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="TourID" class="control-label"></label>
-                <select asp-for="TourID" class ="form-control" asp-items="ViewBag.TourID"></select>
+                <select asp-for="TourID" class="form-control" asp-items="ViewBag.TourID"></select>
             </div>
             <div class="form-group">
                 <label asp-for="BookingDate" class="control-label"></label>
@@ -28,14 +28,23 @@
                 <span asp-validation-for="BookingDate" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="NumberOfPeople" class="control-label"></label>
-                <input asp-for="NumberOfPeople" class="form-control" />
-                <span asp-validation-for="NumberOfPeople" class="text-danger"></span>
+                <label asp-for="NumberOfAdult" class="control-label"></label>
+                <input asp-for="NumberOfAdult" class="form-control" />
+                <span asp-validation-for="NumberOfAdult" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NumberOfChildren" class="control-label"></label>
+                <input asp-for="NumberOfChildren" class="form-control" />
+                <span asp-validation-for="NumberOfChildren" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="TotalAmount" class="control-label"></label>
                 <input asp-for="TotalAmount" class="form-control" />
                 <span asp-validation-for="TotalAmount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Status" class="control-label"></label>
+                <select asp-for="Status" class="form-control" asp-items="ViewBag.StatusID"></select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
@@ -49,5 +58,7 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

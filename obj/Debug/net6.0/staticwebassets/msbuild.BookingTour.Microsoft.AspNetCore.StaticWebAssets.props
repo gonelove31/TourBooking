@@ -16,6 +16,22 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\BookingTour.bundle.scp.css))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\css\custom-paging.css))">
+      <SourceType>Package</SourceType>
+      <SourceId>BookingTour</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/BookingTour</BasePath>
+      <RelativePath>css/custom-paging.css</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\css\custom-paging.css))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\css\site.css))">
       <SourceType>Package</SourceType>
       <SourceId>BookingTour</SourceId>
@@ -36575,6 +36591,326 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\summernote\summernote-0.8.20\yarn.lock))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\330838388_518963180133665_7451200533299158525_n.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>BookingTour</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/BookingTour</BasePath>
+      <RelativePath>uploads/330838388_518963180133665_7451200533299158525_n.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\330838388_518963180133665_7451200533299158525_n.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\385272273_3411522349065446_3802403874051666183_n.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>BookingTour</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/BookingTour</BasePath>
+      <RelativePath>uploads/385272273_3411522349065446_3802403874051666183_n.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\385272273_3411522349065446_3802403874051666183_n.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\391679978_324444636841431_9037939310165586875_n.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>BookingTour</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/BookingTour</BasePath>
+      <RelativePath>uploads/391679978_324444636841431_9037939310165586875_n.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\391679978_324444636841431_9037939310165586875_n.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\392947884_653117100291696_3294305481437054426_n.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>BookingTour</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/BookingTour</BasePath>
+      <RelativePath>uploads/392947884_653117100291696_3294305481437054426_n.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\392947884_653117100291696_3294305481437054426_n.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\392951693_266126683083899_4202943722636948743_n.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>BookingTour</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/BookingTour</BasePath>
+      <RelativePath>uploads/392951693_266126683083899_4202943722636948743_n.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\392951693_266126683083899_4202943722636948743_n.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\393126956_863292118520234_5636877171581904073_n.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>BookingTour</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/BookingTour</BasePath>
+      <RelativePath>uploads/393126956_863292118520234_5636877171581904073_n.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\393126956_863292118520234_5636877171581904073_n.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\393393810_702880238616070_4374232155571270157_n.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>BookingTour</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/BookingTour</BasePath>
+      <RelativePath>uploads/393393810_702880238616070_4374232155571270157_n.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\393393810_702880238616070_4374232155571270157_n.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\393743296_122098229294087236_5846645400364917853_n (1).jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>BookingTour</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/BookingTour</BasePath>
+      <RelativePath>uploads/393743296_122098229294087236_5846645400364917853_n (1).jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\393743296_122098229294087236_5846645400364917853_n (1).jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\393864640_278411741829892_7633052718814735012_n.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>BookingTour</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/BookingTour</BasePath>
+      <RelativePath>uploads/393864640_278411741829892_7633052718814735012_n.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\393864640_278411741829892_7633052718814735012_n.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\393953439_278009428536790_6842515122632667693_n.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>BookingTour</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/BookingTour</BasePath>
+      <RelativePath>uploads/393953439_278009428536790_6842515122632667693_n.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\393953439_278009428536790_6842515122632667693_n.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\394037156_637203261941441_8859027227699852430_n.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>BookingTour</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/BookingTour</BasePath>
+      <RelativePath>uploads/394037156_637203261941441_8859027227699852430_n.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\394037156_637203261941441_8859027227699852430_n.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\394074063_278009411870125_5356587798101474893_n.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>BookingTour</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/BookingTour</BasePath>
+      <RelativePath>uploads/394074063_278009411870125_5356587798101474893_n.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\394074063_278009411870125_5356587798101474893_n.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\394106979_278009485203451_1032385255871537757_n.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>BookingTour</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/BookingTour</BasePath>
+      <RelativePath>uploads/394106979_278009485203451_1032385255871537757_n.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\394106979_278009485203451_1032385255871537757_n.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\394295737_278007381870328_3584556184816710654_n.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>BookingTour</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/BookingTour</BasePath>
+      <RelativePath>uploads/394295737_278007381870328_3584556184816710654_n.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\394295737_278007381870328_3584556184816710654_n.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\395170257_638101441851623_1925670971097121123_n (1).jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>BookingTour</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/BookingTour</BasePath>
+      <RelativePath>uploads/395170257_638101441851623_1925670971097121123_n (1).jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\395170257_638101441851623_1925670971097121123_n (1).jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\395173220_122100997178091715_4257104505792766510_n.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>BookingTour</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/BookingTour</BasePath>
+      <RelativePath>uploads/395173220_122100997178091715_4257104505792766510_n.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\395173220_122100997178091715_4257104505792766510_n.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\395439977_638228668505567_6251568498774619762_n.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>BookingTour</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/BookingTour</BasePath>
+      <RelativePath>uploads/395439977_638228668505567_6251568498774619762_n.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\395439977_638228668505567_6251568498774619762_n.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\395675456_640766831560549_4582673068601593164_n.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>BookingTour</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/BookingTour</BasePath>
+      <RelativePath>uploads/395675456_640766831560549_4582673068601593164_n.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\395675456_640766831560549_4582673068601593164_n.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\396548637_122105278244087236_971835664512041631_n.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>BookingTour</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/BookingTour</BasePath>
+      <RelativePath>uploads/396548637_122105278244087236_971835664512041631_n.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\396548637_122105278244087236_971835664512041631_n.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\maxresdefault.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>BookingTour</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/BookingTour</BasePath>
+      <RelativePath>uploads/maxresdefault.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\maxresdefault.jpg))</OriginalItemSpec>
     </StaticWebAsset>
   </ItemGroup>
 </Project>

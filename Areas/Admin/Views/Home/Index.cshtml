@@ -1,0 +1,137 @@
+﻿@{
+
+}
+
+<div class="row">
+  <div class="col-lg-3 col-6">
+    <!-- small box -->
+    <div class="small-box bg-info">
+      <div class="inner">
+        <h3>@ViewData["userCount"]</h3>
+
+        <p>Users</p>
+      </div>
+      <div class="icon">
+        <i class="ion ion-bag"></i>
+      </div>
+
+    </div>
+  </div>
+  <!-- ./col -->
+  <div class="col-lg-3 col-6">
+    <!-- small box -->
+    <div class="small-box bg-success">
+      <div class="inner">
+        <h3>@ViewData["locaCount"]</h3>
+
+        <p>Locations</p>
+      </div>
+      <div class="icon">
+        <i class="ion ion-stats-bars"></i>
+      </div>
+
+    </div>
+  </div>
+  <!-- ./col -->
+  <div class="col-lg-3 col-6">
+    <!-- small box -->
+    <div class="small-box bg-warning">
+      <div class="inner">
+        <h3>@ViewData["tourCount"]</h3>
+
+        <p>Tours</p>
+      </div>
+      <div class="icon">
+        <i class="ion ion-person-add"></i>
+      </div>
+
+    </div>
+  </div>
+  <!-- ./col -->
+  <div class="col-lg-3 col-6">
+    <!-- small box -->
+    <div class="small-box bg-danger">
+      <div class="inner">
+        <h3>@ViewData["bookings"]</h3>
+
+        <p>Booking</p>
+      </div>
+      <div class="icon">
+        <i class="ion ion-pie-graph"></i>
+      </div>
+
+    </div>
+  </div>
+  <!-- ./col -->
+</div>
+
+<div class="card card-success">
+  <div class="card-header">
+    <h3 class="card-title">Thống kê tỷ lệ booking </h3>
+
+    <div class="card-tools">
+      <button type="button" class="btn btn-tool" data-card-widget="collapse">
+        <i class="fas fa-minus"></i>
+      </button>
+    </div>
+  </div>
+  <div class="card-body">
+    <div style="display: flex; justify-content: center; gap: 20px">
+      <div style="display: flex; align-items: center; gap: 5px">
+        <div style="background-color: red; height: 20px; width: 20px;"></div>
+        <span>Đã hủy</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 5px">
+        <div style="background-color: green; height: 20px; width: 20px;"></div>
+        <span>Thành công</span>
+      </div>
+    </div>
+    <div class="chart" style="display: flex; justify-content: center;">
+      <div class="chartjs-size-monitor">
+        <div class="chartjs-size-monitor-expand">
+          <div class=""></div>
+        </div>
+        <div class="chartjs-size-monitor-shrink">
+          <div class=""></div>
+        </div>
+      </div>
+
+      <canvas id="myChart" style="min-height: 250px; height: 300px;  max-width: 80%; display: block; width: 393px;"
+        width="491" height="312" class="chartjs-render-monitor"></canvas>
+    </div>
+  </div>
+  <!-- /.card-body -->
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"> n 
+</script>
+<script>
+  const xValues = ["Tháng 1", "Tháng 2", "Tháng 3", "Tháng 4", "Tháng 5", "Tháng 6", "Tháng 7", "Tháng 8", "Tháng 9", "Tháng 10", "Tháng 11", "Tháng 12"];
+
+  new Chart("myChart", {
+    type: "bar",
+    data: {
+      labels: xValues,
+      datasets: [
+        // huy
+        {
+          data: JSON.parse('@Html.Raw(ViewData["successCount"])'),
+          borderColor: "green",
+          backgroundColor: "green",
+          fill: false
+        },
+        // thanh cong
+        {
+          data: JSON.parse('@Html.Raw(ViewData["cancelCount"])'),
+          borderColor: "red",
+          backgroundColor: "red",
+          fill: false
+        },]
+    },
+    options: {
+      legend: { display: false },
+
+    }
+  });
+</script>

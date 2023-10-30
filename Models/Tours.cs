@@ -12,19 +12,23 @@ namespace BookingTour.Models
         public int Id { get; set; }
 
         [Display(Name = "Tên tour")]
-        public string? Name { get; set; }
+        public string Name { get; set; }
 
         [Display(Name = "Mô tả")]
         public string? Description { get; set; }
 
         [Display(Name = "Đánh giá")]
-        public float? Rate { get; set; }
+        [Range(0, 5, ErrorMessage ="Nhập dánh giá từ 0 đến 5 sao")]
+        public int? Rate { get; set; }
 
-        [Display(Name = "Giá")]
-        public decimal? Price { get; set; }
+        [Display(Name = "Giá người lớn")]
+        public decimal PriceAdult { get; set; }
+
+        [Display(Name = "Giá trẻ em")]
+        public decimal PriceChildren { get; set; }
 
         [Display(Name = "Số lượng còn lại")]
-        public int? AvailableSeats { get; set; }
+        public int AvailableSeats { get; set; }
 
         [Display(Name = "Chuỗi định danh (url)", Prompt = "Nhập hoặc để trống tự phát sinh theo Title")]
         [StringLength(160, MinimumLength = 5, ErrorMessage = "{0} dài {1} đến {2}")]
@@ -41,6 +45,9 @@ namespace BookingTour.Models
 
         [ForeignKey("LocationID")]
         public Location? Location { set; get; }
+
+        [Display(Name = "Hình ảnh")]
+        public string? Image { set; get; }
 
     }
 }

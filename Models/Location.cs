@@ -10,7 +10,7 @@ namespace BookingTour.Models
         public int Id { get; set; }
 
         [Display(Name = "Địa chỉ")]
-        public string? Name { get; set; }
+        public string Name { get; set; }
 
         [Display(Name = "Mô tả")]
         public string? Description { set; get; }
@@ -20,5 +20,8 @@ namespace BookingTour.Models
         [RegularExpression(@"^[a-z0-9-]*$", ErrorMessage = "Chỉ dùng các ký tự [a-z0-9-]")]
         public string? Slug { set; get; }
         public ICollection<Tours>? Tours { set; get; }
+
+        [Display(Name = "Hình ảnh")]
+        public string? Image { set; get; }
     }
 }

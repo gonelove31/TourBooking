@@ -113,7 +113,13 @@ namespace BookingTour.Migrations
                     b.Property<DateTime?>("ModifierDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("NumberOfPeople")
+                    b.Property<int>("NumberOfAdult")
+                        .HasColumnType("int");
+
+                    b.Property<int>("NumberOfChildren")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Status")
                         .HasColumnType("int");
 
                     b.Property<decimal?>("TotalAmount")
@@ -146,6 +152,9 @@ namespace BookingTour.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("ModifierBy")
                         .HasColumnType("nvarchar(max)");
 
@@ -153,6 +162,7 @@ namespace BookingTour.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Slug")
@@ -172,7 +182,7 @@ namespace BookingTour.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int?>("AvailableSeats")
+                    b.Property<int>("AvailableSeats")
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
@@ -181,17 +191,24 @@ namespace BookingTour.Migrations
                     b.Property<DateTime?>("EndDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int?>("LocationID")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal?>("Price")
+                    b.Property<decimal>("PriceAdult")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<float?>("Rate")
-                        .HasColumnType("real");
+                    b.Property<decimal>("PriceChildren")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int?>("Rate")
+                        .HasColumnType("int");
 
                     b.Property<string>("Slug")
                         .HasMaxLength(160)

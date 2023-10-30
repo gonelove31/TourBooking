@@ -248,6 +248,7 @@ D:\projectcode\BookingTour\BookingTour\bin\Debug\net6.0\runtimes\unix\lib\net6.0
 D:\projectcode\BookingTour\BookingTour\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
 D:\projectcode\BookingTour\BookingTour\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 D:\projectcode\BookingTour\BookingTour\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+<<<<<<< HEAD
 C:\Users\ADMIN\Documents\workspace\BookingTour\obj\Debug\net6.0\BookingTour.dll
 C:\Users\ADMIN\Documents\workspace\BookingTour\obj\Debug\net6.0\refint\BookingTour.dll
 C:\Users\ADMIN\Documents\workspace\BookingTour\obj\Debug\net6.0\BookingTour.pdb
@@ -547,3 +548,15 @@ C:\Users\ADMIN\Documents\workspace\BookingTour\bin\Debug\net6.0\System.Security.
 C:\Users\ADMIN\Documents\workspace\BookingTour\bin\Debug\net6.0\System.Text.Encoding.CodePages.dll
 C:\Users\ADMIN\Documents\workspace\BookingTour\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.Pkcs.dll
 C:\Users\ADMIN\Documents\workspace\BookingTour\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Text.Encoding.CodePages.dll
+=======
+D:\projectcode\BookingTour\BookingTour\obj\Debug\net6.0\BookingTour.MvcApplicationPartsAssemblyInfo.cs
+D:\projectcode\BookingTour\BookingTour\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+D:\projectcode\BookingTour\BookingTour\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+D:\projectcode\BookingTour\BookingTour\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.UI.dll
+D:\projectcode\BookingTour\BookingTour\bin\Debug\net6.0\Microsoft.Extensions.FileProviders.Embedded.dll
+D:\projectcode\BookingTour\BookingTour\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
+D:\projectcode\BookingTour\BookingTour\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
+D:\projectcode\BookingTour\BookingTour\bin\Debug\net6.0\JetBrains.Annotations.dll
+D:\projectcode\BookingTour\BookingTour\bin\Debug\net6.0\X.PagedList.dll
+D:\projectcode\BookingTour\BookingTour\bin\Debug\net6.0\X.PagedList.Mvc.Core.dll
+>>>>>>> 4c842c812f06e20ada81e43f658d8bca9ea4877d

@@ -5,7 +5,15 @@
       "PackagePath": "staticwebassets\\BookingTour.bundle.scp.css"
     },
     {
+<<<<<<< HEAD
       "Id": "C:\\Users\\ADMIN\\Documents\\workspace\\BookingTour\\wwwroot\\css\\site.css",
+=======
+      "Id": "D:\\projectcode\\BookingTour\\BookingTour\\wwwroot\\css\\custom-paging.css",
+      "PackagePath": "staticwebassets\\css\\custom-paging.css"
+    },
+    {
+      "Id": "D:\\projectcode\\BookingTour\\BookingTour\\wwwroot\\css\\site.css",
+>>>>>>> 4c842c812f06e20ada81e43f658d8bca9ea4877d
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
@@ -8189,7 +8197,11 @@
       "PackagePath": "staticwebassets\\summernote\\summernote-0.8.20\\config\\webpack.production.js"
     },
     {
+<<<<<<< HEAD
       "Id": "C:\\Users\\ADMIN\\Documents\\workspace\\BookingTour\\wwwroot\\summernote\\summernote-0.8.20\\examples\\README.md",
+=======
+      "Id": "D:\\projectcode\\BookingTour\\BookingTour\\wwwroot\\summernote\\summernote-0.8.20\\examples\\README.md",
+>>>>>>> 4c842c812f06e20ada81e43f658d8bca9ea4877d
       "PackagePath": "staticwebassets\\summernote\\summernote-0.8.20\\examples\\README.md"
     },
     {
@@ -9143,6 +9155,86 @@
     {
       "Id": "C:\\Users\\ADMIN\\Documents\\workspace\\BookingTour\\wwwroot\\summernote\\summernote-0.8.20\\yarn.lock",
       "PackagePath": "staticwebassets\\summernote\\summernote-0.8.20\\yarn.lock"
+    },
+    {
+      "Id": "D:\\projectcode\\BookingTour\\BookingTour\\wwwroot\\uploads\\330838388_518963180133665_7451200533299158525_n.jpg",
+      "PackagePath": "staticwebassets\\uploads\\330838388_518963180133665_7451200533299158525_n.jpg"
+    },
+    {
+      "Id": "D:\\projectcode\\BookingTour\\BookingTour\\wwwroot\\uploads\\385272273_3411522349065446_3802403874051666183_n.jpg",
+      "PackagePath": "staticwebassets\\uploads\\385272273_3411522349065446_3802403874051666183_n.jpg"
+    },
+    {
+      "Id": "D:\\projectcode\\BookingTour\\BookingTour\\wwwroot\\uploads\\391679978_324444636841431_9037939310165586875_n.jpg",
+      "PackagePath": "staticwebassets\\uploads\\391679978_324444636841431_9037939310165586875_n.jpg"
+    },
+    {
+      "Id": "D:\\projectcode\\BookingTour\\BookingTour\\wwwroot\\uploads\\392947884_653117100291696_3294305481437054426_n.jpg",
+      "PackagePath": "staticwebassets\\uploads\\392947884_653117100291696_3294305481437054426_n.jpg"
+    },
+    {
+      "Id": "D:\\projectcode\\BookingTour\\BookingTour\\wwwroot\\uploads\\392951693_266126683083899_4202943722636948743_n.jpg",
+      "PackagePath": "staticwebassets\\uploads\\392951693_266126683083899_4202943722636948743_n.jpg"
+    },
+    {
+      "Id": "D:\\projectcode\\BookingTour\\BookingTour\\wwwroot\\uploads\\393126956_863292118520234_5636877171581904073_n.jpg",
+      "PackagePath": "staticwebassets\\uploads\\393126956_863292118520234_5636877171581904073_n.jpg"
+    },
+    {
+      "Id": "D:\\projectcode\\BookingTour\\BookingTour\\wwwroot\\uploads\\393393810_702880238616070_4374232155571270157_n.jpg",
+      "PackagePath": "staticwebassets\\uploads\\393393810_702880238616070_4374232155571270157_n.jpg"
+    },
+    {
+      "Id": "D:\\projectcode\\BookingTour\\BookingTour\\wwwroot\\uploads\\393743296_122098229294087236_5846645400364917853_n (1).jpg",
+      "PackagePath": "staticwebassets\\uploads\\393743296_122098229294087236_5846645400364917853_n (1).jpg"
+    },
+    {
+      "Id": "D:\\projectcode\\BookingTour\\BookingTour\\wwwroot\\uploads\\393864640_278411741829892_7633052718814735012_n.jpg",
+      "PackagePath": "staticwebassets\\uploads\\393864640_278411741829892_7633052718814735012_n.jpg"
+    },
+    {
+      "Id": "D:\\projectcode\\BookingTour\\BookingTour\\wwwroot\\uploads\\393953439_278009428536790_6842515122632667693_n.jpg",
+      "PackagePath": "staticwebassets\\uploads\\393953439_278009428536790_6842515122632667693_n.jpg"
+    },
+    {
+      "Id": "D:\\projectcode\\BookingTour\\BookingTour\\wwwroot\\uploads\\394037156_637203261941441_8859027227699852430_n.jpg",
+      "PackagePath": "staticwebassets\\uploads\\394037156_637203261941441_8859027227699852430_n.jpg"
+    },
+    {
+      "Id": "D:\\projectcode\\BookingTour\\BookingTour\\wwwroot\\uploads\\394074063_278009411870125_5356587798101474893_n.jpg",
+      "PackagePath": "staticwebassets\\uploads\\394074063_278009411870125_5356587798101474893_n.jpg"
+    },
+    {
+      "Id": "D:\\projectcode\\BookingTour\\BookingTour\\wwwroot\\uploads\\394106979_278009485203451_1032385255871537757_n.jpg",
+      "PackagePath": "staticwebassets\\uploads\\394106979_278009485203451_1032385255871537757_n.jpg"
+    },
+    {
+      "Id": "D:\\projectcode\\BookingTour\\BookingTour\\wwwroot\\uploads\\394295737_278007381870328_3584556184816710654_n.jpg",
+      "PackagePath": "staticwebassets\\uploads\\394295737_278007381870328_3584556184816710654_n.jpg"
+    },
+    {
+      "Id": "D:\\projectcode\\BookingTour\\BookingTour\\wwwroot\\uploads\\395170257_638101441851623_1925670971097121123_n (1).jpg",
+      "PackagePath": "staticwebassets\\uploads\\395170257_638101441851623_1925670971097121123_n (1).jpg"
+    },
+    {
+      "Id": "D:\\projectcode\\BookingTour\\BookingTour\\wwwroot\\uploads\\395173220_122100997178091715_4257104505792766510_n.jpg",
+      "PackagePath": "staticwebassets\\uploads\\395173220_122100997178091715_4257104505792766510_n.jpg"
+    },
+    {
+      "Id": "D:\\projectcode\\BookingTour\\BookingTour\\wwwroot\\uploads\\395439977_638228668505567_6251568498774619762_n.jpg",
+      "PackagePath": "staticwebassets\\uploads\\395439977_638228668505567_6251568498774619762_n.jpg"
+    },
+    {
+      "Id": "D:\\projectcode\\BookingTour\\BookingTour\\wwwroot\\uploads\\395675456_640766831560549_4582673068601593164_n.jpg",
+      "PackagePath": "staticwebassets\\uploads\\395675456_640766831560549_4582673068601593164_n.jpg"
+    },
+    {
+      "Id": "D:\\projectcode\\BookingTour\\BookingTour\\wwwroot\\uploads\\396548637_122105278244087236_971835664512041631_n.jpg",
+      "PackagePath": "staticwebassets\\uploads\\396548637_122105278244087236_971835664512041631_n.jpg"
+    },
+    {
+      "Id": "D:\\projectcode\\BookingTour\\BookingTour\\wwwroot\\uploads\\maxresdefault.jpg",
+      "PackagePath": "staticwebassets\\uploads\\maxresdefault.jpg"
     },
     {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.BookingTour.Microsoft.AspNetCore.StaticWebAssets.props",

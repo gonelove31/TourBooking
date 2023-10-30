@@ -10,8 +10,8 @@
 <h4>Tours</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
+    <div class="col-md-12">
+        <form asp-action="Create" enctype="multipart/form-data">
             <div asp-validation-summary="All" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>
@@ -20,18 +20,29 @@
             </div>
             <div class="form-group">
                 <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" />
+                <textarea asp-for="Description" class="form-control"> </textarea>
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
+
             <div class="form-group">
                 <label asp-for="Rate" class="control-label"></label>
                 <input asp-for="Rate" class="form-control" />
                 <span asp-validation-for="Rate" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Price" class="control-label"></label>
-                <input asp-for="Price" class="form-control" />
-                <span asp-validation-for="Price" class="text-danger"></span>
+                <label asp-for="Image" class="control-label"></label>
+                <input name="file" type="file" asp-for="Image" class="form-control" />
+                <span asp-validation-for="Image" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PriceAdult" class="control-label"></label>
+                <input asp-for="PriceAdult" class="form-control" />
+                <span asp-validation-for="PriceAdult" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PriceChildren" class="control-label"></label>
+                <input asp-for="PriceChildren" class="form-control" />
+                <span asp-validation-for="PriceChildren" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="AvailableSeats" class="control-label"></label>
@@ -55,7 +66,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="LocationID" class="control-label"></label>
-                <select asp-for="LocationID" class ="form-control" asp-items="ViewBag.LocationID"></select>
+                <select asp-for="LocationID" class="form-control" asp-items="ViewBag.LocationID"></select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
@@ -68,4 +79,13 @@
     <a asp-action="Index">Back to List</a>
 </div>
 
-
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+        $(document).ready(function () {
+            $('#Description').summernote();
+        });
+    </script>
+}

@@ -5,7 +5,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Http;
 using BookingTour.Models;
+using BookingTour.Common;
+using X.PagedList;
 
 namespace BookingTour.Areas.Admin.Controllers
 {
@@ -14,17 +17,24 @@ namespace BookingTour.Areas.Admin.Controllers
     public class ToursController : Controller
     {
         private readonly TourContext _context;
-
-        public ToursController(TourContext context)
+        private readonly IWebHostEnvironment _evn;
+        public ToursController(TourContext context, IWebHostEnvironment evn)
         {
+            _evn = evn;
             _context = context;
         }
 
         // GET: Admin/Tours
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? page, string? searchString)
         {
-            var tourContext = _context.tours.Include(t => t.Location);
-            return View(await tourContext.ToListAsync());
+            int pageSize = 5;
+            int pageNumber = page ?? 1;
+            IEnumerable<BookingTour.Models.Tours> tourContext = _context.tours.Include(t => t.Location).ToList();
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                tourContext = tourContext.Where(t => t.Name.Contains(searchString));
+            }
+            return View(tourContext.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Admin/Tours/Details/5
@@ -49,6 +59,7 @@ namespace BookingTour.Areas.Admin.Controllers
         // GET: Admin/Tours/Create
         public IActionResult Create()
         {
+            Console.WriteLine("fileName: ");
             var locations = from l in _context.locations
                             select new
                             {
@@ -59,13 +70,28 @@ namespace BookingTour.Areas.Admin.Controllers
             return View();
         }
 
-        // POST: Admin/Tours/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Description,Rate,Price,AvailableSeats,Slug,StartDate,EndDate,LocationID")] Tours tours)
+        public async Task<IActionResult> Create([Bind("Id,Name,Description,Image, Rate,PriceAdult, PriceChildren,AvailableSeats,Slug,StartDate,EndDate,LocationID")] Tours tours, IFormFile file)
         {
+            if (file != null)
+            {
+                var fileNamePath = new FileInfo(file.FileName);
+
+                // lấy đường dẫn thư mục uploads gốc 
+                var webPath = _evn.WebRootPath;
+                var path = Path.Combine("", webPath + @"\uploads\" + fileNamePath);
+
+                var pathToSave = @"/uploads/" + fileNamePath;
+
+                using (var stream = new FileStream(path, FileMode.Create))
+                {
+                    await file.CopyToAsync(stream);
+                }
+                tours.Image = pathToSave;
+            }
+            if (tours.Slug == null) tours.Slug = ConvertSlug.GenerateSlug(tours.Name);
             if (ModelState.IsValid)
             {
                 _context.Add(tours);
@@ -104,18 +130,44 @@ namespace BookingTour.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Description,Rate,Price,AvailableSeats,Slug,StartDate,EndDate,LocationID")] Tours tours)
+        public async Task<IActionResult> Edit(int id, [Bind("Name,Description,Image,Rate,PriceAdult,PriceChildren,AvailableSeats,Slug,StartDate,EndDate,LocationID")] Tours tours, IFormFile? file)
         {
-            if (id != tours.Id)
+            var tourEdit = (from c in _context.tours
+                            where c.Id == id
+                            select c).FirstOrDefault();
+            if (file != null)
             {
-                return NotFound();
-            }
+                var fileNamePath = new FileInfo(file.FileName);
 
+                // lấy đường dẫn thư mục uploads gốc 
+                var webPath = _evn.WebRootPath;
+                var path = Path.Combine("", webPath + @"\uploads\" + fileNamePath);
+
+                var pathToSave = @"/uploads/" + fileNamePath;
+
+                using (var stream = new FileStream(path, FileMode.Create))
+                {
+                    await file.CopyToAsync(stream);
+                }
+                tours.Image = pathToSave;
+            }
+            else { tours.Image = tourEdit.Image; }
             if (ModelState.IsValid)
             {
                 try
                 {
-                    _context.Update(tours);
+                    tourEdit.Name = tours.Name;
+                    tourEdit.Description = tours.Description;
+                    tourEdit.Rate = tours.Rate;
+                    tourEdit.PriceAdult = tours.PriceAdult;
+                    tourEdit.PriceChildren = tours.PriceChildren;
+                    tourEdit.AvailableSeats = tours.AvailableSeats;
+                    tourEdit.Slug = tours.Slug;
+                    tourEdit.StartDate = tours.StartDate;
+                    tourEdit.EndDate = tours.EndDate;
+                    tourEdit.LocationID = tours.LocationID;
+                    tourEdit.Image = tours.Image;
+                    _context.Update(tourEdit);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
@@ -174,14 +226,14 @@ namespace BookingTour.Areas.Admin.Controllers
             {
                 _context.tours.Remove(tours);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool ToursExists(int id)
         {
-          return (_context.tours?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.tours?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

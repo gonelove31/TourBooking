@@ -1,5 +1,6 @@
 {
   "ExpandedNodes": [
+<<<<<<< HEAD
     "",
     "\\.github",
     "\\.github\\workflows",
@@ -12,5 +13,10 @@
     "\\wwwroot\\summernote"
   ],
   "SelectedNode": "\\Models\\Common.cs",
+=======
+    ""
+  ],
+  "SelectedNode": "\\BookingTour.sln",
+>>>>>>> 4c842c812f06e20ada81e43f658d8bca9ea4877d
   "PreviewInSolutionExplorer": false
 }

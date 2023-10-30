@@ -1,60 +1,106 @@
-﻿@model IEnumerable<BookingTour.Models.Booking>
-
+﻿@model X.PagedList.IPagedList<Booking>
+@using BookingTour.Common
+<link rel="stylesheet" href="~/css/custom-paging.css">
 @{
+    @using X.PagedList.Mvc.Core;
     ViewData["Title"] = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
 <h1>Index</h1>
 
-<p>
+<div style="display: flex; justify-content: space-between;">
     <a class="btn-primary btn" asp-action="Create">Create New</a>
-</p>
-<table class="table">
+
+    @using (Html.BeginForm())
+    {
+        <div class="input-group input-group-sm">
+            @Html.TextBox("SearchString")
+            <div class="input-group-append">
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+    }
+</div>
+<table style="min-height: 500px;" class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.CustomerID)
+                @Html.DisplayNameFor(model => model.First().CustomerID)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.BookingDate)
+                @Html.DisplayNameFor(model => model.First().BookingDate)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.NumberOfPeople)
+                @Html.DisplayNameFor(model => model.First().NumberOfAdult)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TotalAmount)
+                @Html.DisplayNameFor(model => model.First().NumberOfChildren)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Tour)
+                @Html.DisplayNameFor(model => model.First().TotalAmount)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Tour)
+            </th>
+
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.CustomerID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BookingDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NumberOfPeople)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TotalAmount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Tour.Id)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CustomerID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BookingDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumberOfAdult)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumberOfChildren)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalAmount) VND
+                </td>
+                <td>
+                    @if (item.Status == 1)
+                    {
+                        <text>Thành công</text>
+                    }
+                    else if (item.Status == 3)
+                    {
+                        <text>Chờ thanh toán</text>
+                    }
+                    else
+                    {
+                        <text>Đã hủy</text>
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tour.Id)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+
+@if (Model.Count() >= 1)
+{
+    <ul class="pagination pagination-sm">
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+    </ul>
+}

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BookingTour.Models;
+using X.PagedList;
 
 namespace BookingTour.Areas.Admin.Controllers
 {
@@ -21,10 +22,15 @@ namespace BookingTour.Areas.Admin.Controllers
         }
 
         // GET: Admin/Bookings
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? page)
         {
+            int pageSize = 5;
+            int pageNumber = page ?? 1;
             var tourContext = _context.bookings.Include(b => b.Tour);
-            return View(await tourContext.ToListAsync());
+
+            return View(tourContext.ToPagedList(pageNumber, pageSize));
+
+
         }
 
         // GET: Admin/Bookings/Details/5
@@ -50,12 +56,24 @@ namespace BookingTour.Areas.Admin.Controllers
         public IActionResult Create()
         {
             var tours = from t in _context.tours
-                            select new
-                            {
-                                Value = t.Id,
-                                Text = t.Id + " - " + t.Name,
-                            };
+                        select new
+                        {
+                            Value = t.Id,
+                            Text = t.Id + " - " + t.Name,
+                        };
             ViewData["TourID"] = new SelectList(tours.ToList(), "Value", "Text");
+
+            var status = new List<Object>(){
+                new {
+                    Value = 1,
+                    Text = "Thành công"
+                },
+                new {
+                    Value = 2,
+                    Text = "Đã hủy"
+                },
+            };
+            ViewData["StatusID"] = new SelectList(status.ToList(), "Value", "Text");
             return View();
         }
 
@@ -64,7 +82,7 @@ namespace BookingTour.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,CustomerID,TourID,BookingDate,NumberOfPeople,TotalAmount")] Booking booking)
+        public async Task<IActionResult> Create([Bind("Id,CustomerID,TourID,BookingDate,NumberOfAdult, NumberOfChildren,TotalAmount, Status")] Booking booking)
         {
             if (ModelState.IsValid)
             {
@@ -75,6 +93,17 @@ namespace BookingTour.Areas.Admin.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["TourID"] = new SelectList(_context.tours, "Id", "Id", booking.TourID);
+            var status = new List<Object>(){
+                new {
+                    Value = 1,
+                    Text = "Thành công"
+                },
+                new {
+                    Value = 2,
+                    Text = "Đã hủy"
+                },
+            };
+            ViewData["StatusID"] = new SelectList(status.ToList(), "Value", "Text");
             return View(booking);
         }
 
@@ -92,6 +121,17 @@ namespace BookingTour.Areas.Admin.Controllers
                 return NotFound();
             }
             ViewData["TourID"] = new SelectList(_context.tours, "Id", "Id", booking.TourID);
+            var status = new List<Object>(){
+                new {
+                    Value = 1,
+                    Text = "Thành công"
+                },
+                new {
+                    Value = 2,
+                    Text = "Đã hủy"
+                },
+            };
+            ViewData["StatusID"] = new SelectList(status.ToList(), "Value", "Text");
             return View(booking);
         }
 
@@ -100,18 +140,26 @@ namespace BookingTour.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,CustomerID,TourID,BookingDate,NumberOfPeople,TotalAmount,CreatedDate,CreatedBy,ModifierDate,ModifierBy")] Booking booking)
+        public async Task<IActionResult> Edit(int id, [Bind("CustomerID,TourID,BookingDate,NumberOfChildren,NumberOfAdult,TotalAmount, Status")] Booking booking)
         {
-            if (id != booking.Id)
-            {
-                return NotFound();
-            }
-
             if (ModelState.IsValid)
             {
                 try
                 {
-                    _context.Update(booking);
+                    var bookingEdit = (from b in _context.bookings
+                                       where b.Id == id
+                                       select b).FirstOrDefault();
+
+                    bookingEdit.CustomerID = booking.CustomerID;
+                    bookingEdit.TourID = booking.TourID;
+                    bookingEdit.BookingDate = booking.BookingDate;
+                    bookingEdit.NumberOfChildren = booking.NumberOfChildren;
+                    bookingEdit.NumberOfAdult = booking.NumberOfAdult;
+                    bookingEdit.TotalAmount = booking.TotalAmount;
+                    bookingEdit.Status = booking.Status;
+                    bookingEdit.ModifierDate = DateTime.Now;
+                    bookingEdit.ModifierBy = "Cuong";
+                    _context.Update(bookingEdit);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
@@ -128,6 +176,17 @@ namespace BookingTour.Areas.Admin.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["TourID"] = new SelectList(_context.tours, "Id", "Id", booking.TourID);
+            var status = new List<Object>(){
+                new {
+                    Value = 1,
+                    Text = "Thành công"
+                },
+                new {
+                    Value = 2,
+                    Text = "Đã hủy"
+                },
+            };
+            ViewData["StatusID"] = new SelectList(status.ToList(), "Value", "Text");
             return View(booking);
         }
 
@@ -164,14 +223,14 @@ namespace BookingTour.Areas.Admin.Controllers
             {
                 _context.bookings.Remove(booking);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool BookingExists(int id)
         {
-          return (_context.bookings?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.bookings?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

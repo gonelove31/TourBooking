@@ -22,6 +22,8 @@ builder.Services.AddControllersWithViews();
 
 
 var services = builder.Services;
+
+services.AddRazorPages();
 services.AddDbContext<TourContext>(options =>
 {
     string url = builder.Configuration.GetConnectionString("TourContext");

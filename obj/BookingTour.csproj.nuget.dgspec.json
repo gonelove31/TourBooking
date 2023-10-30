@@ -93,6 +93,7 @@
               "target": "Package",
               "version": "[6.0.16, )"
             },
+<<<<<<< HEAD
             "MimeKit": {
               "target": "Package",
               "version": "[4.2.0, )"
@@ -100,6 +101,11 @@
             "System.Data.SqlClient": {
               "target": "Package",
               "version": "[4.8.5, )"
+=======
+            "X.PagedList.Mvc.Core": {
+              "target": "Package",
+              "version": "[8.4.7, )"
+>>>>>>> 4c842c812f06e20ada81e43f658d8bca9ea4877d
             }
           },
           "imports": [
