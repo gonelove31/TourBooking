@@ -15,6 +15,7 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using NuGet.Protocol;
 
 namespace BookingTour.Areas.Identity.Pages.Account
 {
@@ -115,8 +116,16 @@ namespace BookingTour.Areas.Identity.Pages.Account
                 var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
-                    _logger.LogInformation("User logged in.");
-                    return LocalRedirect(returnUrl);
+                    UserManager<AppUser> usermanager;
+                    if  (User.IsInRole("Administrator")||User.IsInRole("Admin"))
+                    {
+                        return RedirectToAction("Index", "Tours", new { area = "Admin" });
+                       
+                    }
+                    else
+                    {
+                        return RedirectToPage(returnUrl);
+                    }
                 }
                 if (result.RequiresTwoFactor)
                 {
@@ -129,7 +138,7 @@ namespace BookingTour.Areas.Identity.Pages.Account
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                    ModelState.AddModelError(string.Empty, "vui lòng nhập lại .");
                     return Page();
                 }
             }

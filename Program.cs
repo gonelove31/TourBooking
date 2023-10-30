@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Hosting;
 using App.Menu;
 using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
+using App.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -75,7 +76,12 @@ services.AddSingleton<IEmailSender, SendMailService>();
 
 services.AddTransient<IActionContextAccessor, ActionContextAccessor>();
 services.AddTransient<AdminSidebarService>();
-
+services.AddAuthorization(options => {
+    options.AddPolicy("ViewManageMenu", builder => {
+        builder.RequireAuthenticatedUser();
+        builder.RequireRole(RoleName.Administrator);
+    });
+});
 
 
 // Configure the HTTP request pipeline.
@@ -89,7 +95,7 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
+app.MapControllers();
 app.UseRouting();
 
 app.UseAuthentication(); //xac thuc danh tinh

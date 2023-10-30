@@ -45,7 +45,7 @@
 
                 </li>
                 <ul class="list-group" id="myList">
-                    <li class="list-group-item"><a href="#" class="list-group-item-action" data-toggle="collapse" data-target="#sublist1">Quản lý người dùng</a></li>
+                    <li class="list-group-item"><a href="#" class="list-group-item-action" data-toggle="collapse" data-target="#sublist1">Quản lý Người Dùng</a></li>
                     <ul class="list-group collapse" id="sublist1">
                         <li class="list-group-item">
                             <a asp-controller="Role" asp-area="Admin" asp-action="Index" class="nav-link">
@@ -55,7 +55,14 @@
                                 </p>
                             </a>
                         </li>
-                        <li class="list-group-item">Mục con 1.2</li>
+                        <li class="list-group-item">
+                            <a asp-controller="User" asp-area="Admin" asp-action="Index" class="nav-link">
+                                <i class="nav-icon fas fa-copy"></i>
+                                <p>
+                                    Quan lý User
+                                </p>
+                            </a>
+                        </li>
                     </ul>
                     <li class="list-group-item"><a href="#" class="list-group-item-action" data-toggle="collapse" data-target="#sublist2">Mục 2</a></li>
                    
