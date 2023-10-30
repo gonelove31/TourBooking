@@ -13,6 +13,7 @@ using App.Menu;
 using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using App.Data;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -30,6 +31,7 @@ services.AddDbContext<TourContext>(options =>
 services.AddRazorPages();
 
 services.AddIdentity<AppUser, IdentityRole>()
+     .AddRoles<IdentityRole>()
       .AddEntityFrameworkStores<TourContext>()
       .AddDefaultTokenProviders();
 
@@ -64,7 +66,11 @@ services.Configure<IdentityOptions>(options => {
 
 
 
-
+services.AddDistributedMemoryCache();           // Đăng ký dịch vụ lưu cache trong bộ nhớ (Session sẽ sử dụng nó)
+services.AddSession(cfg => {                    // Đăng ký dịch vụ Session
+    cfg.Cookie.Name = "appmvc";                 // Đặt tên Session - tên này sử dụng ở Browser (Cookie)
+    cfg.IdleTimeout = new TimeSpan(0, 30, 0);    // Thời gian tồn tại của Session
+});
 
 services.AddOptions();
 var mailsetting =builder.Configuration.GetSection("MailSettings");
@@ -82,6 +88,13 @@ services.AddAuthorization(options => {
         builder.RequireRole(RoleName.Administrator);
     });
 });
+services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.LoginPath = "/Admin/Account/Login"; // Đường dẫn đến trang đăng nhập
+        options.LogoutPath = "/Admin/Account/Logout"; // Đường dẫn đến trang đăng xuất
+        options.AccessDeniedPath = "/Admin/Account/AccessDenied"; // Đường dẫn đến trang truy cập bị từ chối
+    });
 
 
 // Configure the HTTP request pipeline.
@@ -92,6 +105,7 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+app.UseSession();
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
@@ -106,6 +120,7 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 //doc thong tin 1 user , kiem tra 1 user co dang nhap khong 
+
 
 app.MapRazorPages();
 app.Run();

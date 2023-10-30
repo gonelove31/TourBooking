@@ -1,18 +1,39 @@
-﻿<aside class="main-sidebar sidebar-dark-primary elevation-4">
+﻿@using BookingTour;
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<AppUser> SignInManager;
+@inject UserManager<AppUser> UserManager;
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <!-- Sidebar -->
+   
     <div class="sidebar">
         <!-- Sidebar user (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
                 <img src="../../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
             </div>
-            <div class="info">
-                <a href="#" class="d-block">Alexander Pierce</a>
-            </div>
+            <ul class="list-group" id="myList">
+                <li class="list-group-item"><a href="#" class="list-group-item-action text-white bg-dark" data-toggle="collapse" data-target="#sublist1">hi @UserManager.GetUserName(User)</a></li>
+            <ul class="list-group collapse" id="sublist1">
+                <li class="list-group-item">
+                        <a class="nav-link text-white bg-dark" asp-area="Identity" asp-page="/Account/Logout">
+                        <i class="nav-icon fas fa-copy"></i>
+                        <p>
+                            Dang xuat
+                        </p>
+                    </a>
+                </li>
+                </ul>
+                <</ul>
+                
         </div>
 
-
+        <style>
+            /* Định dạng màu của chữ khi hover bằng Bootstrap */
+            a.nav-link.text-dark:hover {
+                color: green; /* Màu xanh khi hover */
+            }
+        </style>
 
         <!-- Sidebar Menu -->
         <nav class="mt-2">

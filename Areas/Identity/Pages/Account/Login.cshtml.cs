@@ -23,13 +23,16 @@ namespace BookingTour.Areas.Identity.Pages.Account
     {
         private readonly SignInManager<AppUser> _signInManager;
         private readonly ILogger<LoginModel> _logger;
-
-        public LoginModel(SignInManager<AppUser> signInManager, ILogger<LoginModel> logger)
+        private readonly UserManager<AppUser> _userManager;
+       
+        public LoginModel(SignInManager<AppUser> signInManager, ILogger<LoginModel> logger, UserManager<AppUser> userManager)
         {
             _signInManager = signInManager;
             _logger = logger;
+            _userManager = userManager;
+         
         }
-
+      
         /// <summary>
         ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
         ///     directly from your code. This API may change or be removed in future releases.
@@ -116,16 +119,21 @@ namespace BookingTour.Areas.Identity.Pages.Account
                 var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
-                    UserManager<AppUser> usermanager;
-                    if  (User.IsInRole("Administrator")||User.IsInRole("Admin"))
+
+                    var user = await _userManager.GetUserAsync(User);
+                    if (user != null)
                     {
-                        return RedirectToAction("Index", "Tours", new { area = "Admin" });
-                       
+                        var isAdmin = await _userManager.IsInRoleAsync(user, "Administrator") || await _userManager.IsInRoleAsync(user, "Admin");
+                        if (isAdmin)
+                        {
+                            return RedirectToAction("Index", "Tours", new { area = "Admin" });
+                        }
+                        else
+                        {
+                            return RedirectToPage(returnUrl);
+                        }
                     }
-                    else
-                    {
-                        return RedirectToPage(returnUrl);
-                    }
+                  
                 }
                 if (result.RequiresTwoFactor)
                 {
