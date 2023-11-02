@@ -120,20 +120,8 @@ namespace BookingTour.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
 
-                    var user = await _userManager.GetUserAsync(User);
-                    if (user != null)
-                    {
-                        var isAdmin = await _userManager.IsInRoleAsync(user, "Administrator") || await _userManager.IsInRoleAsync(user, "Admin");
-                        if (isAdmin)
-                        {
-                            return RedirectToAction("Index", "Tours", new { area = "Admin" });
-                        }
-                        else
-                        {
                             return RedirectToPage(returnUrl);
-                        }
-                    }
-                  
+  
                 }
                 if (result.RequiresTwoFactor)
                 {
