@@ -8,30 +8,17 @@
    
     <div class="sidebar">
         <!-- Sidebar user (optional) -->
-        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-            <div class="image">
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex" style="gap: 5px; align-items: center;">
+            <div class="image ">
                 <img src="../../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
             </div>
-            <ul class="list-group" id="myList">
-                <li style="background:transparent;"  class="list-group-item"><a href="#" class="list-group-item-action text-white bg-dark" data-toggle="collapse" data-target="#sublist1">hi @UserManager.GetUserName(User)</a></li>
-            <ul class="list-group collapse" id="sublist1">
-                    <li style="background:transparent;"  class="list-group-item">
-                        <a class="nav-link text-white bg-dark" asp-area="Identity" asp-page="/Account/Logout">
-                        <i class="nav-icon fas fa-copy"></i>
-                        <p>
-                           Đăng xuất
-                        </p>
-                    </a>
-                </li>
-                </ul>
-                <</ul>
-                
+            <a href="#" class=" text-white " >hi @UserManager.GetUserName(User)</a>
         </div>
 
        
 
         <!-- Sidebar Menu -->
-        <nav class="mt-2">
+        <nav class="mt-2" style="display: flex; flex-direction: column; justify-content: space-between; height: 500px;">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
@@ -47,7 +34,7 @@
                     <a asp-controller="Tours" asp-area="Admin" asp-action="Index" class="nav-link">
                         <i class="nav-icon fas fa-campground"></i>
                         <p>
-                            Quản lý tours
+                            Quản lý Tours
                         </p>
                     </a>
                 </li>
@@ -55,7 +42,7 @@
                     <a asp-controller="Locations" asp-area="Admin" asp-action="Index" class="nav-link">
                         <i class="nav-icon fas fa-map-marker-alt"></i>
                         <p>
-                            Quản lý Location
+                            Quản lý địa điểm
                         </p>
                     </a>
                 </li>
@@ -63,36 +50,47 @@
                     <a asp-controller="Bookings" asp-area="Admin" asp-action="Index" class="nav-link">
                         <i class="nav-icon fas fa-copy"></i>
                         <p>
-                            Quản lý booking
+                            Quản lý đặt tour
                         </p>
                     </a>
 
                 </li>
                 <ul class="list-group" id="myList">
-                    <li style="background:transparent;" class="list-group-item"><a href="#" style="background:transparent;" class="list-group-item-action" data-toggle="collapse" data-target="#sublist1">Quản lý Người Dùng</a></li>
+                    
+                    <li style="background:transparent; border: none;" class="list-group-item"><i class="nav-icon far fa-user"></i> <a href="#" style="background:transparent; " class="list-group-item-action" data-toggle="collapse" data-target="#sublist1">Quản lý Người Dùng</a></li>
                     <ul class="list-group collapse" id="sublist1">
-                        <li style="background:transparent;" class="list-group-item">
+                        <li style="background:transparent;  border: none;" class="list-group-item">
                             <a asp-controller="Role" asp-area="Admin" asp-action="Index" class="nav-link">
                                 <i class="nav-icon fas fa-copy"></i>
                                 <p>
-                                    Quan ly Role
+                                    Quản lý Role
                                 </p>
                             </a>
                         </li>
-                        <li class="list-group-item" style="background:transparent;">
+                        <li class="list-group-item" style="background:transparent; border: none;">
                             <a asp-controller="User" asp-area="Admin" asp-action="Index" class="nav-link">
                                 <i class="nav-icon fas fa-copy"></i>
                                 <p>
-                                    Quan lý User
+                                    Quản lý User
                                 </p>
                             </a>
                         </li>
                     </ul>
-                    
+                   
                    
                 </ul>
                 
             </ul>
+
+            <li style="background:transparent; display: flex; align-items: center; gap: 4px;" class="list-group-item">
+                <a class="nav-link text-white bg-dark" style="display: flex; align-items: center; gap: 4px; width: 100%;" asp-area="Identity" asp-page="/Account/Logout">
+                    <i class="nav-icon fas fa-copy"></i>
+                    <span>
+                        Đăng xuất
+                    </span>
+                </a>
+            </li>
+        
         </nav>
         <!-- /.sidebar-menu -->
     </div>

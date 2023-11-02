@@ -1,14 +1,14 @@
 ﻿@model BookingTour.Models.Tours
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Chi tiết tour";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>Details</h1>
+
 
 <div>
-    <h4>Tours</h4>
+    <h4>Chi tiết tour</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -74,6 +74,6 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model?.Id">Sửa</a> |
+    <a class="btn btn-primary" asp-action="Index">Quay lại</a>
 </div>
