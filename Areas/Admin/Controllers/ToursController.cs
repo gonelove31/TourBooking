@@ -9,9 +9,12 @@ using Microsoft.AspNetCore.Http;
 using BookingTour.Models;
 using BookingTour.Common;
 using X.PagedList;
+using App.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BookingTour.Areas.Admin.Controllers
 {
+    [Authorize(Roles = RoleName.Administrator)]
     [Area("Admin")]
     [Route("/Admin/Tours/[action]/{id?}")]
     public class ToursController : Controller

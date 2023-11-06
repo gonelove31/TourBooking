@@ -1,8 +1,34 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Identity
+@using BookingTour.Models
+@using Microsoft.AspNetCore.Mvc
+@inject SignInManager<AppUser> SignInManager;
+@inject UserManager<AppUser> UserManager;
+
+@{
+    if (SignInManager.IsSignedIn(User)){
+        if (User.IsInRole("Administrator"))
+        {
+            // Tạo URL chuyển hướng đến action cụ thể
+            var redirectUrl = Url.Action("Index", "Tours", new { area = "Admin" });
+
+            // Thực hiện chuyển hướng
+            <script>
+                // Thực hiện chuyển hướng bằng JavaScript
+                window.location.href = '@redirectUrl';
+            </script>
+        }
+
+
+else{
+
+
     ViewData["Title"] = "Home Page";
-}
+
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+}
+}
+}
