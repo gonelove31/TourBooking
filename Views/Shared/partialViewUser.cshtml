@@ -1,0 +1,53 @@
+﻿@model UserListModel
+@using App.Menu
+@inject AdminSidebarService _AdminSidebarService
+@using App.Areas.Identity.Models.UserViewModels
+@{
+    ViewData["Title"] = "Danh sách các thành viên";
+}
+<partial name="_StatusMessage"></partial>
+<p>Tổng số thành viên: @Model.totalUsers</p>
+<a class="btn-primary btn" asp-action="ExportPdfUser">Xuất PDF</a>
+<table class="table">
+    <tr>
+        <th>Tên user</th>
+        <th>Vai trò (role)</th>
+        <th>Tác vụ</th>
+    </tr>
+    @foreach (var user in Model.users)
+    {
+        <tr>
+            <td>@user.UserName</td>
+            <td>
+                @if (string.IsNullOrEmpty(user.RoleNames))
+                {
+                    <a class="text-dark" asp-action="AddRole" asp-route-id="@user.Id"></a>
+                }
+                else
+                {
+                    <a asp-action="AddRole" asp-route-id="@user.Id">@user.RoleNames</a>
+                }
+            </td>
+            <td>
+                <a class="btn btn-success btn-sm" asp-action="SetPassword" asp-route-id="@user.Id">Đặt mật khẩu</a>
+            </td>
+        </tr>
+    }
+</table>
+@{
+    var pagingmodel = new PagingModel()
+            {
+                currentpage = Model.currentPage,
+                countpages = Model.countPages,
+                generateUrl = (int? p) => Url.Action("Index", new { p = p })
+            };
+}
+
+<partial name="_PagingXTL" model="@pagingmodel" />
+
+@{
+    _AdminSidebarService.SetActive("User", "Index", "Identity");
+}
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@

@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BookingTour.Models;
 using X.PagedList;
+using BookingTour.Services;
+using iText.Html2pdf;
+using iText.Kernel.Pdf;
 
 namespace BookingTour.Areas.Admin.Controllers
 {
@@ -15,9 +18,12 @@ namespace BookingTour.Areas.Admin.Controllers
     public class BookingsController : Controller
     {
         private readonly TourContext _context;
+        private readonly IViewRenderService _viewRenderService;
 
-        public BookingsController(TourContext context)
+        public BookingsController(IViewRenderService viewRenderService, TourContext context)
         {
+            // Các thiết lập khác nếu cần
+            _viewRenderService = viewRenderService;
             _context = context;
         }
 
@@ -231,6 +237,49 @@ namespace BookingTour.Areas.Admin.Controllers
         private bool BookingExists(int id)
         {
             return (_context.bookings?.Any(e => e.Id == id)).GetValueOrDefault();
+        }
+
+        private IPagedList<Booking> GetBookingData(int page = 1, int pageSize = 1000)
+        {
+
+            // Logic lấy dữ liệu Booking từ nguồn dữ liệu của bạn
+            // Ví dụ: Lấy danh sách từ cơ sở dữ liệu
+
+            var bookings = _context.bookings.ToPagedList(page, pageSize);
+
+            return bookings;
+        }
+
+
+        public async Task<IActionResult> ExportPdfBooking()
+        {
+            // Render Partial View thành chuỗi HTML
+            X.PagedList.IPagedList<Booking> model = (X.PagedList.IPagedList<Booking>)GetBookingData();
+            string partialViewHtml = await _viewRenderService.RenderToStringAsync("partialViewBooking", model);
+
+            // Tạo một tài liệu PDF từ chuỗi HTML
+            using (MemoryStream stream = new MemoryStream())
+            {
+                using (PdfWriter writer = new PdfWriter(stream))
+                {
+                    using (PdfDocument pdf = new PdfDocument(writer))
+                    {
+                        HtmlConverter.ConvertToPdf(partialViewHtml, pdf, new ConverterProperties());
+                    }
+                }
+
+                // Xuất file PDF với tên file là "ExportedPartialView.pdf"
+                byte[] pdfData = stream.ToArray();
+
+                // Thiết lập các headers HTTP tùy chỉnh nếu cần
+                Response.Headers.Add("Content-Disposition", "attachment; filename=Booking.pdf");
+                Response.Headers.Add("Content-Type", "application/pdf");
+
+                // Trả về file PDF
+                return File(pdfData, "application/pdf");
+            }
+
+
         }
     }
 }

@@ -97,6 +97,10 @@
               "target": "Package",
               "version": "[4.2.0, )"
             },
+            "Portable.BouncyCastle": {
+              "target": "Package",
+              "version": "[1.9.0, )"
+            },
             "System.Data.SqlClient": {
               "target": "Package",
               "version": "[4.8.5, )"
@@ -104,6 +108,18 @@
             "X.PagedList.Mvc.Core": {
               "target": "Package",
               "version": "[8.4.5, )"
+            },
+            "itext7": {
+              "target": "Package",
+              "version": "[8.0.2, )"
+            },
+            "itext7.bouncy-castle-adapter": {
+              "target": "Package",
+              "version": "[8.0.2, )"
+            },
+            "itext7.pdfhtml": {
+              "target": "Package",
+              "version": "[5.0.2, )"
             }
           },
           "imports": [

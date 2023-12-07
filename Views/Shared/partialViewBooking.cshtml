@@ -1,0 +1,78 @@
+﻿@model X.PagedList.IPagedList<Booking>
+@using BookingTour.Common
+
+<h3>Quản lý đặt tour</h3>
+<div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
+  
+
+</div>
+<table style="min-height: 500px;" class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.First().CustomerID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().BookingDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().NumberOfAdult)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().NumberOfChildren)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().TotalAmount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Tour)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CustomerID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BookingDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumberOfAdult)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumberOfChildren)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalAmount) VND
+                </td>
+                <td>
+                    @if (item.Status == 1)
+                    {
+                        <text>Thành công</text>
+                    }
+                    else if (item.Status == 3)
+                    {
+                        <text>Chờ thanh toán</text>
+                    }
+                    else
+                    {
+                        <text>Đã hủy</text>
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TourID)
+                </td>
+             
+            </tr>
+        }
+    </tbody>
+</table>
+

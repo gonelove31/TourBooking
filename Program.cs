@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using App.Data;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using BookingTour.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,6 +23,7 @@ builder.Services.AddControllersWithViews();
 
 
 var services = builder.Services;
+services.AddScoped<IViewRenderService, ViewRenderService>();
 
 services.AddRazorPages();
 services.AddDbContext<TourContext>(options =>

@@ -1,0 +1,63 @@
+﻿
+@model X.PagedList.IPagedList<Location>
+@using BookingTour.Common
+<table style="min-height: 500px;" class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Image)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Name)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.First().Slug)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().CreatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().CreatedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().ModifierDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().ModifierBy)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <img src="@Html.DisplayFor(modelItem => item.Image)" alt="Image"
+                         style=" max-width: 100px;height: 100px;" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Slug)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedBy)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ModifierDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ModifierBy)
+                </td>
+               
+            </tr>
+        }
+    </tbody>
+</table>
