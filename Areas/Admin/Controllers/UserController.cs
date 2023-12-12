@@ -17,11 +17,15 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using BookingTour.Services;
+using iText.Html2pdf;
+using iText.Kernel.Pdf;
+using X.PagedList;
 
 namespace App.Areas.Identity.Controllers
 {
 
-    [Authorize(Roles = RoleName.Administrator)]
+    
     [Area("Admin")]
     [Route("/User/[action]")]
     public class UserController : Controller
@@ -30,15 +34,16 @@ namespace App.Areas.Identity.Controllers
         private readonly ILogger<RoleController> _logger;
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly TourContext _context;
-
+        private readonly IViewRenderService _viewRenderService;
         private readonly UserManager<AppUser> _userManager;
 
-        public UserController(ILogger<RoleController> logger, RoleManager<IdentityRole> roleManager, TourContext context, UserManager<AppUser> userManager)
+        public UserController(IViewRenderService viewRenderService,ILogger<RoleController> logger, RoleManager<IdentityRole> roleManager, TourContext context, UserManager<AppUser> userManager)
         {
             _logger = logger;
             _roleManager = roleManager;
             _context = context;
             _userManager = userManager;
+            _viewRenderService = viewRenderService;
         }
 
 
@@ -331,5 +336,38 @@ namespace App.Areas.Identity.Controllers
             where c.UserId == model.user.Id select c).ToListAsync();
 
         }
-  }
+      
+
+
+        public async Task<IActionResult> ExportPdfUser()
+        {
+            // Render Partial View thành chuỗi HTML
+            UserListModel model = new UserListModel();
+            string partialViewHtml = await _viewRenderService.RenderToStringAsync("partialViewUser", model);
+
+            // Tạo một tài liệu PDF từ chuỗi HTML
+            using (MemoryStream stream = new MemoryStream())
+            {
+                using (PdfWriter writer = new PdfWriter(stream))
+                {
+                    using (PdfDocument pdf = new PdfDocument(writer))
+                    {
+                        HtmlConverter.ConvertToPdf(partialViewHtml, pdf, new ConverterProperties());
+                    }
+                }
+
+                // Xuất file PDF với tên file là "ExportedPartialView.pdf"
+                byte[] pdfData = stream.ToArray();
+
+                // Thiết lập các headers HTTP tùy chỉnh nếu cần
+                Response.Headers.Add("Content-Disposition", "attachment; filename=User.pdf");
+                Response.Headers.Add("Content-Type", "application/pdf");
+
+                // Trả về file PDF
+                return File(pdfData, "application/pdf");
+            }
+
+
+        }
+    }
 }
