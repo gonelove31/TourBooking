@@ -19,7 +19,7 @@ namespace BookingTour.Areas.Admin.Controllers
 
             ViewData["tourCount"] = tourCount;
 
-            var userCount = 0;
+            var userCount = _context.Users.Count();
 
             ViewData["userCount"] = userCount;
 

@@ -1,80 +1,98 @@
-﻿@model BookingTour.Models.Tours
+﻿    @model BookingTour.Models.Tours
 
 @{
     ViewData["Title"] = "Tạo tour mới";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-
-<h4>Tạo tour mới</h4>
-<hr />
-<div class="row">
+<div class="row ">
     <div class="col-md-12">
-        <form asp-action="Create" enctype="multipart/form-data">
-            <div asp-validation-summary="All" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
+        <div class="bg-white p-6 rounded-xl ">
+            <div class="flex justify-between items-center">
+                <div class="font-bold text-[24px]">Tạo mới chuyến du lịch</div>
             </div>
-            <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
-                <textarea asp-for="Description" class="form-control"> </textarea>
-                <span asp-validation-for="Description" class="text-danger"></span>
-            </div>
+            <form asp-action="Create" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="flex gap-5 mt-2">
+                    <div class="w-[50%]">
+                        <label asp-for="Name" class="control-label"></label>
+                        <input asp-for="Name" class="block border-[2px] mt-1 focus:border-[green] rounded-md outline-none w-[100%] text-[16px] border-[#ccc] px-4 py-2" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="w-[50%]">
+                        <label asp-for="Rate" class="control-label"></label>
+                        <input asp-for="Rate" class="block border-[2px] mt-1 focus:border-[green] rounded-md outline-none w-[100%] text-[16px] border-[#ccc] px-4 py-2" />
+                        <span asp-validation-for="Rate" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="flex gap-5 mt-2">
+                    <div class="w-[100%]">
+                        <label asp-for="Description" class="control-label"></label>
+                        <input asp-for="Description" class="block border-[2px] mt-1 focus:border-[green] rounded-md outline-none w-[100%] text-[16px] border-[#ccc] px-4 py-2" />
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+                </div>
 
-            <div class="form-group">
-                <label asp-for="Rate" class="control-label"></label>
-                <input asp-for="Rate" class="form-control" />
-                <span asp-validation-for="Rate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Image" class="control-label"></label>
-                <input name="file" type="file" asp-for="Image" class="form-control" />
-                <span asp-validation-for="Image" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PriceAdult" class="control-label"></label>
-                <input asp-for="PriceAdult" class="form-control" />
-                <span asp-validation-for="PriceAdult" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PriceChildren" class="control-label"></label>
-                <input asp-for="PriceChildren" class="form-control" />
-                <span asp-validation-for="PriceChildren" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="AvailableSeats" class="control-label"></label>
-                <input asp-for="AvailableSeats" class="form-control" />
-                <span asp-validation-for="AvailableSeats" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Slug" class="control-label"></label>
-                <input asp-for="Slug" class="form-control" />
-                <span asp-validation-for="Slug" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="StartDate" class="control-label"></label>
-                <input asp-for="StartDate" class="form-control" />
-                <span asp-validation-for="StartDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="EndDate" class="control-label"></label>
-                <input asp-for="EndDate" class="form-control" />
-                <span asp-validation-for="EndDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="LocationID" class="control-label"></label>
-                <select asp-for="LocationID" class="form-control" asp-items="ViewBag.LocationID"></select>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Tạo" class="btn btn-primary" />
-                <a class="btn btn-primary" asp-action="Index">Quay lại</a>
+                <div class="flex gap-5 mt-2">
+                    <div class="w-[50%]">
+                        <label asp-for="Image" class="control-label"></label>
+                        <input name="file" type="file" asp-for="Image" class="block border-[2px] mt-1 focus:border-[green] rounded-md outline-none w-[100%] text-[16px] border-[#ccc] px-4 py-2" />
+                        <span asp-validation-for="Image" class="text-danger"></span>
+                    </div>
+                    <div class="w-[50%]">
+                        <label asp-for="AvailableSeats" class="control-label"></label>
+                        <input asp-for="AvailableSeats" class="block border-[2px] mt-1 focus:border-[green] rounded-md outline-none w-[100%] text-[16px] border-[#ccc] px-4 py-2" />
+                        <span asp-validation-for="AvailableSeats" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="flex gap-5 mt-2">
+                    <div class="w-[50%]">
+                        <label asp-for="PriceAdult" class="control-label"></label>
+                        <input asp-for="PriceAdult" class="block border-[2px] mt-1 focus:border-[green] rounded-md outline-none w-[100%] text-[16px] border-[#ccc] px-4 py-2" />
+                        <span asp-validation-for="PriceAdult" class="text-danger"></span>
+                    </div>
+                    <div class="w-[50%]">
+                        <label asp-for="PriceChildren" class="control-label"></label>
+                        <input asp-for="PriceChildren" class="block border-[2px] mt-1 focus:border-[green] rounded-md outline-none w-[100%] text-[16px] border-[#ccc] px-4 py-2" />
+                        <span asp-validation-for="PriceChildren" class="text-danger"></span>
+                    </div>
 
-            </div>
+                </div>
+                <div class="flex gap-5 mt-2">
+                    <div class="w-[50%]">
+                        <label asp-for="StartDate" class="control-label"></label>
+                        <input asp-for="StartDate" class="block border-[2px] mt-1 focus:border-[green] rounded-md outline-none w-[100%] text-[16px] border-[#ccc] px-4 py-2" />
+                        <span asp-validation-for="StartDate" class="text-danger"></span>
+                    </div>
+                    <div class="w-[50%]">
+                        <label asp-for="EndDate" class="control-label"></label>
+                        <input asp-for="EndDate" class="block border-[2px] mt-1 focus:border-[green] rounded-md outline-none w-[100%] text-[16px] border-[#ccc] px-4 py-2" />
+                        <span asp-validation-for="EndDate" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="flex gap-5 mt-2">
+                    <div class="w-[50%]">
+                        <label asp-for="Slug" class="control-label"></label>
+                        <input asp-for="Slug" class="block border-[2px] mt-1 focus:border-[green] rounded-md outline-none w-[100%] text-[16px] border-[#ccc] px-4 py-2" />
+                        <span asp-validation-for="Slug" class="text-danger"></span>
+                    </div>
+                    <div class="w-[50%]">
+                        <label asp-for="LocationID" class="control-label"></label>
+                        <select asp-for="LocationID" asp-items="ViewBag.LocationID" class="block border-[2px] mt-1 focus:border-[green] rounded-md outline-none w-[100%] text-[16px] border-[#ccc] px-4 py-2"></select>
+                        <span asp-validation-for="LocationID" class="text-danger"></span>
+                    </div>
 
+                </div>
+                <div class="form-group mt-4 gap-3 flex">
+                    <input type="submit" value="Tạo" class="btn btn-primary bg-[#007bff]" />
 
-        </form>
+                    <a class="btn btn-primary" asp-action="Index">Quay lại</a>
+
+                </div>
+            </form>
+           
+        </div>
+       
     </div>
 </div>
 

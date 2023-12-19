@@ -68,21 +68,32 @@
   cursor: pointer;
 }
 
+    .form-control {
+        height: 40px !important;
+        width: 400px !important;
+    }
 </style>
 
-<div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
+<div style="display: flex; justify-content: space-between; margin-bottom: 24px;">
+    <div>
+
     <a class="btn-primary btn" asp-action="Create">Tạo mới</a>
     <a class="btn-primary btn" asp-action="ExportPdfTour">Xuất PDF</a>
+    </div>
     @using (Html.BeginForm())
     {
-        <div class="input-group input-group-sm">
-            @Html.TextBox("SearchString")
-            <div class="input-group-append">
-                <button type="submit" class="btn btn-primary">
-                    <i class="fas fa-search"></i>
-                </button>
+        @using (Html.BeginForm())
+        {
+            <div class="input-group input-group-sm">
+                @Html.TextBox("SearchString", null, new { @class = "form-control", placeholder = "Search..." })
+                <div class="input-group-append">
+                    <button style="width: 80px;" type="submit" class="btn btn-primary bg-[#0069d9]">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
             </div>
-        </div>
+        }
+        
     }
 </div>
 <table style="min-height: 500px;" class="table">
@@ -116,14 +127,14 @@
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
+            <tr style="max-height: 100px;" >
                 <td>
                     <img  class="anh1" src="@Html.DisplayFor(modelItem => item.Image)" alt="Image"
-                        style=" max-width: 100px;height: 100px;" />
+                        style=" max-width: 80px;height: 80px;" />
                 </td>
-                <th>
+                <td>
                     @Html.DisplayFor(modelItem => item.Name)
-                </th>
+                </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Rate)
                 </td>
@@ -137,12 +148,12 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.EndDate)
                 </td>
-                @*<td>
+                <td>
                     @{
                         var locationName = _context.locations.FirstOrDefault(l => item.Location.Id == l.Id)?.Name;
                         @locationName
                     }
-                </td>*@
+                </td>
                 <td>
                     <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.Id">Sửa</a> |
                     <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.Id">Chi tiết</a> |

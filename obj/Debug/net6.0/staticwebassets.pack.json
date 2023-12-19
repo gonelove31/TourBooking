@@ -581,6 +581,54 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
+      "Id": "C:\\Users\\pc\\OneDrive\\Desktop\\BookingTour\\wwwroot\\lib\\tailwindcss\\base.css",
+      "PackagePath": "staticwebassets\\lib\\tailwindcss\\base.css"
+    },
+    {
+      "Id": "C:\\Users\\pc\\OneDrive\\Desktop\\BookingTour\\wwwroot\\lib\\tailwindcss\\base.min.css",
+      "PackagePath": "staticwebassets\\lib\\tailwindcss\\base.min.css"
+    },
+    {
+      "Id": "C:\\Users\\pc\\OneDrive\\Desktop\\BookingTour\\wwwroot\\lib\\tailwindcss\\components.css",
+      "PackagePath": "staticwebassets\\lib\\tailwindcss\\components.css"
+    },
+    {
+      "Id": "C:\\Users\\pc\\OneDrive\\Desktop\\BookingTour\\wwwroot\\lib\\tailwindcss\\components.min.css",
+      "PackagePath": "staticwebassets\\lib\\tailwindcss\\components.min.css"
+    },
+    {
+      "Id": "C:\\Users\\pc\\OneDrive\\Desktop\\BookingTour\\wwwroot\\lib\\tailwindcss\\tailwind-dark.css",
+      "PackagePath": "staticwebassets\\lib\\tailwindcss\\tailwind-dark.css"
+    },
+    {
+      "Id": "C:\\Users\\pc\\OneDrive\\Desktop\\BookingTour\\wwwroot\\lib\\tailwindcss\\tailwind-dark.min.css",
+      "PackagePath": "staticwebassets\\lib\\tailwindcss\\tailwind-dark.min.css"
+    },
+    {
+      "Id": "C:\\Users\\pc\\OneDrive\\Desktop\\BookingTour\\wwwroot\\lib\\tailwindcss\\tailwind-experimental.css",
+      "PackagePath": "staticwebassets\\lib\\tailwindcss\\tailwind-experimental.css"
+    },
+    {
+      "Id": "C:\\Users\\pc\\OneDrive\\Desktop\\BookingTour\\wwwroot\\lib\\tailwindcss\\tailwind-experimental.min.css",
+      "PackagePath": "staticwebassets\\lib\\tailwindcss\\tailwind-experimental.min.css"
+    },
+    {
+      "Id": "C:\\Users\\pc\\OneDrive\\Desktop\\BookingTour\\wwwroot\\lib\\tailwindcss\\tailwind.css",
+      "PackagePath": "staticwebassets\\lib\\tailwindcss\\tailwind.css"
+    },
+    {
+      "Id": "C:\\Users\\pc\\OneDrive\\Desktop\\BookingTour\\wwwroot\\lib\\tailwindcss\\tailwind.min.css",
+      "PackagePath": "staticwebassets\\lib\\tailwindcss\\tailwind.min.css"
+    },
+    {
+      "Id": "C:\\Users\\pc\\OneDrive\\Desktop\\BookingTour\\wwwroot\\lib\\tailwindcss\\utilities.css",
+      "PackagePath": "staticwebassets\\lib\\tailwindcss\\utilities.css"
+    },
+    {
+      "Id": "C:\\Users\\pc\\OneDrive\\Desktop\\BookingTour\\wwwroot\\lib\\tailwindcss\\utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\tailwindcss\\utilities.min.css"
+    },
+    {
       "Id": "C:\\Users\\pc\\OneDrive\\Desktop\\BookingTour\\wwwroot\\plugins\\bootstrap-colorpicker\\css\\bootstrap-colorpicker.css",
       "PackagePath": "staticwebassets\\plugins\\bootstrap-colorpicker\\css\\bootstrap-colorpicker.css"
     },
@@ -9277,6 +9325,10 @@
       "PackagePath": "staticwebassets\\uploads\\396548637_122105278244087236_971835664512041631_n.jpg"
     },
     {
+      "Id": "C:\\Users\\pc\\OneDrive\\Desktop\\BookingTour\\wwwroot\\uploads\\406846498_742463664591272_3462686371848389923_n.jpg",
+      "PackagePath": "staticwebassets\\uploads\\406846498_742463664591272_3462686371848389923_n.jpg"
+    },
+    {
       "Id": "C:\\Users\\pc\\OneDrive\\Desktop\\BookingTour\\wwwroot\\uploads\\408457175_905600810936364_4174706521079859665_n.jpg",
       "PackagePath": "staticwebassets\\uploads\\408457175_905600810936364_4174706521079859665_n.jpg"
     },
@@ -9303,6 +9355,30 @@
     {
       "Id": "C:\\Users\\pc\\OneDrive\\Desktop\\BookingTour\\wwwroot\\uploads\\409683993_1004709454348583_2107259866222008760_n.jpg",
       "PackagePath": "staticwebassets\\uploads\\409683993_1004709454348583_2107259866222008760_n.jpg"
+    },
+    {
+      "Id": "C:\\Users\\pc\\OneDrive\\Desktop\\BookingTour\\wwwroot\\uploads\\410895445_312914478379618_7852248254204615432_n.jpg",
+      "PackagePath": "staticwebassets\\uploads\\410895445_312914478379618_7852248254204615432_n.jpg"
+    },
+    {
+      "Id": "C:\\Users\\pc\\OneDrive\\Desktop\\BookingTour\\wwwroot\\uploads\\410907592_312914265046306_5536737302823376509_n.jpg",
+      "PackagePath": "staticwebassets\\uploads\\410907592_312914265046306_5536737302823376509_n.jpg"
+    },
+    {
+      "Id": "C:\\Users\\pc\\OneDrive\\Desktop\\BookingTour\\wwwroot\\uploads\\410911130_312914795046253_7388867003707900937_n.jpg",
+      "PackagePath": "staticwebassets\\uploads\\410911130_312914795046253_7388867003707900937_n.jpg"
+    },
+    {
+      "Id": "C:\\Users\\pc\\OneDrive\\Desktop\\BookingTour\\wwwroot\\uploads\\410913404_312914691712930_1107749127846124784_n.jpg",
+      "PackagePath": "staticwebassets\\uploads\\410913404_312914691712930_1107749127846124784_n.jpg"
+    },
+    {
+      "Id": "C:\\Users\\pc\\OneDrive\\Desktop\\BookingTour\\wwwroot\\uploads\\410968619_312914658379600_8021374755292840636_n.jpg",
+      "PackagePath": "staticwebassets\\uploads\\410968619_312914658379600_8021374755292840636_n.jpg"
+    },
+    {
+      "Id": "C:\\Users\\pc\\OneDrive\\Desktop\\BookingTour\\wwwroot\\uploads\\411000840_312914808379585_6386992404374509177_n.jpg",
+      "PackagePath": "staticwebassets\\uploads\\411000840_312914808379585_6386992404374509177_n.jpg"
     },
     {
       "Id": "C:\\Users\\pc\\OneDrive\\Desktop\\BookingTour\\wwwroot\\uploads\\Screenshot (1).png",

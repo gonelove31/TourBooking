@@ -5,40 +5,58 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h4>Sửa địa điểm</h4>
-<hr />
-<div class="row">
+<div class="row ">
     <div class="col-md-12">
-        <form asp-action="Create" enctype="multipart/form-data">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
+        <div class="bg-white p-6 rounded-xl ">
+            <div class="flex justify-between items-center">
+                <div class="font-bold text-[24px]">Tạo địa điểm</div>
             </div>
-            <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
-                <textarea asp-for="Description" class="form-control"> </textarea>
-                <span asp-validation-for="Description" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Slug" class="control-label"></label>
-                <input asp-for="Slug" class="form-control" />
-                <span asp-validation-for="Slug" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Image" class="control-label"></label>
-                <input name="file" type="file" asp-for="Image" class="form-control" />
-                <span asp-validation-for="Image" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Tạo" class="btn btn-primary" />
-                <a class="btn btn-primary" asp-action="Index">Quay lại</a>
+            <form asp-action="Create" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="flex  mt-2">
+                    <div class="w-[50%]">
+                        <label asp-for="Name" class="control-label"></label>
+                        <input asp-for="Name" class="block border-[2px] mt-1 focus:border-[green] rounded-md outline-none w-[100%] text-[16px] border-[#ccc] px-4 py-2" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="flex gap-5 mt-2">
+                    <div class="w-[100%]">
+                        <label asp-for="Description" class="control-label"></label>
+                        <textarea asp-for="Description" class="block border-[2px] mt-1 focus:border-[green] rounded-md outline-none w-[100%] text-[16px] border-[#ccc] px-4 py-2" ></textarea>
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+                </div>
 
-            </div>
-        </form>
+                <div class="flex gap-5 mt-2">
+                    <div class="w-[50%]">
+                        <label asp-for="Image" class="control-label"></label>
+                        <input name="file" type="file" asp-for="Image" class="block border-[2px] mt-1 focus:border-[green] rounded-md outline-none w-[100%] text-[16px] border-[#ccc] px-4 py-2" />
+                        <span asp-validation-for="Image" class="text-danger"></span>
+                    </div>
+                    <div class="w-[50%]">
+                        <label asp-for="Slug" class="control-label"></label>
+                        <input asp-for="Slug" class="block border-[2px] mt-1 focus:border-[green] rounded-md outline-none w-[100%] text-[16px] border-[#ccc] px-4 py-2" />
+                        <span asp-validation-for="Slug" class="text-danger"></span>
+                    </div>
+                </div>
+               
+               
+                <div class="form-group mt-4 gap-3 flex">
+                    <input type="submit" value="Tạo" class="btn btn-primary bg-[#007bff]" />
+
+                    <a class="btn btn-primary" asp-action="Index">Quay lại</a>
+
+                </div>
+            </form>
+
+        </div>
+
     </div>
 </div>
+
+
+
 
 
 @section Scripts {

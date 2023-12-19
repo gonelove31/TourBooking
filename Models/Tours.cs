@@ -11,7 +11,8 @@ namespace BookingTour.Models
         [Key]
         public int Id { get; set; }
 
-        [Display(Name = "Tên tour")]
+        [Display(Name = "Tên chuyến du lịch")]
+        [Required( ErrorMessage ="Bắt buộc phải nhập tên chuyến du lịch")]
         public string Name { get; set; }
 
         [Display(Name = "Mô tả")]
@@ -22,12 +23,15 @@ namespace BookingTour.Models
         public int? Rate { get; set; }
 
         [Display(Name = "Giá người lớn")]
+        [Required(ErrorMessage = "Bắt buộc phải nhập giá người lớn")]
         public decimal PriceAdult { get; set; }
 
         [Display(Name = "Giá trẻ em")]
+        [Required(ErrorMessage = "Bắt buộc phải nhập giá trẻ em")]
         public decimal PriceChildren { get; set; }
 
         [Display(Name = "Số lượng còn lại")]
+        [Required(ErrorMessage = "Bắt buộc phải nhập số lượng còn lại")]
         public int AvailableSeats { get; set; }
 
         [Display(Name = "Chuỗi định danh (url)", Prompt = "Nhập hoặc để trống tự phát sinh theo Title")]

@@ -9,16 +9,19 @@ namespace BookingTour.Models
     {
         [Key]
         public int Id { get; set; }
-        public int CustomerID { get; set; }
+        public int? CustomerID { get; set; }
+        [Required(ErrorMessage = "Bắt buộc phải nhập id chuyến đi")]
         public int TourID { get; set; }
 
         [Display(Name = "Ngày đặt")]
         public DateTime? BookingDate { get; set; }
 
         [Display(Name = "Số lượng người lớn")]
+        [Required(ErrorMessage = "Bắt buộc phải nhập số người lớn")]
         public int NumberOfAdult { get; set; }
 
         [Display(Name = "Số lượng trẻ em ( dưới 12 tuổi )")]
+        [Required(ErrorMessage = "Bắt buộc phải nhập số trẻ em")]
         public int NumberOfChildren  { get; set; }
 
         [Display(Name = "Tổng tiền")]
