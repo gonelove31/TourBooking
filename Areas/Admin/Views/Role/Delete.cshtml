@@ -15,9 +15,9 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
          
-            <p>Bạn có chắc chắn xóa <strong>@Model.Name</strong></p>
+            <p class="mb-[12px] mt-[12px]">Bạn có chắc chắn xóa role: <strong>@Model.Name</strong></p>
             <div class="form-group">
-                <input type="submit" value="Đồng ý" class="btn btn-danger" />
+                <input type="submit" value="Đồng ý" class="btn btn-danger bg-[#dc3545]" />
                 <a class="btn btn-primary" asp-action="Index">Danh sách các role</a>
             </div>
         </form>

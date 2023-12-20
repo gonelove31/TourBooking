@@ -4,12 +4,12 @@
     ViewData["Title"] = "Sửa thông tin địa điểm";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
-
+<script src="https://cdn.tailwindcss.com"></script>
 <div class="row ">
     <div class="col-md-12">
         <div class="bg-white p-6 rounded-xl ">
             <div class="flex justify-between items-center">
-                <div class="font-bold text-[24px]">Tạo địa điểm</div>
+                <div class="font-bold text-[24px]">Sửa thông tin địa điểm</div>
             </div>
             <form asp-action="Create" enctype="multipart/form-data">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -43,7 +43,7 @@
 
 
                 <div class="form-group mt-4 gap-3 flex">
-                    <input type="submit" value="Tạo" class="btn btn-primary bg-[#007bff]" />
+                    <input type="submit" value="Lưu" class="btn btn-primary bg-[#007bff]" />
 
                     <a class="btn btn-primary" asp-action="Index">Quay lại</a>
 

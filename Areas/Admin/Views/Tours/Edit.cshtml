@@ -1,23 +1,23 @@
 ﻿
 @model BookingTour.Models.Tours
-
+@inject TourContext _context;
 @{
     ViewData["Title"] = "Sửa thông tin tour";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
-
+<script src="https://cdn.tailwindcss.com"></script>
 
 <div class="row ">
     <div class="col-md-12">
         <div class="bg-white p-6 rounded-xl ">
             <div class="flex justify-between items-center">
-                <div class="font-bold text-[24px]">Sửa chuyến du lịch</div>
+                <div class="font-bold text-[24px]">Sửa thông tin chuyến du lịch</div>
             </div>
             <form asp-action="Edit" enctype="multipart/form-data">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="flex gap-5 mt-2">
                     <div class="w-[50%]">
-                        <label asp-for="Name" class="control-label"></label>
+                        <label asp-for="Name" class="control-label"></label> <span class="text-red text-[16px]">*</span>
                         <input asp-for="Name" class="block border-[2px] mt-1 focus:border-[green] rounded-md outline-none w-[100%] text-[16px] border-[#ccc] px-4 py-2" />
                         <span asp-validation-for="Name" class="text-danger"></span>
                     </div>
@@ -42,19 +42,19 @@
                         <span asp-validation-for="Image" class="text-danger"></span>
                     </div>
                     <div class="w-[50%]">
-                        <label asp-for="AvailableSeats" class="control-label"></label>
+                        <label asp-for="AvailableSeats" class="control-label"></label> <span class="text-red text-[16px]">*</span>
                         <input asp-for="AvailableSeats" class="block border-[2px] mt-1 focus:border-[green] rounded-md outline-none w-[100%] text-[16px] border-[#ccc] px-4 py-2" />
                         <span asp-validation-for="AvailableSeats" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="flex gap-5 mt-2">
                     <div class="w-[50%]">
-                        <label asp-for="PriceAdult" class="control-label"></label>
+                        <label asp-for="PriceAdult" class="control-label"></label> <span class="text-red text-[16px]">*</span>
                         <input asp-for="PriceAdult" class="block border-[2px] mt-1 focus:border-[green] rounded-md outline-none w-[100%] text-[16px] border-[#ccc] px-4 py-2" />
                         <span asp-validation-for="PriceAdult" class="text-danger"></span>
                     </div>
                     <div class="w-[50%]">
-                        <label asp-for="PriceChildren" class="control-label"></label>
+                        <label asp-for="PriceChildren" class="control-label"></label> <span class="text-red text-[16px]">*</span>
                         <input asp-for="PriceChildren" class="block border-[2px] mt-1 focus:border-[green] rounded-md outline-none w-[100%] text-[16px] border-[#ccc] px-4 py-2" />
                         <span asp-validation-for="PriceChildren" class="text-danger"></span>
                     </div>
@@ -86,7 +86,7 @@
 
                 </div>
                 <div class="form-group mt-4 gap-3 flex">
-                    <input type="submit" value="Tạo" class="btn btn-primary bg-[#007bff]" />
+                    <input type="submit" value="Lưu" class="btn btn-primary bg-[#007bff]" />
 
                     <a class="btn btn-primary" asp-action="Index">Quay lại</a>
 

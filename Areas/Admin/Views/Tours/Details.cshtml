@@ -1,79 +1,100 @@
 ﻿@model BookingTour.Models.Tours
-
+@inject TourContext _context;
 @{
     ViewData["Title"] = "Chi tiết tour";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
 
+<script src="https://cdn.tailwindcss.com"></script>
+<div class="max-w-[600px] flex flex-col gap-3">
+        <div class="font-bold text-[24px]">Thông tin chuyến đi @Model.Name</div>
+        <div class="flex">
+            <div class="w-[50%] font-medium">
+                @Html.DisplayNameFor(model => model.Name)
+            </div>
+            <div class="w-[50%]">
+                @Html.DisplayFor(model => model.Name)
+            </div>
+        </div>
 
-<div>
-    <h4>Chi tiết tour</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-        <dt class = "col-sm-2">
+        <div class="flex ">
+        <div class="w-[50%] font-medium">
+                @Html.DisplayNameFor(model => model.Description)
+            </div>
+            <div class="w-[50%]">
+                @Html.DisplayFor(model => model.Description)
+            </div>
+        </div>
+    <div class="flex">
+        <div class="w-[50%] font-medium">
             @Html.DisplayNameFor(model => model.Rate)
-        </dt>
-        <dd class = "col-sm-10">
+        </div>
+        <div class="w-[50%]">
             @Html.DisplayFor(model => model.Rate)
-        </dd>
-        <dt class = "col-sm-2">
+        </div>
+    </div>
+    <div class="flex">
+        <div class="w-[50%] font-medium">
             @Html.DisplayNameFor(model => model.PriceAdult)
-        </dt>
-        <dd class = "col-sm-10">
+        </div>
+        <div class="w-[50%]">
             @Html.DisplayFor(model => model.PriceAdult) VND
-        </dd>
-        <dt class="col-sm-2">
+        </div>
+    </div>
+    <div class="flex">
+        <div class="w-[50%] font-medium">
             @Html.DisplayNameFor(model => model.PriceChildren)
-        </dt>
-        <dd class="col-sm-10">
+        </div>
+        <div class="w-[50%]">
             @Html.DisplayFor(model => model.PriceChildren)  VND
-        </dd>
-        <dt class = "col-sm-2">
+        </div>
+    </div>
+    <div class="flex">
+        <div class="w-[50%] font-medium">
             @Html.DisplayNameFor(model => model.AvailableSeats)
-        </dt>
-        <dd class = "col-sm-10">
+        </div>
+        <div class="w-[50%]">
             @Html.DisplayFor(model => model.AvailableSeats)
-        </dd>
-        <dt class = "col-sm-2">
+        </div>
+    </div>
+    <div class="flex">
+        <div class="w-[50%] font-medium">
             @Html.DisplayNameFor(model => model.Slug)
-        </dt>
-        <dd class = "col-sm-10">
+        </div>
+        <div class="w-[50%]">
             @Html.DisplayFor(model => model.Slug)
-        </dd>
-        <dt class = "col-sm-2">
+        </div>
+    </div>
+    <div class="flex">
+        <div class="w-[50%] font-medium">
             @Html.DisplayNameFor(model => model.StartDate)
-        </dt>
-        <dd class = "col-sm-10">
+        </div>
+        <div class="w-[50%]">
             @Html.DisplayFor(model => model.StartDate)
-        </dd>
-        <dt class = "col-sm-2">
+        </div>
+    </div>
+    <div class="flex">
+        <div class="w-[50%] font-medium">
             @Html.DisplayNameFor(model => model.EndDate)
-        </dt>
-        <dd class = "col-sm-10">
+        </div>
+        <div class="w-[50%]">
             @Html.DisplayFor(model => model.EndDate)
-        </dd>
-        <dt class = "col-sm-2">
+        </div>
+    </div>
+    <div class="flex">
+        <div class="w-[50%] font-medium">
             @Html.DisplayNameFor(model => model.Location)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Location.Id)
-        </dd>
-    </dl>
+        </div>
+        <div class="w-[50%]">
+            @{
+                var locationName = _context.locations.FirstOrDefault(l => Model.LocationID == l.Id)?.Name;
+                @locationName
+            }
+        </div>
+    </div>
 </div>
-<div>
+<div class="mt-[20px]">
     <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model?.Id">Sửa</a> |
     <a class="btn btn-primary" asp-action="Index">Quay lại</a>
 </div>

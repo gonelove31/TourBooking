@@ -1,81 +1,126 @@
 ﻿@model BookingTour.Models.Booking
-
+@inject TourContext _context;
 @{
     ViewData["Title"] = "Xóa đặt tour";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
 
-
-<h3>Bạn chắc chắn muốn xóa đặt tour?</h3>
+<script src="https://cdn.tailwindcss.com"></script>
+<h3 class="text-[20px] font-bold mb-[20px]">Bạn chắc chắc muốn xóa đặt chuyến du lịch này?</h3>
 <div>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CustomerID)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CustomerID)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.BookingDate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.BookingDate)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.NumberOfAdult)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.NumberOfAdult)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.NumberOfChildren)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.NumberOfChildren)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.TotalAmount)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.TotalAmount)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Tour)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Tour.Id)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CreatedDate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CreatedDate)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CreatedBy)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CreatedBy)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ModifierDate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ModifierDate)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ModifierBy)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ModifierBy)
-        </dd>
-    </dl>
-    
-    <form asp-action="Delete">
+
+    <div class="max-w-[600px] flex flex-col gap-3">
+        <div class="flex">
+            <div class="w-[50%] font-medium">
+                @Html.DisplayNameFor(model => model.CustomerID)
+            </div>
+            <div class="w-[50%]">
+                @Html.DisplayFor(model => model.CustomerID)
+            </div>
+        </div>
+
+        <div class="flex ">
+            <div class="w-[50%] font-medium">
+                Tên chuyến đi
+            </div>
+            <div class="w-[50%]">
+                @{
+                    var tourName = _context.tours.FirstOrDefault(t => t.Id == Model.TourID)?.Name;
+                    @tourName
+                }
+            </div>
+        </div>
+        <div class="flex">
+            <div class="w-[50%] font-medium">
+                @Html.DisplayNameFor(model => model.BookingDate)
+            </div>
+            <div class="w-[50%]">
+                @Html.DisplayFor(model => model.BookingDate)
+            </div>
+        </div>
+        <div class="flex">
+            <div class="w-[50%] font-medium">
+                @Html.DisplayNameFor(model => model.NumberOfAdult)
+            </div>
+            <div class="w-[50%]">
+                @Html.DisplayFor(model => model.NumberOfAdult)
+            </div>
+        </div>
+        <div class="flex">
+            <div class="w-[50%] font-medium">
+                @Html.DisplayNameFor(model => model.NumberOfChildren)
+            </div>
+            <div class="w-[50%]">
+                @Html.DisplayFor(model => model.NumberOfChildren)
+            </div>
+        </div>
+        <div class="flex">
+            <div class="w-[50%] font-medium">
+                @Html.DisplayNameFor(model => model.TotalAmount)
+            </div>
+            <div class="w-[50%]">
+                @Html.DisplayFor(model => model.TotalAmount)
+            </div>
+        </div>
+        <div class="flex">
+            <div class="w-[50%] font-medium">
+                @Html.DisplayNameFor(model => model.Status)
+            </div>
+            <div class="w-[50%]">
+                <td>
+                    @if (Model.Status == 1)
+                    {
+                        <text>Thành công</text>
+                    }
+                    else if (Model.Status == 3)
+                    {
+                        <text>Chờ thanh toán</text>
+                    }
+                    else
+                    {
+                        <text>Đã hủy</text>
+                    }
+                </td>
+            </div>
+        </div>
+        <div class="flex">
+            <div class="w-[50%] font-medium">
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </div>
+            <div class="w-[50%]">
+                @Html.DisplayFor(model => model.CreatedDate)
+            </div>
+        </div>
+        <div class="flex">
+            <div class="w-[50%] font-medium">
+                @Html.DisplayNameFor(model => model.CreatedBy)
+            </div>
+            <div class="w-[50%]">
+                @Html.DisplayFor(model => model.CreatedBy)
+            </div>
+        </div>
+        <div class="flex">
+            <div class="w-[50%] font-medium">
+                @Html.DisplayNameFor(model => model.ModifierDate)
+            </div>
+            <div class="w-[50%]">
+                @Html.DisplayFor(model => model.ModifierDate)
+            </div>
+        </div>
+        <div class="flex">
+            <div class="w-[50%] font-medium">
+                @Html.DisplayNameFor(model => model.ModifierBy)
+            </div>
+            <div class="w-[50%]">
+                @Html.DisplayFor(model => model.ModifierBy)
+            </div>
+        </div>
+    </div>
+
+    <form class="mt-[24px]" asp-action="Delete">
         <input type="hidden" asp-for="Id" />
-        <input  type="submit" value="Tạo" class="btn btn-danger" /> |
-        <a class="btn-primary btn" asp-action="Index">Quay lại</a>
+        <input type="submit" value="Xóa" class="btn btn-danger bg-[#c82333]" /> |
+        <a class="btn btn-primary" asp-action="Index">Quay lại </a>
     </form>
 </div>

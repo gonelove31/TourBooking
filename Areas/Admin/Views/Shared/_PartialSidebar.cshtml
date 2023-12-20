@@ -6,97 +6,92 @@
     // xử lý username
     string userName = UserManager.GetUserName(User).Replace("@gmail.com", "");
 }
-<aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <!-- Brand Logo -->
-    <!-- Sidebar -->
-   
+<aside class="main-sidebar sidebar-dark-primary elevation-4 flex flex-col justify-between pb-[24px] !fixed">
+
     <div class="sidebar">
-        <!-- Sidebar user (optional) -->
-        <div class="user-panel mt-3 pb-3 mb-3 d-flex" style="gap: 5px; align-items: center;">
-            <div class="image ">
-                <img style="height: 40px; width: 40px;object-fit: cover;" src="data:image/jpeg;base64,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" class="img-circle elevation-2" alt="User Image">
+        @* avatar  *@
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+          @*   <div class="image">
+                <img src="data:image/jpeg;base64,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" class="img-circle elevation-2 object-cover" alt="User Image">
+            </div> *@
+            <div class="info">
+                <span title="@userName" href="#" class=" text-white ">Xin chào! @userName</span>
             </div>
-            <span title="@userName" href="#" class=" text-white ">Xin chào! @userName</span>
         </div>
 
-       
-
-        <!-- Sidebar Menu -->
-        <nav class="mt-2" style="display: flex; flex-direction: column; justify-content: space-between; height: 500px;">
+        <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                <!-- Add icons to the links using the .nav-icon class
-                     with font-awesome or any other icon font library -->
-                <li class="nav-item">
-                    <a asp-controller="Home" asp-area="Admin" asp-action="Index" class="nav-link">
+                <li class="nav-item h-[50px] flex">
+                    <a asp-controller="Home" asp-area="Admin" asp-action="Index" class="nav-link flex items-center">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a asp-controller="Tours" asp-area="Admin" asp-action="Index" class="nav-link">
+                <li class="nav-item h-[50px] flex">
+                    <a asp-controller="Tours" asp-area="Admin" asp-action="Index" class="nav-link flex items-center">
                         <i class="nav-icon fas fa-campground"></i>
                         <p>
                             Quản lý Tours
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a asp-controller="Locations" asp-area="Admin" asp-action="Index" class="nav-link">
+                <li class="nav-item h-[50px] flex">
+                    <a asp-controller="Locations" asp-area="Admin" asp-action="Index" class="nav-link flex items-center">
                         <i class="nav-icon fas fa-map-marker-alt"></i>
                         <p>
                             Quản lý địa điểm
                         </p>
                     </a>
+                    
                 </li>
-                <li class="nav-item">
-                    <a asp-controller="Bookings" asp-area="Admin" asp-action="Index" class="nav-link">
+                <li class="nav-item h-[50px] flex">
+                    <a asp-controller="Bookings" asp-area="Admin" asp-action="Index" class="nav-link flex items-center">
                         <i class="nav-icon fas fa-copy"></i>
                         <p>
                             Quản lý đặt tour
                         </p>
                     </a>
-
-                </li>
-                <ul class="list-group" id="myList">
-                    
-                    <li style="background:transparent; border: none;" class="list-group-item nav-item"><i style="margin-right: 3.2px; width: 22px;" class="nav-icon far fa-user"></i> <a href="#" style="background:transparent; " class="list-group-item-action" data-toggle="collapse" data-target="#sublist1">Quản lý Người Dùng</a></li>
-                    <ul class="list-group collapse" id="sublist1">
-                        <li style="background:transparent;  border: none;" class="list-group-item">
+                </li>        
+                <li class="nav-item ">
+                    <a href="#" class="nav-link h-[50px] flex items-center">
+                        <i class="nav-icon far fa-user mr-[3px] w-[22px]"></i>
+                        <p class="!flex gap-4 items-center">
+                            Quản lý người dùng
+                            <i class="fas fa-angle-left "></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
                             <a asp-controller="Role" asp-area="Admin" asp-action="Index" class="nav-link">
-                                <i class="nav-icon fas fa-copy"></i>
+                                <i class="nav-icon fas fa-user-tag"></i>
                                 <p>
                                     Quản lý Role
                                 </p>
                             </a>
                         </li>
-                        <li class="list-group-item" style="background:transparent; border: none;">
+                        <li class="nav-item">
                             <a asp-controller="User" asp-area="Admin" asp-action="Index" class="nav-link">
-                                <i class="nav-icon fas fa-copy"></i>
+                                <i class="nav-icon fas fa-user"></i>
                                 <p>
                                     Quản lý User
                                 </p>
                             </a>
                         </li>
                     </ul>
-                   
-                   
-                </ul>
+                </li>
                 
             </ul>
-
-            <li style="background:transparent; display: flex; align-items: center; gap: 4px;" class="list-group-item">
-                <a class="nav-link text-white bg-dark" style="display: flex; align-items: center; gap: 4px; width: 100%;" asp-area="Identity" asp-page="/Account/Logout">
-                    <i class="nav-icon fas fa-copy"></i>
-                    <span>
-                        Đăng xuất
-                    </span>
-                </a>
-            </li>
-        
         </nav>
-        <!-- /.sidebar-menu -->
+
     </div>
-    <!-- /.sidebar -->
+    <div class="flex w-full px-[24px] py-[8px]">
+        <a asp-area="Identity" asp-page="/Account/Logout" class="text-[#c2c7d0] flex gap-4 items-center hover:text-[#c2c7d0] hover:opacity-80">
+            <i class="nav-icon fas fa-sign-out-alt"></i>
+            <p>
+                Đăng xuất
+            </p>
+        </a>
+    </div>
 </aside>

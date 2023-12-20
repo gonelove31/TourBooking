@@ -4,56 +4,68 @@
     ViewData["Title"] = "Thông tin chi tiết địa điểm";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
-
-<div>
-    <h4>Thông tin chi tiết địa điểm</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
+<script src="https://cdn.tailwindcss.com"></script>
+<div class="max-w-[600px] flex flex-col gap-3">
+    <div class="font-bold text-[24px]">Thông tin địa điểm @Model.Name</div>
+    <div class="flex">
+        <div class="w-[50%] font-medium">
             @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class = "col-sm-10">
+        </div>
+        <div class="w-[50%]">
             @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt class = "col-sm-2">
+        </div>
+    </div>
+    <div class="flex ">
+        <div class="w-[50%] font-medium">
             @Html.DisplayNameFor(model => model.Description)
-        </dt>
-        <dd class = "col-sm-10">
+        </div>
+        <div class="w-[50%]">
             @Html.DisplayFor(model => model.Description)
-        </dd>
-        <dt class = "col-sm-2">
+        </div>
+    </div>
+    <div class="flex">
+        <div class="w-[50%] font-medium">
             @Html.DisplayNameFor(model => model.Slug)
-        </dt>
-        <dd class = "col-sm-10">
+        </div>
+        <div class="w-[50%]">
             @Html.DisplayFor(model => model.Slug)
-        </dd>
-        <dt class = "col-sm-2">
+        </div>
+    </div>
+    <div class="flex">
+        <div class="w-[50%] font-medium">
             @Html.DisplayNameFor(model => model.CreatedDate)
-        </dt>
-        <dd class = "col-sm-10">
+        </div>
+        <div class="w-[50%]">
             @Html.DisplayFor(model => model.CreatedDate)
-        </dd>
-        <dt class = "col-sm-2">
+        </div>
+    </div>
+    <div class="flex">
+        <div class="w-[50%] font-medium">
             @Html.DisplayNameFor(model => model.CreatedBy)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CreatedBy)
-        </dd>
-        <dt class = "col-sm-2">
+        </div>
+        <div class="w-[50%]">
+            @Html.DisplayFor(model => model.CreatedBy) 
+        </div>
+    </div>
+    <div class="flex">
+        <div class="w-[50%] font-medium">
             @Html.DisplayNameFor(model => model.ModifierDate)
-        </dt>
-        <dd class = "col-sm-10">
+        </div>
+        <div class="w-[50%]">
             @Html.DisplayFor(model => model.ModifierDate)
-        </dd>
-        <dt class = "col-sm-2">
+        </div>
+    </div>
+    <div class="flex">
+        <div class="w-[50%] font-medium">
             @Html.DisplayNameFor(model => model.ModifierBy)
-        </dt>
-        <dd class = "col-sm-10">
+        </div>
+        <div class="w-[50%]">
             @Html.DisplayFor(model => model.ModifierBy)
-        </dd>
-    </dl>
+        </div>
+    </div>
+    
 </div>
-<div>
+<div class="mt-[24px]">
     <a class="btn btn-primary"  asp-action="Edit" asp-route-id="@Model?.Id">Sửa</a> |
     <a class="btn btn-primary"  asp-action="Index">Quay lại</a>
 </div>
