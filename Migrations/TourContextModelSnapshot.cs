@@ -104,7 +104,7 @@ namespace BookingTour.Migrations
                     b.Property<DateTime?>("CreatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("CustomerID")
+                    b.Property<int?>("CustomerID")
                         .HasColumnType("int");
 
                     b.Property<string>("ModifierBy")
@@ -222,6 +222,36 @@ namespace BookingTour.Migrations
                     b.HasIndex("LocationID");
 
                     b.ToTable("Tours");
+                });
+
+            modelBuilder.Entity("BookingTour.Models.UserActionHistory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Action")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Details")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Timestamp")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("UserActionHistories");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -377,6 +407,17 @@ namespace BookingTour.Migrations
                     b.Navigation("Location");
                 });
 
+            modelBuilder.Entity("BookingTour.Models.UserActionHistory", b =>
+                {
+                    b.HasOne("BookingTour.Models.AppUser", "User")
+                        .WithMany("UserActionHistories")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -426,6 +467,11 @@ namespace BookingTour.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("BookingTour.Models.AppUser", b =>
+                {
+                    b.Navigation("UserActionHistories");
                 });
 
             modelBuilder.Entity("BookingTour.Models.Location", b =>

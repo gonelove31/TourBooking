@@ -1,78 +1,90 @@
 ﻿@model X.PagedList.IPagedList<Booking>
 @using BookingTour.Common
 
-<h3>Quản lý đặt tour</h3>
-<div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
-  
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
 
-</div>
-<table style="min-height: 500px;" class="table">
+    th, td {
+        padding: 10px;
+        border: 1px solid #ddd;
+        text-align: left;
+    }
+
+    th {
+        background-color: #3498db; /* Màu xanh dương */
+        color: white;
+    }
+
+    tbody tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    tbody tr:hover {
+        background-color: #e6f7ff;
+    }
+
+    td:nth-child(6) {
+        font-weight: bold;
+        color: #e74c3c; /* Màu đỏ */
+    }
+
+    body {
+        font-family: 'Arial', sans-serif;
+        font-size: 14px;
+        color: #333;
+    }
+
+    h1 {
+        color: #3498db; /* Màu xanh dương */
+        text-align: center;
+        margin-top: 20px;
+    }
+</style>
+
+<h1>Quản lý đặt tour</h1>
+<div style="display: flex; justify-content: space-between; margin-bottom: 15px;"></div>
+
+<table>
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.First().CustomerID)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.First().BookingDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.First().NumberOfAdult)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.First().NumberOfChildren)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.First().TotalAmount)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.First().Status)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.First().Tour)
-            </th>
-
-            <th></th>
+            <th>CustomerID</th>
+            <th>BookingDate</th>
+            <th>NumberOfAdult</th>
+            <th>NumberOfChildren</th>
+            <th>TotalAmount</th>
+            <th>Status</th>
+            <th>Tour</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CustomerID)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.BookingDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NumberOfAdult)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NumberOfChildren)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TotalAmount) VND
-                </td>
+                <td>@Html.DisplayFor(modelItem => item.CustomerID)</td>
+                <td>@Html.DisplayFor(modelItem => item.BookingDate)</td>
+                <td>@Html.DisplayFor(modelItem => item.NumberOfAdult)</td>
+                <td>@Html.DisplayFor(modelItem => item.NumberOfChildren)</td>
+                <td>@Html.DisplayFor(modelItem => item.TotalAmount) VND</td>
                 <td>
                     @if (item.Status == 1)
                     {
-                        <text>Thành công</text>
+                        <span style="color: #2ecc71;">Thành công</span> <!-- Màu xanh lá cây -->
                     }
                     else if (item.Status == 3)
                     {
-                        <text>Chờ thanh toán</text>
+                        <span style="color: #f39c12;">Chờ thanh toán</span> <!-- Màu cam -->
                     }
                     else
                     {
-                        <text>Đã hủy</text>
+                        <span style="color: #e74c3c;">Đã hủy</span> <!-- Màu đỏ -->
                     }
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TourID)
-                </td>
-             
+                <td>@Html.DisplayFor(modelItem => item.TourID)</td>
             </tr>
         }
     </tbody>
 </table>
-

@@ -1,18 +1,74 @@
 ﻿@model X.PagedList.IPagedList<Tours>
 @using BookingTour.Common
+
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    th, td {
+        padding: 10px;
+        border: 1px solid #ddd;
+        text-align: left;
+    }
+
+    th {
+        background-color: #3498db; /* Màu xanh dương */
+        color: white;
+    }
+
+    tbody tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    tbody tr:hover {
+        background-color: #e6f7ff;
+    }
+
+    img {
+        max-width: 100px;
+        height: 100px;
+        border-radius: 5px; /* Bo tròn góc hình ảnh */
+    }
+
+    td:nth-child(2) { /* Cột Name */
+        color: #2ecc71; /* Màu xanh lá cây */
+        font-weight: bold;
+    }
+
+    td:nth-child(3) { /* Cột Rate */
+        color: #f39c12; /* Màu cam */
+    }
+
+    td:nth-child(4), /* Cột AvailableSeats */
+    td:nth-child(5), /* Cột StartDate */
+    td:nth-child(6) { /* Cột EndDate */
+        color: #3366cc; /* Màu xanh dương */
+    }
+
+    /* Thêm màu sắc cho cột Location nếu cần */
+    /* td:nth-child(7) {
+            color: #9933cc;
+        } */
+    h1 {
+        color: #3498db; /* Màu xanh dương */
+        text-align: center;
+        margin-top: 20px;
+    }
+</style>
+<h1>Quản Lý Tour</h1>
 <table style="min-height: 500px;" class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.First().Image)
-            </th>
+           
             <th>
                 @Html.DisplayNameFor(model => model.First().Name)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.First().Rate)
             </th>
-
             <th>
                 @Html.DisplayNameFor(model => model.First().AvailableSeats)
             </th>
@@ -25,24 +81,20 @@
             <th>
                 @Html.DisplayNameFor(model => model.First().Location)
             </th>
-            <th></th>
+         
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
             <tr>
+             
                 <td>
-                    <img src="@Html.DisplayFor(modelItem => item.Image)" alt="Image"
-                         style=" max-width: 100px;height: 100px;" />
-                </td>
-                <th>
                     @Html.DisplayFor(modelItem => item.Name)
-                </th>
+                </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Rate)
                 </td>
-
                 <td>
                     @Html.DisplayFor(modelItem => item.AvailableSeats)
                 </td>
@@ -52,13 +104,10 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.EndDate)
                 </td>
-                @*<td>
-            @{
-            var locationName = _context.locations.FirstOrDefault(l => item.Location.Id == l.Id)?.Name;
-            @locationName
-            }
-            </td>*@
-               
+                <td>
+                    @Html.DisplayFor(modelItem => item.LocationID)
+                </td>
+             
             </tr>
         }
     </tbody>

@@ -42,7 +42,7 @@
         }
         <hr>
         <p>Các claim riêng:
-            <a asp-action="AddClaim" asp-route-userid="@Model.user.Id">+ Thêm claim riêng</a>     
+            <a style="color: red;" asp-action="AddClaim" asp-route-userid="@Model.user.Id">+ Thêm claim riêng</a>
         </p>
         @if (Model.claimsInUserClaim.Count >  0)
         {

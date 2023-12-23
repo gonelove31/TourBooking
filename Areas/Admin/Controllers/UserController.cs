@@ -30,7 +30,7 @@ namespace App.Areas.Identity.Controllers
     [Route("/User/[action]")]
     public class UserController : Controller
     {
-        
+        private readonly UserActionHistoryHelper _userActionHistoryHelper;
         private readonly ILogger<RoleController> _logger;
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly TourContext _context;
@@ -44,6 +44,7 @@ namespace App.Areas.Identity.Controllers
             _context = context;
             _userManager = userManager;
             _viewRenderService = viewRenderService;
+         
         }
 
 
@@ -158,6 +159,7 @@ namespace App.Areas.Identity.Controllers
 
             
             StatusMessage = $"Vừa cập nhật role cho user: {model.user.UserName}";
+            //await _userActionHistoryHelper.AddUserActionHistory("Cretea", "cập nhật  một Booking trong danh sách Booking có CustomerID mới là" );
 
             return RedirectToAction("Index");
         }

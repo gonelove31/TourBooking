@@ -10,6 +10,8 @@ using X.PagedList;
 using BookingTour.Services;
 using iText.Html2pdf;
 using iText.Kernel.Pdf;
+using Microsoft.AspNetCore.Identity;
+using iText.Kernel.Geom;
 
 namespace BookingTour.Areas.Admin.Controllers
 {
@@ -17,14 +19,17 @@ namespace BookingTour.Areas.Admin.Controllers
     [Route("/admin/booking/[action]/{id?}")]
     public class BookingsController : Controller
     {
+        private readonly UserActionHistoryHelper _userActionHistoryHelper;
         private readonly TourContext _context;
         private readonly IViewRenderService _viewRenderService;
-
-        public BookingsController(IViewRenderService viewRenderService, TourContext context)
+        private readonly UserManager<AppUser> _userManager;
+        public BookingsController(IViewRenderService viewRenderService, TourContext context, UserManager<AppUser> userManager, UserActionHistoryHelper userActionHistoryHelper)
         {
             // Các thiết lập khác nếu cần
             _viewRenderService = viewRenderService;
             _context = context;
+            _userManager = userManager;
+            _userActionHistoryHelper = userActionHistoryHelper;
         }
 
         // GET: Admin/Bookings
@@ -96,6 +101,8 @@ namespace BookingTour.Areas.Admin.Controllers
                 booking.CreatedDate = booking.ModifierDate = DateTime.Now;
                 _context.Add(booking);
                 await _context.SaveChangesAsync();
+                //fff
+                await _userActionHistoryHelper.AddUserActionHistory("Create", "Thêm mới một Booking trong danh sách Booking có mã là: "+ booking.Id);
                 return RedirectToAction(nameof(Index));
             }
             ViewData["TourID"] = new SelectList(_context.tours, "Id", "Id", booking.TourID);
@@ -109,7 +116,7 @@ namespace BookingTour.Areas.Admin.Controllers
                     Text = "Đã hủy"
                 },
             };
-            ViewData["StatusID"] = new SelectList(status.ToList(), "Value", "Text");
+           
             return View(booking);
         }
 
@@ -167,6 +174,7 @@ namespace BookingTour.Areas.Admin.Controllers
                     bookingEdit.ModifierBy = "Cuong";
                     _context.Update(bookingEdit);
                     await _context.SaveChangesAsync();
+                    await _userActionHistoryHelper.AddUserActionHistory("Update", "cập nhật  một Booking trong danh sách Booking có CustomerID mới là: " + booking.CustomerID + " và TourID mới là" + booking.TourID);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -179,6 +187,7 @@ namespace BookingTour.Areas.Admin.Controllers
                         throw;
                     }
                 }
+               
                 return RedirectToAction(nameof(Index));
             }
             ViewData["TourID"] = new SelectList(_context.tours, "Id", "Id", booking.TourID);
@@ -231,6 +240,7 @@ namespace BookingTour.Areas.Admin.Controllers
             }
 
             await _context.SaveChangesAsync();
+            await _userActionHistoryHelper.AddUserActionHistory("Delete", "Xóa  một Booking trong danh sách Booking có CustomerID la: " + booking.CustomerID + " và TourID  là: " + booking.TourID);
             return RedirectToAction(nameof(Index));
         }
 
@@ -253,6 +263,7 @@ namespace BookingTour.Areas.Admin.Controllers
 
         public async Task<IActionResult> ExportPdfBooking()
         {
+            
             // Render Partial View thành chuỗi HTML
             X.PagedList.IPagedList<Booking> model = (X.PagedList.IPagedList<Booking>)GetBookingData();
             string partialViewHtml = await _viewRenderService.RenderToStringAsync("partialViewBooking", model);
@@ -264,6 +275,7 @@ namespace BookingTour.Areas.Admin.Controllers
                 {
                     using (PdfDocument pdf = new PdfDocument(writer))
                     {
+
                         HtmlConverter.ConvertToPdf(partialViewHtml, pdf, new ConverterProperties());
                     }
                 }

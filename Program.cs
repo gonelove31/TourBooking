@@ -24,6 +24,8 @@ builder.Services.AddControllersWithViews();
 
 var services = builder.Services;
 services.AddScoped<IViewRenderService, ViewRenderService>();
+// Trong ConfigureServices của Startup.cs
+services.AddScoped<UserActionHistoryHelper>();
 
 services.AddRazorPages();
 services.AddDbContext<TourContext>(options =>
@@ -33,7 +35,7 @@ services.AddDbContext<TourContext>(options =>
 });
 
 services.AddRazorPages();
-
+services.AddHttpContextAccessor();
 services.AddIdentity<AppUser, IdentityRole>()
      .AddRoles<IdentityRole>()
       .AddEntityFrameworkStores<TourContext>()
