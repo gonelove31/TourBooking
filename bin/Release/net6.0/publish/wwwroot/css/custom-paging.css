@@ -1,0 +1,33 @@
+/* Tạo một lớp cho container của thanh phân trang */
+.pagination-sm {
+    justify-content: center;
+}
+
+.pagination-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Thiết lập kiểu cho các nút phân trang */
+.pagination-container .pagination li {
+    display: inline-block;
+    margin-right: 5px;
+    font-size: 20px;
+    padding: 5px 10px;
+
+}
+
+/* Thiết lập kiểu cho nút trang hiện tại */
+.pagination-container .pagination .active {
+    font-weight: bold;
+    background-color: #007bff;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.PagedList-skipToNext,
+.PagedList-skipToPrevious {
+    font-size: 20px;
+    font-weight: bold;
+}
