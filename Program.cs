@@ -24,18 +24,16 @@ builder.Services.AddControllersWithViews();
 
 var services = builder.Services;
 services.AddScoped<IViewRenderService, ViewRenderService>();
-// Trong ConfigureServices của Startup.cs
-services.AddScoped<UserActionHistoryHelper>();
+//services.AddRazorPages();
 
-services.AddRazorPages();
 services.AddDbContext<TourContext>(options =>
 {
     string url = builder.Configuration.GetConnectionString("TourContext");
     options.UseSqlServer(url);
 });
 
-services.AddRazorPages();
-services.AddHttpContextAccessor();
+//services.AddRazorPages();
+
 services.AddIdentity<AppUser, IdentityRole>()
      .AddRoles<IdentityRole>()
       .AddEntityFrameworkStores<TourContext>()
@@ -43,8 +41,7 @@ services.AddIdentity<AppUser, IdentityRole>()
 
 //Identity/Account/Login
 // dang ky indentity , role : vai tro
-
-
+//services.AddRazorPages(); 
 services.Configure<IdentityOptions>(options => {
     // Thiết lập về Password
     options.Password.RequireDigit = false; // Không bắt phải có số
@@ -122,11 +119,18 @@ app.UseAuthentication(); //xac thuc danh tinh
 
 app.UseAuthorization(); // sau khi xac thuc , thi dc lam gi
 
+//app.MapControllerRoute(
+//    name: "default",
+//    pattern: "{controller=Home}/{action=Index}/{id?}");
+//doc thong tin 1 user , kiem tra 1 user co dang nhap khong 
+app.MapControllerRoute(
+      name: "areas",
+      pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+    );
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
-//doc thong tin 1 user , kiem tra 1 user co dang nhap khong 
 
 
-app.MapRazorPages();
+//app.MapRazorPages();
 app.Run();
