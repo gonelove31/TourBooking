@@ -9249,6 +9249,22 @@
       "PackagePath": "staticwebassets\\summernote\\summernote-0.8.20\\yarn.lock"
     },
     {
+      "Id": "C:\\Users\\pc\\OneDrive\\Desktop\\BookingTour\\wwwroot\\uploads\\2022-05-05.png",
+      "PackagePath": "staticwebassets\\uploads\\2022-05-05.png"
+    },
+    {
+      "Id": "C:\\Users\\pc\\OneDrive\\Desktop\\BookingTour\\wwwroot\\uploads\\2022-05-12.png",
+      "PackagePath": "staticwebassets\\uploads\\2022-05-12.png"
+    },
+    {
+      "Id": "C:\\Users\\pc\\OneDrive\\Desktop\\BookingTour\\wwwroot\\uploads\\2023-02-04.png",
+      "PackagePath": "staticwebassets\\uploads\\2023-02-04.png"
+    },
+    {
+      "Id": "C:\\Users\\pc\\OneDrive\\Desktop\\BookingTour\\wwwroot\\uploads\\2023-02-08.png",
+      "PackagePath": "staticwebassets\\uploads\\2023-02-08.png"
+    },
+    {
       "Id": "C:\\Users\\pc\\OneDrive\\Desktop\\BookingTour\\wwwroot\\uploads\\330838388_518963180133665_7451200533299158525_n.jpg",
       "PackagePath": "staticwebassets\\uploads\\330838388_518963180133665_7451200533299158525_n.jpg"
     },
@@ -9385,12 +9401,88 @@
       "PackagePath": "staticwebassets\\uploads\\Screenshot (1).png"
     },
     {
+      "Id": "C:\\Users\\pc\\OneDrive\\Desktop\\BookingTour\\wwwroot\\uploads\\Screenshot (94).png",
+      "PackagePath": "staticwebassets\\uploads\\Screenshot (94).png"
+    },
+    {
+      "Id": "C:\\Users\\pc\\OneDrive\\Desktop\\BookingTour\\wwwroot\\uploads\\Screenshot (99).png",
+      "PackagePath": "staticwebassets\\uploads\\Screenshot (99).png"
+    },
+    {
       "Id": "C:\\Users\\pc\\OneDrive\\Desktop\\BookingTour\\wwwroot\\uploads\\Screenshot 2023-03-03 101832.png",
       "PackagePath": "staticwebassets\\uploads\\Screenshot 2023-03-03 101832.png"
     },
     {
+      "Id": "C:\\Users\\pc\\OneDrive\\Desktop\\BookingTour\\wwwroot\\uploads\\Screenshot 2023-12-22 200845.png",
+      "PackagePath": "staticwebassets\\uploads\\Screenshot 2023-12-22 200845.png"
+    },
+    {
+      "Id": "C:\\Users\\pc\\OneDrive\\Desktop\\BookingTour\\wwwroot\\uploads\\Screenshot 2023-12-22 200922.png",
+      "PackagePath": "staticwebassets\\uploads\\Screenshot 2023-12-22 200922.png"
+    },
+    {
+      "Id": "C:\\Users\\pc\\OneDrive\\Desktop\\BookingTour\\wwwroot\\uploads\\Screenshot 2023-12-22 200934.png",
+      "PackagePath": "staticwebassets\\uploads\\Screenshot 2023-12-22 200934.png"
+    },
+    {
+      "Id": "C:\\Users\\pc\\OneDrive\\Desktop\\BookingTour\\wwwroot\\uploads\\Screenshot 2023-12-22 200954.png",
+      "PackagePath": "staticwebassets\\uploads\\Screenshot 2023-12-22 200954.png"
+    },
+    {
+      "Id": "C:\\Users\\pc\\OneDrive\\Desktop\\BookingTour\\wwwroot\\uploads\\Screenshot 2023-12-22 201100.png",
+      "PackagePath": "staticwebassets\\uploads\\Screenshot 2023-12-22 201100.png"
+    },
+    {
+      "Id": "C:\\Users\\pc\\OneDrive\\Desktop\\BookingTour\\wwwroot\\uploads\\Screenshot 2023-12-23 134106.png",
+      "PackagePath": "staticwebassets\\uploads\\Screenshot 2023-12-23 134106.png"
+    },
+    {
+      "Id": "C:\\Users\\pc\\OneDrive\\Desktop\\BookingTour\\wwwroot\\uploads\\Screenshot 2023-12-23 143028.png",
+      "PackagePath": "staticwebassets\\uploads\\Screenshot 2023-12-23 143028.png"
+    },
+    {
+      "Id": "C:\\Users\\pc\\OneDrive\\Desktop\\BookingTour\\wwwroot\\uploads\\du-lich-hai-phong-2-ngay-1-dem-1_1625066768.jpg",
+      "PackagePath": "staticwebassets\\uploads\\du-lich-hai-phong-2-ngay-1-dem-1_1625066768.jpg"
+    },
+    {
+      "Id": "C:\\Users\\pc\\OneDrive\\Desktop\\BookingTour\\wwwroot\\uploads\\image2 (1).jpg",
+      "PackagePath": "staticwebassets\\uploads\\image2 (1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\pc\\OneDrive\\Desktop\\BookingTour\\wwwroot\\uploads\\image2 (2).jpg",
+      "PackagePath": "staticwebassets\\uploads\\image2 (2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\pc\\OneDrive\\Desktop\\BookingTour\\wwwroot\\uploads\\image2.jpg",
+      "PackagePath": "staticwebassets\\uploads\\image2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\pc\\OneDrive\\Desktop\\BookingTour\\wwwroot\\uploads\\ivivu-chua-tam-chuc-bia-n-204x153.jpg",
+      "PackagePath": "staticwebassets\\uploads\\ivivu-chua-tam-chuc-bia-n-204x153.jpg"
+    },
+    {
+      "Id": "C:\\Users\\pc\\OneDrive\\Desktop\\BookingTour\\wwwroot\\uploads\\ivivu-chua-thien-tru.gif",
+      "PackagePath": "staticwebassets\\uploads\\ivivu-chua-thien-tru.gif"
+    },
+    {
+      "Id": "C:\\Users\\pc\\OneDrive\\Desktop\\BookingTour\\wwwroot\\uploads\\ivivu-lang-bac.gif",
+      "PackagePath": "staticwebassets\\uploads\\ivivu-lang-bac.gif"
+    },
+    {
       "Id": "C:\\Users\\pc\\OneDrive\\Desktop\\BookingTour\\wwwroot\\uploads\\maxresdefault.jpg",
       "PackagePath": "staticwebassets\\uploads\\maxresdefault.jpg"
+    },
+    {
+      "Id": "C:\\Users\\pc\\OneDrive\\Desktop\\BookingTour\\wwwroot\\uploads\\tải xuống (1).jpg",
+      "PackagePath": "staticwebassets\\uploads\\tải xuống (1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\pc\\OneDrive\\Desktop\\BookingTour\\wwwroot\\uploads\\tải xuống (2).jpg",
+      "PackagePath": "staticwebassets\\uploads\\tải xuống (2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\pc\\OneDrive\\Desktop\\BookingTour\\wwwroot\\uploads\\tải xuống.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tải xuống.jpg"
     },
     {
       "Id": "C:\\Users\\pc\\OneDrive\\Desktop\\BookingTour\\wwwroot\\uploads\\z4968704981627_c1ccb4d47a9e6888724cb365ce93bf07.jpg",

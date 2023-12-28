@@ -80,8 +80,7 @@
     <a class="btn-primary btn" asp-action="Create">Tạo mới</a>
     <a class="btn-primary btn" asp-action="ExportPdfTour">Xuất PDF</a>
     </div>
-    @using (Html.BeginForm())
-    {
+    
         @using (Html.BeginForm())
         {
             <div class="input-group input-group-sm">
@@ -93,8 +92,8 @@
                 </div>
             </div>
         }
-        
-    }
+       
+    
 </div>
 <table style="min-height: 500px;" class="table">
     <thead>
@@ -105,19 +104,12 @@
             <th>
                 @Html.DisplayNameFor(model => model.First().Name)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.First().Rate)
-            </th>
+            
 
             <th>
                 @Html.DisplayNameFor(model => model.First().AvailableSeats)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.First().StartDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.First().EndDate)
-            </th>
+           
             <th>
                 @Html.DisplayNameFor(model => model.First().Location)
             </th>
@@ -135,19 +127,12 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Rate)
-                </td>
+                
 
                 <td>
                     @Html.DisplayFor(modelItem => item.AvailableSeats)
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.StartDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.EndDate)
-                </td>
+               
                 <td>
                     @{
                         var locationName = _context.locations.FirstOrDefault(l => item.Location.Id == l.Id)?.Name;
@@ -178,6 +163,7 @@
         @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
     </ul>
 }
+
 
 <script>
     var modal = document.getElementById("myModal");

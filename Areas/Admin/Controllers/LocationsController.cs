@@ -143,6 +143,7 @@ namespace BookingTour.Areas.Admin.Controllers
             else { location.Image = locationEdit.Image; }
             if (ModelState.IsValid)
             {
+              
                 try
                 {
                     locationEdit.Name = location.Name;

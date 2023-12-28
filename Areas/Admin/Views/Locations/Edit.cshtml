@@ -11,7 +11,7 @@
             <div class="flex justify-between items-center">
                 <div class="font-bold text-[24px]">Sửa thông tin địa điểm</div>
             </div>
-            <form asp-action="Create" enctype="multipart/form-data">
+            <form asp-action="Edit" enctype="multipart/form-data">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="flex  mt-2">
                     <div class="w-[50%]">
@@ -43,7 +43,7 @@
 
 
                 <div class="form-group mt-4 gap-3 flex">
-                    <input type="submit" value="Lưu" class="btn btn-primary bg-[#007bff]" />
+                    <input type="submit" value="Save" class="btn btn-primary bg-[#007bff]" />
 
                     <a class="btn btn-primary" asp-action="Index">Quay lại</a>
 
