@@ -29,9 +29,9 @@
             <div class="form-group">
                 @if (ViewBag.userclaim != null)
                 {
-                    <input type="submit" value="Cập nhật" class="btn btn-primary" />
+                    <input type="submit" value="Cập nhật" class="btn btn-primary" style="color:black;font:bold"/>
                     <input type="submit" value="Xóa" asp-route-claimid="@ViewBag.userclaim.Id" 
-                      class="btn btn-danger" asp-action="DeleteClaim" />
+                      style="color:black;font:bold" class="btn btn-danger" asp-action="DeleteClaim" />
                 }
                 else 
                 {

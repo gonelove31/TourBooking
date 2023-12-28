@@ -8,6 +8,6 @@ namespace BookingTour.Models
 {
     public class AppUser : IdentityUser
     {
-
+        public ICollection<UserActionHistory> UserActionHistories { get; set; }
     }
 }

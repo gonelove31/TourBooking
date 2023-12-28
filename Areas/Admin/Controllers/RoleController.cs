@@ -165,10 +165,14 @@ namespace App.Areas.Identity.Controllers
             } 
             model.Claims = await _context.RoleClaims.Where(rc => rc.RoleId == role.Id).ToListAsync();
             model.role = role;
+
             if (!ModelState.IsValid)
             {
                 //return View(model);
             }
+
+            
+
     
             role.Name = model.Name;
             var result = await _roleManager.UpdateAsync(role);
