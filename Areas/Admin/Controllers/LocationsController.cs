@@ -46,7 +46,7 @@ namespace BookingTour.Areas.Admin.Controllers
         public async Task<IActionResult> Index(int? page, string? searchString)
         {
 
-            int pageSize = 5;
+            int pageSize = 10;
             int pageNumber = page ?? 1;
             var locations = from l in _context.locations select l;
             if (!String.IsNullOrEmpty(searchString))
