@@ -20,14 +20,13 @@
             <th>
                 @Html.DisplayNameFor(model => model.First().CustomerID)
             </th>
-            
             <th>
-                @Html.DisplayNameFor(model => model.First().NumberOfAdult)
+                @Html.DisplayNameFor(model => model.First().BookingDate)
             </th>
+           
             <th>
-                @Html.DisplayNameFor(model => model.First().NumberOfChildren)
+                @Html.DisplayNameFor(model => model.First().TotalAmount)
             </th>
-            
             <th>
                 @Html.DisplayNameFor(model => model.First().Status)
             </th>
@@ -45,14 +44,13 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.CustomerID)
                 </td>
-                
                 <td>
-                    @Html.DisplayFor(modelItem => item.NumberOfAdult)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NumberOfChildren)
+                    @Html.DisplayFor(modelItem => item.BookingDate)
                 </td>
                
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalAmount) VND
+                </td>
                 <td>
                     @if (item.Status == 1)
                     {
