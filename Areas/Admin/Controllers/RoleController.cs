@@ -112,27 +112,27 @@ namespace App.Areas.Identity.Controllers
         }
         
         // POST: /Role/Edit/1
-        [HttpPost("{roleid}"), ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmAsync(string roleid)
-        {
-            if (roleid == null) return NotFound("Không tìm thấy role");
-            var role = await _roleManager.FindByIdAsync(roleid);
-            if  (role == null) return NotFound("Không tìm thấy role");
+        //[HttpPost("{roleid}"), ActionName("Delete")]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> DeleteConfirmAsync(string roleid)
+        //{
+        //    if (roleid == null) return NotFound("Không tìm thấy role");
+        //    var role = await _roleManager.FindByIdAsync(roleid);
+        //    if  (role == null) return NotFound("Không tìm thấy role");
              
-            var result = await _roleManager.DeleteAsync(role);
+        //    var result = await _roleManager.DeleteAsync(role);
 
-            if (result.Succeeded)
-            {
-                StatusMessage = $"Bạn vừa xóa: {role.Name}";
-                return RedirectToAction(nameof(Index));
-            }
-            else
-            {
-                ModelState.AddModelError(result);
-            }
-            return View(role);
-        }     
+        //    if (result.Succeeded)
+        //    {
+        //        StatusMessage = $"Bạn vừa xóa: {role.Name}";
+        //        return RedirectToAction(nameof(Index));
+        //    }
+        //    else
+        //    {
+        //        ModelState.AddModelError(result);
+        //    }
+        //    return View(role);
+        //}     
 
         // GET: /Role/Edit/roleid
         [HttpGet("{roleid}")]
@@ -165,10 +165,14 @@ namespace App.Areas.Identity.Controllers
             } 
             model.Claims = await _context.RoleClaims.Where(rc => rc.RoleId == role.Id).ToListAsync();
             model.role = role;
+
             if (!ModelState.IsValid)
             {
-                return View(model);
+                //return View(model);
             }
+
+            
+
     
             role.Name = model.Name;
             var result = await _roleManager.UpdateAsync(role);

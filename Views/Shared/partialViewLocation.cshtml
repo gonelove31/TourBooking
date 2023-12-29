@@ -1,63 +1,122 @@
-﻿
-@model X.PagedList.IPagedList<Location>
+﻿@model X.PagedList.IPagedList<Location>
 @using BookingTour.Common
-<table style="min-height: 500px;" class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.First().Image)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.First().Name)
-            </th>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
 
-            <th>
-                @Html.DisplayNameFor(model => model.First().Slug)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.First().CreatedDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.First().CreatedBy)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.First().ModifierDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.First().ModifierBy)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        img {
+            max-width: 100px;
+            height: 100px;
+            border-radius: 5px; /* Bo tròn góc hình ảnh */
+        }
+
+        /* Màu sắc cho các dòng chẵn và lẻ */
+        tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tbody tr:hover {
+            background-color: #e6f7ff; /* Màu khi hover */
+        }
+
+        /* Màu sắc cho các cột */
+        td:nth-child(2) { /* Cột Name */
+            color: #4CAF50; /* Màu xanh lá cây */
+        }
+
+        td:nth-child(3) { /* Cột Slug */
+            color: #ff6600; /* Màu cam */
+        }
+
+        td:nth-child(4), /* Cột CreatedDate */
+        td:nth-child(5) { /* Cột CreatedBy */
+            color: #3366cc; /* Màu xanh dương */
+        }
+
+        td:nth-child(6), /* Cột ModifierDate */
+        td:nth-child(7) { /* Cột ModifierBy */
+            color: #9933cc; /* Màu tím */
+        }
+
+        h1 {
+            color: #3498db; /* Màu xanh dương */
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Quản lý Địa Điểm</h1>
+    <table>
+        <thead>
             <tr>
-                <td>
-                    <img src="@Html.DisplayFor(modelItem => item.Image)" alt="Image"
-                         style=" max-width: 100px;height: 100px;" />
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-
-                <td>
-                    @Html.DisplayFor(modelItem => item.Slug)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CreatedDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CreatedBy)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ModifierDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ModifierBy)
-                </td>
+              
+                <th>
+                    @Html.DisplayNameFor(model => model.First().Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().Slug)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().CreatedDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().CreatedBy)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().ModifierDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().ModifierBy)
+                </th>
                
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Slug)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreatedDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreatedBy)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ModifierDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ModifierBy)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</body>
+</html>

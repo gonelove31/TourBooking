@@ -1,0 +1,162 @@
+﻿@model List<UserActionHistory>
+<!-- Thêm sau vào đầu tệp HTML -->
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<style>
+    #searchForm {
+        margin-bottom: 20px;
+    }
+
+        #searchForm label, #searchForm input, #searchForm button {
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+
+        #searchForm input {
+            padding: 5px;
+            width: 150px;
+        }
+
+        #searchForm button {
+            padding: 8px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+            #searchForm button:hover {
+                background-color: #45a049;
+            }
+    /* Tùy chỉnh CSS cho bảng */
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+        .table th, .table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .table th {
+            background-color: #f2f2f2;
+        }
+
+    button.delete-btn {
+        padding: 8px;
+        background-color: #d9534f;
+        color: white;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+
+        button.delete-btn:hover {
+            background-color: #c9302c;
+        }
+</style>
+<h2>User Action History</h2>
+
+
+<script>
+    function deleteHistory(historyId) {
+        if (confirm("Bạn có chắc chắn muốn xóa lịch sử này không?")) {
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("DeleteHistory", "UserActionHistories")',
+                data: { historyId: historyId },
+                success: function (result) {
+                    // Nếu muốn thực hiện một hành động sau khi xóa, bạn có thể thêm code ở đây
+                    location.reload(); // Ví dụ: làm mới trang sau khi xóa
+                },
+                error: function (error) {
+                    console.error('Lỗi khi xóa lịch sử:', error);
+                }
+            });
+        }
+    }
+
+    function deleteAllHistories() {
+        if (confirm("Bạn có chắc chắn muốn xóa tất cả lịch sử không?")) {
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("DeleteAllHistories", "UserActionHistories")',
+                success: function (result) {
+                    // Nếu muốn thực hiện một hành động sau khi xóa, bạn có thể thêm code ở đây
+                    location.reload(); // Ví dụ: làm mới trang sau khi xóa
+                },
+                error: function (error) {
+                    console.error('Lỗi khi xóa tất cả lịch sử:', error);
+                }
+            });
+        }
+    }
+
+    function searchHistory() {
+        var username = $('#username').val();
+        var action = $('#action').val();
+        var date = $('#date').val();
+
+        $.ajax({
+            type: 'GET',
+            url: '@Url.Action("SearchHistory", "UserActionHistories", new { area = "Admin"})',
+            data: { username: username, action: action, date: date },
+
+            success: function (result) {
+                // Hiển thị kết quả tìm kiếm, ví dụ: cập nhật nội dung trang
+                var tbody = $('#historyTable tbody');
+                tbody.empty(); // Xóa tất cả phần tử trong tbody
+                tbody.append(result); // Thêm kết quả trả về vào tbody
+            },
+            error: function (error) {
+                console.error('Lỗi khi tìm kiếm lịch sử:', error);
+            }
+        });
+    }
+</script>
+<div id="searchForm">
+    <form>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username">
+
+        <label for="action">Action:</label>
+        <input type="text" id="action" name="action">
+
+        <label for="date">Ngày:</label>
+        <input type="text" id="date" name="date" placeholder="dd/MM/yyyy">
+
+        <button type="button" onclick="searchHistory()">Tìm Kiếm</button>
+    </form>
+</div>
+<button class="delete-btn" onclick="deleteAllHistories()">Xóa Tất Cả Lịch Sử</button>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Người Dùng</th>
+            <th>Hành Động</th>
+            <th>Thời Gian </th>
+            <th>Chi Tiết</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var history in Model)
+        {
+            <tr>
+                <td>@history.User.UserName</td>
+                <td>@history.Action</td>
+                <td>@history.Timestamp</td>
+                <td>@history.Details</td>
+                <td>
+                    <button class="delete-btn" onclick="deleteHistory('@history.Id')">Xóa</button>
+                </td>
+            </tr>
+
+        }
+
+    </tbody>
+</table>

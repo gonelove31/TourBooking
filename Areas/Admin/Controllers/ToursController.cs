@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.Authorization;
 using BookingTour.Services;
 using iText.Html2pdf;
 using iText.Kernel.Pdf;
+using Microsoft.CodeAnalysis;
 
 namespace BookingTour.Areas.Admin.Controllers
 {
@@ -25,11 +26,13 @@ namespace BookingTour.Areas.Admin.Controllers
         private readonly TourContext _context;
         private readonly IWebHostEnvironment _evn;
         private readonly IViewRenderService _viewRenderService;
-        public ToursController(TourContext context, IWebHostEnvironment evn, IViewRenderService viewRenderService)
+        private readonly UserActionHistoryHelper _userActionHistoryHelper;
+        public ToursController(TourContext context, IWebHostEnvironment evn, IViewRenderService viewRenderService, UserActionHistoryHelper userActionHistoryHelper)
         {
             _evn = evn;
             _context = context;
             _viewRenderService = viewRenderService;
+            _userActionHistoryHelper = userActionHistoryHelper;
         }
 
         // GET: Admin/Tours
@@ -104,6 +107,7 @@ namespace BookingTour.Areas.Admin.Controllers
             {
                 _context.Add(tours);
                 await _context.SaveChangesAsync();
+                await _userActionHistoryHelper.AddUserActionHistory("Create", "Tạo một Tour mới  trong danh sách Tours có Tour  là: " + tours.Name);
                 return RedirectToAction(nameof(Index));
             }
             ViewData["LocationID"] = new SelectList(_context.locations, "Id", "Id", tours.LocationID);
@@ -177,6 +181,7 @@ namespace BookingTour.Areas.Admin.Controllers
                     tourEdit.Image = tours.Image;
                     _context.Update(tourEdit);
                     await _context.SaveChangesAsync();
+                    await _userActionHistoryHelper.AddUserActionHistory("Update", "Cập nhật một Tour mới  trong danh sách Tours có Tour mới  là: " + tours.Name);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -236,6 +241,7 @@ namespace BookingTour.Areas.Admin.Controllers
             }
 
             await _context.SaveChangesAsync();
+            await _userActionHistoryHelper.AddUserActionHistory("Delete", "Xóa một Tour trong danh sách Tours có Tour là: " + tours.Name);
             return RedirectToAction(nameof(Index));
         }
 
