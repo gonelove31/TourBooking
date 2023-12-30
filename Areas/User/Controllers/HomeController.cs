@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BookingTour.Models;
+using BookingTour.Services;
+using Microsoft.AspNetCore.Mvc;
+using X.PagedList;
 
 namespace BookingTour.Areas.User.Controllers
 {
@@ -6,9 +9,19 @@ namespace BookingTour.Areas.User.Controllers
     [Route("/bookingtour/home/[action]/{id?}")]
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        private readonly TourContext _context;
+        private readonly IWebHostEnvironment _evn;
+        public HomeController(TourContext context, IWebHostEnvironment evn )
         {
-            return View();
+            _evn = evn;
+            _context = context;
+        }
+        public async Task<IActionResult> Index()
+        {
+           var data = from t in _context.tours
+                      select t;
+            
+            return View(data);
         }
     }
 }
