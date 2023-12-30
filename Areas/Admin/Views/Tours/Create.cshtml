@@ -28,7 +28,7 @@
                 <div class="flex gap-5 mt-2">
                     <div class="w-[100%]">
                         <label asp-for="Description" class="control-label"></label>
-                        <input asp-for="Description" class="block border-[2px] mt-1 focus:border-[green] rounded-md outline-none w-[100%] text-[16px] border-[#ccc] px-4 py-2" />
+                        <textarea asp-for="Description" class="block border-[2px] mt-1 focus:border-[green] rounded-md outline-none w-[100%] text-[16px] border-[#ccc] px-4 py-2" ></textarea>
                         <span asp-validation-for="Description" class="text-danger"></span>
                     </div>
                 </div>
@@ -72,6 +72,44 @@
                 </div>
                 <div class="flex gap-5 mt-2">
                     <div class="w-[50%]">
+                        <label asp-for="HotelInfo" class="control-label"></label>
+                        <input asp-for="HotelInfo" class="block border-[2px] mt-1 focus:border-[green] rounded-md outline-none w-[100%] text-[16px] border-[#ccc] px-4 py-2" />
+                        <span asp-validation-for="HotelInfo" class="text-danger"></span>
+                    </div>
+                    <div class="w-[50%]">
+                        <label asp-for="HDVName" class="control-label"></label>
+                        <input asp-for="HDVName" class="block border-[2px] mt-1 focus:border-[green] rounded-md outline-none w-[100%] text-[16px] border-[#ccc] px-4 py-2" />
+                        <span asp-validation-for="HDVName" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="flex gap-5 mt-2">
+                    <div class="w-[100%]">
+                        <label asp-for="Schedule" class="control-label"></label>
+                        <textarea asp-for="Schedule" class="block border-[2px] mt-1 focus:border-[green] rounded-md outline-none w-[100%] text-[16px] border-[#ccc] px-4 py-2" ></textarea>
+                        <span asp-validation-for="Schedule" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="flex gap-5 mt-2">
+                    <div class="w-[100%]">
+                        <label asp-for="Note" class="control-label"></label>
+                        <input asp-for="Note" class="block border-[2px] mt-1 focus:border-[green] rounded-md outline-none w-[100%] text-[16px] border-[#ccc] px-4 py-2" />
+                        <span asp-validation-for="Note" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="flex gap-5 mt-2">
+                    <div class="w-[50%]">
+                        <label asp-for="FocusDay" class="control-label"></label>
+                        <input asp-for="FocusDay" class="block border-[2px] mt-1 focus:border-[green] rounded-md outline-none w-[100%] text-[16px] border-[#ccc] px-4 py-2" />
+                        <span asp-validation-for="FocusDay" class="text-danger"></span>
+                    </div>
+                    <div class="w-[50%]">
+                        <label asp-for="FocusPlace" class="control-label"></label>
+                        <input asp-for="FocusPlace" class="block border-[2px] mt-1 focus:border-[green] rounded-md outline-none w-[100%] text-[16px] border-[#ccc] px-4 py-2" />
+                        <span asp-validation-for="FocusPlace" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="flex gap-5 mt-2">
+                    <div class="w-[50%]">
                         <label asp-for="Slug" class="control-label"></label>
                         <input asp-for="Slug" class="block border-[2px] mt-1 focus:border-[green] rounded-md outline-none w-[100%] text-[16px] border-[#ccc] px-4 py-2" />
                         <span asp-validation-for="Slug" class="text-danger"></span>
@@ -83,6 +121,7 @@
                     </div>
 
                 </div>
+                
                 <div class="form-group mt-4 gap-3 flex">
                     <input type="submit" value="Tạo" class="btn btn-primary bg-[#007bff]" />
 
@@ -97,13 +136,15 @@
 </div>
 
 
-@section Scripts {
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
-    <script>
-        $(document).ready(function () {
-            $('#Description').summernote();
-        });
-    </script>
-}
+<script>
+    tinymce.init({
+        selector: ' textarea#Schedule', // ID của trường mô tả
+        height: 300,
+       
+        toolbar: 'undo redo | formatselect | ' +
+            'bold italic backcolor | alignleft aligncenter ' +
+            'alignright alignjustify | bullist numlist outdent indent | ' +
+            'removeformat | help',
+        content_style: 'body { font-family: "Arial", sans-serif; font-size: 14px; }'
+    });
+</script>

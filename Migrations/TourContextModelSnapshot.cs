@@ -191,6 +191,20 @@ namespace BookingTour.Migrations
                     b.Property<DateTime?>("EndDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<DateTime?>("FocusDay")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("FocusPlace")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("HDVName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("HotelInfo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
 
@@ -198,6 +212,10 @@ namespace BookingTour.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Note")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -209,6 +227,10 @@ namespace BookingTour.Migrations
 
                     b.Property<int?>("Rate")
                         .HasColumnType("int");
+
+                    b.Property<string>("Schedule")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Slug")
                         .HasMaxLength(160)

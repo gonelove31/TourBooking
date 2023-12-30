@@ -15,6 +15,7 @@ using BookingTour.Services;
 using iText.Html2pdf;
 using iText.Kernel.Pdf;
 using Microsoft.CodeAnalysis;
+using iText.StyledXmlParser.Jsoup.Nodes;
 
 namespace BookingTour.Areas.Admin.Controllers
 {
@@ -84,7 +85,7 @@ namespace BookingTour.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Description,Image, Rate,PriceAdult, PriceChildren,AvailableSeats,Slug,StartDate,EndDate,LocationID")] Tours tours, IFormFile file)
+        public async Task<IActionResult> Create([Bind("Id,Name,Description,Image, Rate,PriceAdult, PriceChildren,AvailableSeats,Slug,StartDate,EndDate,LocationID, HotelInfo,HDVName, Schedule, FocusDay,FocusPlace, Note  ")] Tours tours, IFormFile file)
         {
             if (file != null)
             {
@@ -142,7 +143,7 @@ namespace BookingTour.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Name,Description,Image,Rate,PriceAdult,PriceChildren,AvailableSeats,Slug,StartDate,EndDate,LocationID")] Tours tours, IFormFile? file)
+        public async Task<IActionResult> Edit(int id, [Bind("Name,Description,Image,Rate,PriceAdult,PriceChildren,AvailableSeats,Slug,StartDate,EndDate,LocationID, HotelInfo,HDVName, Schedule, FocusDay,FocusPlace, Note")] Tours tours, IFormFile? file)
         {
             var tourEdit = (from c in _context.tours
                             where c.Id == id
@@ -179,6 +180,12 @@ namespace BookingTour.Areas.Admin.Controllers
                     tourEdit.EndDate = tours.EndDate;
                     tourEdit.LocationID = tours.LocationID;
                     tourEdit.Image = tours.Image;
+                    tourEdit.HotelInfo = tours.HotelInfo;
+                    tourEdit.HDVName = tours.HDVName;
+                    tourEdit.Schedule = tours.Schedule;
+                    tourEdit.FocusDay = tours.FocusDay;
+                    tourEdit.FocusPlace = tours.FocusPlace;
+                    tourEdit.Note = tours.Note;
                     _context.Update(tourEdit);
                     await _context.SaveChangesAsync();
                     await _userActionHistoryHelper.AddUserActionHistory("Update", "Cập nhật một Tour mới  trong danh sách Tours có Tour mới  là: " + tours.Name);

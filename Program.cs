@@ -24,7 +24,9 @@ builder.Services.AddControllersWithViews();
 
 var services = builder.Services;
 services.AddScoped<IViewRenderService, ViewRenderService>();
-//services.AddRazorPages();
+services.AddScoped<UserActionHistoryHelper>();
+
+services.AddRazorPages();
 
 services.AddDbContext<TourContext>(options =>
 {
@@ -32,7 +34,7 @@ services.AddDbContext<TourContext>(options =>
     options.UseSqlServer(url);
 });
 
-//services.AddRazorPages();
+services.AddRazorPages();
 
 services.AddIdentity<AppUser, IdentityRole>()
      .AddRoles<IdentityRole>()
@@ -123,14 +125,11 @@ app.UseAuthorization(); // sau khi xac thuc , thi dc lam gi
 //    name: "default",
 //    pattern: "{controller=Home}/{action=Index}/{id?}");
 //doc thong tin 1 user , kiem tra 1 user co dang nhap khong 
-app.MapControllerRoute(
-      name: "areas",
-      pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
-    );
+
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 
-//app.MapRazorPages();
+app.MapRazorPages();
 app.Run();

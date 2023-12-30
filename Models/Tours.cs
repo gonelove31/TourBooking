@@ -54,7 +54,23 @@ namespace BookingTour.Models
         public string? Image { set; get; }
 
 
-        [ForeignKey("HotelId")]
-        public Location? Hotel { set; get; }
+        [Display(Name = "Thông tin khách sạn")]
+        public string HotelInfo { set; get; }
+
+        [Display(Name = "Tên hướng dẫn viên")]
+        public string HDVName {  get; set; }
+
+        [Display(Name = "Lịch trình")]
+        public string Schedule { get; set; }
+
+        [Display(Name = "Ngày tập trung")]
+        public DateTime? FocusDay { get; set; }
+
+        [Display(Name = "Địa điểm tập trung")]
+        public string? FocusPlace { get; set; }
+
+        [Display(Name = "Lưu ý")]
+        public string Note { set; get; }
+
     }
 }

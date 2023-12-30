@@ -9,6 +9,7 @@ namespace BookingTour.Models
     {
         [Key]
         public int Id { get; set; }
+
         public int? CustomerID { get; set; }
         [Required(ErrorMessage = "Bắt buộc phải nhập id chuyến đi")]
         public int TourID { get; set; }

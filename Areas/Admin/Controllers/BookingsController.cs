@@ -93,12 +93,13 @@ namespace BookingTour.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,CustomerID,TourID,BookingDate,NumberOfAdult, NumberOfChildren,TotalAmount, Status")] Booking booking)
+        public async Task<IActionResult> Create([Bind("Id,CustomerID,TourID,BookingDate,NumberOfAdult, NumberOfChildren, Status")] Booking booking)
         {
             if (ModelState.IsValid)
             {
                 booking.CreatedBy = booking.ModifierBy = "Cuong";
                 booking.CreatedDate = booking.ModifierDate = DateTime.Now;
+                booking.TotalAmount = booking.NumberOfAdult * booking.Tour.PriceAdult + booking.NumberOfChildren * booking.Tour.PriceChildren;
                 _context.Add(booking);
                 await _context.SaveChangesAsync();
                 //fff
@@ -153,7 +154,7 @@ namespace BookingTour.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("CustomerID,TourID,BookingDate,NumberOfChildren,NumberOfAdult,TotalAmount, Status")] Booking booking)
+        public async Task<IActionResult> Edit(int id, [Bind("CustomerID,TourID,BookingDate,NumberOfChildren,NumberOfAdult, Status")] Booking booking)
         {
             if (ModelState.IsValid)
             {
@@ -168,7 +169,7 @@ namespace BookingTour.Areas.Admin.Controllers
                     bookingEdit.BookingDate = booking.BookingDate;
                     bookingEdit.NumberOfChildren = booking.NumberOfChildren;
                     bookingEdit.NumberOfAdult = booking.NumberOfAdult;
-                    bookingEdit.TotalAmount = booking.TotalAmount;
+                    bookingEdit.TotalAmount = booking.NumberOfAdult * booking.Tour.PriceAdult + booking.NumberOfChildren * booking.Tour.PriceChildren;
                     bookingEdit.Status = booking.Status;
                     bookingEdit.ModifierDate = DateTime.Now;
                     bookingEdit.ModifierBy = "Cuong";
