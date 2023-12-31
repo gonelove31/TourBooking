@@ -93,13 +93,16 @@ namespace BookingTour.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,CustomerID,TourID,BookingDate,NumberOfAdult, NumberOfChildren, Status")] Booking booking)
+        public async Task<IActionResult> Create([Bind("Id,CustomerName,CustomerPhone, CustomerEmail, CustomerAddress ,TourID,BookingDate,NumberOfAdult, NumberOfChildren, Status")] Booking booking)
         {
             if (ModelState.IsValid)
             {
+                var tour = (from b in _context.tours
+                            where b.Id == booking.TourID
+                            select b).FirstOrDefault();
                 booking.CreatedBy = booking.ModifierBy = "Cuong";
                 booking.CreatedDate = booking.ModifierDate = DateTime.Now;
-                booking.TotalAmount = booking.NumberOfAdult * booking.Tour.PriceAdult + booking.NumberOfChildren * booking.Tour.PriceChildren;
+                booking.TotalAmount = booking.NumberOfAdult * tour.PriceAdult + booking.NumberOfChildren * tour.PriceChildren;
                 _context.Add(booking);
                 await _context.SaveChangesAsync();
                 //fff
@@ -154,7 +157,7 @@ namespace BookingTour.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("CustomerID,TourID,BookingDate,NumberOfChildren,NumberOfAdult, Status")] Booking booking)
+        public async Task<IActionResult> Edit(int id, [Bind("CustomerName,CustomerPhone, CustomerEmail, CustomerAddress,TourID,BookingDate,NumberOfChildren,NumberOfAdult, Status")] Booking booking)
         {
             if (ModelState.IsValid)
             {
@@ -163,19 +166,21 @@ namespace BookingTour.Areas.Admin.Controllers
                     var bookingEdit = (from b in _context.bookings
                                        where b.Id == id
                                        select b).FirstOrDefault();
-
-                    bookingEdit.CustomerID = booking.CustomerID;
+                    var tour = (from b in _context.tours
+                                where b.Id == booking.TourID
+                                select b).FirstOrDefault();
+                    bookingEdit.CustomerName = booking.CustomerName;
                     bookingEdit.TourID = booking.TourID;
                     bookingEdit.BookingDate = booking.BookingDate;
                     bookingEdit.NumberOfChildren = booking.NumberOfChildren;
                     bookingEdit.NumberOfAdult = booking.NumberOfAdult;
-                    bookingEdit.TotalAmount = booking.NumberOfAdult * booking.Tour.PriceAdult + booking.NumberOfChildren * booking.Tour.PriceChildren;
+                    bookingEdit.TotalAmount = booking.NumberOfAdult * tour.PriceAdult + booking.NumberOfChildren * tour.PriceChildren;
                     bookingEdit.Status = booking.Status;
                     bookingEdit.ModifierDate = DateTime.Now;
                     bookingEdit.ModifierBy = "Cuong";
                     _context.Update(bookingEdit);
                     await _context.SaveChangesAsync();
-                    await _userActionHistoryHelper.AddUserActionHistory("Update", "cập nhật  một Booking trong danh sách Booking có CustomerID mới là: " + booking.CustomerID + " và TourID mới là" + booking.TourID);
+                    await _userActionHistoryHelper.AddUserActionHistory("Update", "cập nhật  một Booking trong danh sách Booking có CustomerName mới là: " + booking.CustomerName + " và TourID mới là" + booking.TourID);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -241,7 +246,7 @@ namespace BookingTour.Areas.Admin.Controllers
             }
 
             await _context.SaveChangesAsync();
-            await _userActionHistoryHelper.AddUserActionHistory("Delete", "Xóa  một Booking trong danh sách Booking có CustomerID la: " + booking.CustomerID + " và TourID  là: " + booking.TourID);
+            await _userActionHistoryHelper.AddUserActionHistory("Delete", "Xóa  một Booking trong danh sách Booking có CustomerName la: " + booking.CustomerName + " và TourID  là: " + booking.TourID);
             return RedirectToAction(nameof(Index));
         }
 

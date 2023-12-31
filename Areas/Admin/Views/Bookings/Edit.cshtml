@@ -16,16 +16,32 @@
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="flex gap-5 mt-2">
                     <div class="w-[50%]">
-                        <label asp-for="CustomerID" class="control-label"></label>
-                        <input asp-for="CustomerID" class="block border-[2px] mt-1 focus:border-[green] rounded-md outline-none w-[100%] text-[16px] border-[#ccc] px-4 py-2" />
-                        <span asp-validation-for="CustomerID" class="text-danger"></span>
+                        <label asp-for="CustomerName" class="control-label"></label>
+                        <input asp-for="CustomerName" class="block border-[2px] mt-1 focus:border-[green] rounded-md outline-none w-[100%] text-[16px] border-[#ccc] px-4 py-2" />
+                        <span asp-validation-for="CustomerName" class="text-danger"></span>
                     </div>
+
                     <div class="w-[50%]">
-                        <label asp-for="TourID" class="control-label"></label>
-                        <select asp-for="TourID" asp-items="ViewBag.TourID" class="block border-[2px] mt-1 focus:border-[green] rounded-md outline-none w-[100%] text-[16px] border-[#ccc] px-4 py-2"></select>
-                        <span asp-validation-for="TourID" class="text-danger"></span>
+                        <label asp-for="CustomerEmail" class="control-label"></label>
+                        <input asp-for="CustomerEmail" class="block border-[2px] mt-1 focus:border-[green] rounded-md outline-none w-[100%] text-[16px] border-[#ccc] px-4 py-2" />
+                        <span asp-validation-for="CustomerEmail" class="text-danger"></span>
                     </div>
                 </div>
+                <div class="flex gap-5 mt-2">
+                    <div class="w-[50%]">
+                        <label asp-for="CustomerPhone" class="control-label"></label>
+                        <input asp-for="CustomerPhone" class="block border-[2px] mt-1 focus:border-[green] rounded-md outline-none w-[100%] text-[16px] border-[#ccc] px-4 py-2" />
+                        <span asp-validation-for="CustomerPhone" class="text-danger"></span>
+                    </div>
+                    <div class="w-[50%]">
+                        <label asp-for="CustomerAddress" class="control-label"></label>
+                        <input asp-for="CustomerAddress" class="block border-[2px] mt-1 focus:border-[green] rounded-md outline-none w-[100%] text-[16px] border-[#ccc] px-4 py-2" />
+                        <span asp-validation-for="CustomerAddress" class="text-danger"></span>
+                    </div>
+
+                </div>
+
+
 
                 <div class="flex gap-5 mt-2">
                     <div class="w-[50%]">
@@ -46,19 +62,16 @@
                         <input asp-for="BookingDate" class="block border-[2px] mt-1 focus:border-[green] rounded-md outline-none w-[100%] text-[16px] border-[#ccc] px-4 py-2" />
                         <span asp-validation-for="BookingDate" class="text-danger"></span>
                     </div>
-                    <div class="w-[50%]">
-                        <label asp-for="TotalAmount" class="control-label"></label>
-                        <input asp-for="TotalAmount" class="block border-[2px] mt-1 focus:border-[green] rounded-md outline-none w-[100%] text-[16px] border-[#ccc] px-4 py-2" />
-                        <span asp-validation-for="TotalAmount" class="text-danger"></span>
+                    <div class="w-[25%]">
+                        <label asp-for="TourID" class="control-label"></label>
+                        <select asp-for="TourID" asp-items="ViewBag.TourID" class="block border-[2px] mt-1 focus:border-[green] rounded-md outline-none w-[100%] text-[16px] border-[#ccc] px-4 py-2"></select>
+                        <span asp-validation-for="TourID" class="text-danger"></span>
                     </div>
-                </div>
-                <div class="flex gap-5 mt-2">
-                    <div class="w-[50%]">
+                    <div class="w-[25%]">
                         <label asp-for="Status" class="control-label"></label>
                         <select asp-for="Status" asp-items="ViewBag.StatusID" class="block border-[2px] mt-1 focus:border-[green] rounded-md outline-none w-[100%] text-[16px] border-[#ccc] px-4 py-2"></select>
                         <span asp-validation-for="Status" class="text-danger"></span>
                     </div>
-
                 </div>
                 <div class="form-group mt-4 gap-3 flex">
                     <input type="submit" value="Sửa" class="btn btn-primary bg-[#007bff]" />

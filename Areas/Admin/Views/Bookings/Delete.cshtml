@@ -13,13 +13,36 @@
     <div class="max-w-[600px] flex flex-col gap-3">
         <div class="flex">
             <div class="w-[50%] font-medium">
-                @Html.DisplayNameFor(model => model.CustomerID)
+                @Html.DisplayNameFor(model => model.CustomerName)
             </div>
             <div class="w-[50%]">
-                @Html.DisplayFor(model => model.CustomerID)
+                @Html.DisplayFor(model => model.CustomerName)
             </div>
         </div>
-
+        <div class="flex">
+            <div class="w-[50%] font-medium">
+                @Html.DisplayNameFor(model => model.CustomerEmail)
+            </div>
+            <div class="w-[50%]">
+                @Html.DisplayFor(model => model.CustomerEmail)
+            </div>
+        </div>
+        <div class="flex">
+            <div class="w-[50%] font-medium">
+                @Html.DisplayNameFor(model => model.CustomerPhone)
+            </div>
+            <div class="w-[50%]">
+                @Html.DisplayFor(model => model.CustomerPhone)
+            </div>
+        </div>
+        <div class="flex">
+            <div class="w-[50%] font-medium">
+                @Html.DisplayNameFor(model => model.CustomerAddress)
+            </div>
+            <div class="w-[50%]">
+                @Html.DisplayFor(model => model.CustomerAddress)
+            </div>
+        </div>
         <div class="flex ">
             <div class="w-[50%] font-medium">
                 Tên chuyến đi

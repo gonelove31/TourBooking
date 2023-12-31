@@ -69,7 +69,7 @@ namespace BookingTour.Models
         [Display(Name = "Địa điểm tập trung")]
         public string? FocusPlace { get; set; }
 
-        [Display(Name = "Lưu ý")]
+        [Display(Name = "Chi tiết tour")]
         public string Note { set; get; }
 
     }

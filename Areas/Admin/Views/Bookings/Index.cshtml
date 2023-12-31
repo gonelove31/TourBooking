@@ -18,7 +18,7 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.First().CustomerID)
+                @Html.DisplayNameFor(model => model.First().CustomerName)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.First().BookingDate)
@@ -42,7 +42,7 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.CustomerID)
+                    @Html.DisplayFor(modelItem => item.CustomerName)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.BookingDate)
