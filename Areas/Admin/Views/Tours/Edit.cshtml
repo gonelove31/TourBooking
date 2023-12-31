@@ -94,7 +94,7 @@
                 <div class="flex gap-5 mt-2">
                     <div class="w-[100%]">
                         <label asp-for="Note" class="control-label"></label>
-                        <input asp-for="Note" class="block border-[2px] mt-1 focus:border-[green] rounded-md outline-none w-[100%] text-[16px] border-[#ccc] px-4 py-2" />
+                        <textarea asp-for="Note" class="block border-[2px] mt-1 focus:border-[green] rounded-md outline-none w-[100%] text-[16px] border-[#ccc] px-4 py-2" /></textarea>
                         <span asp-validation-for="Note" class="text-danger"></span>
                     </div>
                 </div>
@@ -139,6 +139,16 @@
 <script>
     tinymce.init({
         selector: ' textarea#Schedule', // ID của trường mô tả
+        height: 300,
+
+        toolbar: 'undo redo | formatselect | ' +
+            'bold italic backcolor | alignleft aligncenter ' +
+            'alignright alignjustify | bullist numlist outdent indent | ' +
+            'removeformat | help',
+        content_style: 'body { font-family: "Arial", sans-serif; font-size: 14px; }'
+    });
+    tinymce.init({
+        selector: ' textarea#Note', // ID của trường mô tả
         height: 300,
 
         toolbar: 'undo redo | formatselect | ' +
