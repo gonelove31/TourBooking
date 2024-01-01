@@ -13,13 +13,18 @@
 </head>
 <body>
     <header class="" >
-        <nav class="sticky top-0 bg-white z-[999] navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
+        <nav class="sticky top-0 bg-white z-[999] navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3 flex justify-between">
+            <div class="">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">BookingTour</a>
                 <a class="text-[16px] text-dark" asp-area="Admin" asp-controller="Home" asp-action="Index">Admin</a>
                 
             </div>
+            <div>
+
+            <partial name="_LoginPartial" />
+            </div>
         </nav>
+        
     </headerclass>
     <div class="container mb-[100px]">
         <main role="main" class="pb-3">

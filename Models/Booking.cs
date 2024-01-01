@@ -10,6 +10,8 @@ namespace BookingTour.Models
         [Key]
         public int Id { get; set; }
 
+        public string? CustomerId { get; set; }
+
         [Display(Name = "Tên người đặt")]
         [Required(ErrorMessage = "Bắt buộc phải nhập tên người đặt")]
         public string? CustomerName { get; set; }

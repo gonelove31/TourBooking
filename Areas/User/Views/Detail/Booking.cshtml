@@ -1,0 +1,113 @@
+﻿@model BookingTour.Models.Booking
+
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+@{
+    var tour = ViewData["tour"] as Tours;
+    var totalDay = Convert.ToInt32(@tour.EndDate.Value.Day) - Convert.ToInt32(@tour.StartDate.Value.Day);
+}
+<div class="w-[1200px] m-auto mt-[100px]">
+        <div class="flex grid grid-cols-3 gap-6">
+            <div>
+            <img class="" src="@tour.Image" alt="">
+            </div>
+            <div class="col-span-2">
+                <div class="s-rate" style="box-sizing: border-box; align-items: center; display: flex; margin-bottom: 15px; color: #2d4271; font-family: Roboto, sans-serif; font-size: 15px;">
+                    <span style="box-sizing: border-box; align-items: center; background: #fdc432; border-bottom-right-radius: 5px; border-top-left-radius: 5px; border-top-right-radius: 5px; color: #ffffff; display: flex; font-size: 16px; font-weight: bold; height: 32px; justify-content: center; line-height: 20px; margin-right: 11px; position: relative; width: 42px;">@tour.Rate</span>
+                   
+                </div>
+                <p id="title" class="title" style="box-sizing: border-box; margin-top: 0px; margin-bottom: 1rem; color: #2d4271; font-size: 22px; font-weight: bold; line-height: 28px; font-family: Roboto, sans-serif;">@tour.Name</p>
+                <div class="entry" style="box-sizing: border-box; align-items: flex-end; display: flex; color: #2d4271; font-family: Roboto, sans-serif; font-size: 15px;">
+                    <div class="entry-inner" style="box-sizing: border-box; width: 423.6px;">
+                    <span style="box-sizing: border-box; display: block; font-size: 13px; line-height: 25px; width: 423.6px;">Mã Tour: <span style="box-sizing: border-box; font-weight: bold; margin-left: 5px;">@tour.Id</span></span>
+                    <span style="box-sizing: border-box; display: block; font-size: 13px; line-height: 25px; width: 423.6px;">Khởi hành: <span style="box-sizing: border-box; font-weight: bold; margin-left: 5px;">@tour.StartDate</span></span>
+                        <span style="box-sizing: border-box; display: block; font-size: 13px; line-height: 25px; width: 423.6px;">Thời gian: <span style="box-sizing: border-box; font-weight: bold; margin-left: 5px;">@totalDay</span></span>
+                    <span style="box-sizing: border-box; display: block; font-size: 13px; line-height: 25px; width: 423.6px;">Nơi khởi hành: <span style="box-sizing: border-box; font-weight: bold; margin-left: 5px;">@tour.FocusPlace</span></span>
+                    <span style="box-sizing: border-box; display: block; font-size: 13px; line-height: 25px; width: 423.6px;">Số chỗ còn nhận: <span style="box-sizing: border-box; font-weight: bold; margin-left: 5px;">@tour.AvailableSeats</span></span>
+                    </div>
+                </div>
+            </div>
+    
+    
+    
+        </div>
+        <div class="flex grid grid-cols-3 gap-6">
+            <div class="col-span-2">
+                <h3 style="box-sizing: border-box; margin-top: 0px; margin-bottom: 0.5rem; font-weight: 500; line-height: 40px; font-size: 20px; color: #2d4271; font-family: Roboto, sans-serif; background-color: #ffffff;">Thông tin liên lạc</h3>
+
+                <div class="customer-contact mb-3" style="box-sizing: border-box; color: #2d4271; font-family: Roboto, sans-serif; font-size: 15px; background-color: #ffffff; margin-bottom: 1rem !important;">
+                <form asp-action="confirmBooking" asp-route-id="@tour.Id" id="form" class="customer-contact-inner" style="box-sizing: border-box; align-items: center; background: #f9f9f9; border-radius: 10px; display: flex; flex-wrap: wrap; justify-content: space-between; " method="post">
+                        
+                    <div class="flex gap-4">
+                            <div class="name" style="box-sizing: border-box; display: flex; flex-direction: column; margin-bottom: 20px; width: 386.875px;">
+                                <label style="box-sizing: border-box; display: flex; align-items: center; font-size: 13px; line-height: 16px; margin-bottom: 5px;">Họ và Tên<span style="box-sizing: border-box; font-weight: bold; color: red; font-size: 10px; margin-left: 3px; margin-top: -2px;">*</span></label>
+                                <input asp-for="CustomerName" class="form-control" style="box-sizing: border-box; font-family: inherit; font-size: 1rem; line-height: 1.5; margin: 0px; overflow: visible; color: #2d4271; font-style: inherit; font-variant: inherit; font-weight: 400; font-stretch: inherit; font-optical-sizing: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; display: block; width: 386.875px; padding: 0px 10px; background: #ffffff; appearance: none; border-radius: 5px; transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s; height: 40px; border: 1px solid #e7e7e7;"  />
+                            </div>
+                    
+                            <div class="mail" style="box-sizing: border-box; display: flex; flex-direction: column; margin-bottom: 20px; width: 386.875px;">
+                                <label style="box-sizing: border-box; display: flex; align-items: center; font-size: 13px; line-height: 16px; margin-bottom: 5px;">Email<span style="box-sizing: border-box; font-weight: bold; color: red; font-size: 10px; margin-left: 3px; margin-top: -2px;">*</span></label>
+                            <input asp-for="CustomerEmail" class="form-control" style="box-sizing: border-box; font-family: inherit; font-size: 1rem; line-height: 1.5; margin: 0px; overflow: visible; color: #2d4271; font-style: inherit; font-variant: inherit; font-weight: 400; font-stretch: inherit; font-optical-sizing: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; display: block; width: 386.875px; padding: 0px 10px; background: #ffffff; appearance: none; border-radius: 5px; transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s; height: 40px; border: 1px solid #e7e7e7;"  />
+                            </div>
+                        </div>
+                       <div class="flex gap-4">
+                            <div class="phone" style="box-sizing: border-box; display: flex; flex-direction: column; margin-bottom: 20px; width: 386.875px;">
+                                <label style="box-sizing: border-box; display: flex; align-items: center; font-size: 13px; line-height: 16px; margin-bottom: 5px;">Số điện thoại<span style="box-sizing: border-box; font-weight: bold; color: red; font-size: 10px; margin-left: 3px; margin-top: -2px;">*</span></label>
+                                <input  asp-for="CustomerPhone" class="form-control" style="box-sizing: border-box; font-family: inherit; font-size: 1rem; line-height: 1.5; margin: 0px; overflow: visible; color: #2d4271; font-style: inherit; font-variant: inherit; font-weight: 400; font-stretch: inherit; font-optical-sizing: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; display: block; width: 386.875px; padding: 0px 10px; background: #ffffff; appearance: none; border-radius: 5px; transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s; height: 40px; border: 1px solid #e7e7e7;"  />
+                            </div>
+                            <div class="phone" style="box-sizing: border-box; display: flex; flex-direction: column; margin-bottom: 20px; width: 386.875px;">
+                                <label style="box-sizing: border-box; display: flex; align-items: center; font-size: 13px; line-height: 16px; margin-bottom: 5px;">Địa chỉ</label>
+                            <input asp-for="CustomerAddress"  class="form-control" style="box-sizing: border-box; font-family: inherit; font-size: 1rem; line-height: 1.5; margin: 0px; overflow: visible; color: #2d4271; font-style: inherit; font-variant: inherit; font-weight: 400; font-stretch: inherit; font-optical-sizing: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; display: block; width: 386.875px; padding: 0px 10px; background: #ffffff; appearance: none; border-radius: 5px; transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s; height: 40px; border: 1px solid #e7e7e7;"  />
+                            </div>
+
+                       </div>
+                       <div class="flex gap-4">
+                            <div class="phone" style="box-sizing: border-box; display: flex; flex-direction: column; margin-bottom: 20px; width: 386.875px;">
+                                <label  style="box-sizing: border-box; display: flex; align-items: center; font-size: 13px; line-height: 16px; margin-bottom: 5px;">Số lượng người lớn<span style="box-sizing: border-box; font-weight: bold; color: red; font-size: 10px; margin-left: 3px; margin-top: -2px;">*</span></label>
+                            <input asp-for="NumberOfAdult" class ="form-control" style="box-sizing: border-box; font-family: inherit; font-size: 1rem; line-height: 1.5; margin: 0px; overflow: visible; color: #2d4271; font-style: inherit; font-variant: inherit; font-weight: 400; font-stretch: inherit; font-optical-sizing: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; display: block; width: 386.875px; padding: 0px 10px; background: #ffffff; appearance: none; border-radius: 5px; transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s; height: 40px; border: 1px solid #e7e7e7;"  />
+                            </div>
+                            <div class="phone" style="box-sizing: border-box; display: flex; flex-direction: column; margin-bottom: 20px; width: 386.875px;">
+                                <label style="box-sizing: border-box; display: flex; align-items: center; font-size: 13px; line-height: 16px; margin-bottom: 5px;">Số lượng trẻ em<span style="box-sizing: border-box; font-weight: bold; color: red; font-size: 10px; margin-left: 3px; margin-top: -2px;">*</span></label>
+                                <input asp-for="NumberOfChildren" class="form-control" style="box-sizing: border-box; font-family: inherit; font-size: 1rem; line-height: 1.5; margin: 0px; overflow: visible; color: #2d4271; font-style: inherit; font-variant: inherit; font-weight: 400; font-stretch: inherit; font-optical-sizing: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; display: block; width: 386.875px; padding: 0px 10px; background: #ffffff; appearance: none; border-radius: 5px; transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s; height: 40px; border: 1px solid #e7e7e7;" />
+                            </div>
+
+                       </div>
+
+                    <button type="submit" class="bg-[#e01600] text-white font-bold text-[16px] w-full flex justify-center items-center h-[50px] rounded-[12px] mt-[12px]">ĐẶT NGAY</button>
+                       </form>
+                </div>
+            </div>
+            <div class="col-span-1">
+                <h3 style="box-sizing: border-box; margin-top: 0px; margin-bottom: 20px; line-height: 28px; font-size: 22px; color: #2d4271; font-family: Roboto, sans-serif;">Tóm tắt chuyến đi</h3>
+
+                <div class="product" style="box-sizing: border-box; display: flex; justify-content: space-between; margin-bottom: 20px; color: #2d4271; font-family: Roboto, sans-serif; font-size: 15px;">
+                    <div class="product-image" style="box-sizing: border-box; width: 100px;">
+                        <img class="img-fluid" style="box-sizing: border-box; border: 0px; vertical-align: middle; max-width: 100%; height: 66.7px; border-radius: 10px; object-fit: cover; width: 100px;" src="@tour.Image" alt="image" />
+                    </div>
+                    <div class="product-content" style="box-sizing: border-box; background-color: #ffffff; padding: 0px 0px 0px 13px; width: calc(100% - 100px);">
+                        <p class="title" style="box-sizing: border-box; margin-top: 0px; margin-bottom: 0px; -webkit-box-orient: vertical; -webkit-line-clamp: 3; display: -webkit-box; font-weight: bold; line-height: 19px; max-height: 4rem; max-width: 100%; min-height: 4rem; overflow: hidden; text-overflow: ellipsis;">@tour.Name</p>
+                    </div>
+                </div>
+
+                <div class="go-tour mb-[12px]" style="box-sizing: border-box; color: #2d4271; font-family: Roboto, sans-serif;">
+                    <div class="start mb-2" style="box-sizing: border-box; display: flex; position: relative;">
+                        <div class="start-content flex items-center gap-4 text-[16px]" style="box-sizing: border-box; ">
+                            <h4 style="box-sizing: border-box; margin-top: 0px;  font-weight: 400; line-height: 16px; ">Bắt đầu chuyến đi:</h4>
+                            <p class="time" style="box-sizing: border-box; margin-top: 0px; margin-bottom: 0px; align-items: center; display: flex; font-weight: bold; justify-content: space-between; line-height: 19px; text-align: center; ">@tour.StartDate</p>
+                        </div>
+                    </div>
+
+                    <div class="end" style="box-sizing: border-box; display: flex;">
+                        <div class="start-content flex items-center gap-4 text-[16px]" style="box-sizing: border-box; ">
+                            <h4 style="box-sizing: border-box; margin-top: 0px;  font-weight: 400; line-height: 16px; ">Kết thúc chuyến đi:</h4>
+                            <p class="time" style="box-sizing: border-box; margin-top: 0px; margin-bottom: 0px; align-items: center; display: flex; font-weight: bold; justify-content: space-between; line-height: 19px; text-align: center; ">@tour.EndDate</p>
+                        </div>
+                    </div>
+                </div>
+
+            <div class="text-[#2d4271] ">Giá người lớn: <span class="font-bold">@tour.PriceAdult VND</span> </div>
+                <div class="text-[#2d4271]">Giá trẻ em: <span class="font-bold">@tour.PriceChildren VND</span></div>
+
+               
+            </div>
+        </div>
+    </div>

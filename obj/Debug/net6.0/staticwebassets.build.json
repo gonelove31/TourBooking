@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "DA3RO9NfyWL7WlYXd/kcn+LaDDJD2ttKtUPkb237Y1o=",
+  "Hash": "GPhI8Kj0Ow2mSuTw/RMXtH5xaPGeOjrUrNg577oIr/k=",
   "Source": "BookingTour",
   "BasePath": "_content/BookingTour",
   "Mode": "Default",
@@ -40475,6 +40475,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\415753049_671381541856946_945552626302018648_n.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\pc\\OneDrive\\Desktop\\BookingTour\\wwwroot\\uploads\\cach-phoi-do-nu-cuc-xinh8.jpg",
+      "SourceId": "BookingTour",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pc\\OneDrive\\Desktop\\BookingTour\\wwwroot\\",
+      "BasePath": "_content/BookingTour",
+      "RelativePath": "uploads/cach-phoi-do-nu-cuc-xinh8.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\cach-phoi-do-nu-cuc-xinh8.jpg"
     },
     {
       "Identity": "C:\\Users\\pc\\OneDrive\\Desktop\\BookingTour\\wwwroot\\uploads\\du-lich-hai-phong-2-ngay-1-dem-1_1625066768.jpg",
