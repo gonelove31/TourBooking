@@ -37,14 +37,14 @@ namespace BookingTour.Areas.Admin.Controllers
         {
             int pageSize = 10;
             int pageNumber = page ?? 1;
-            var tourContext = _context.bookings.Include(b => b.Tour);
+            IEnumerable<BookingTour.Models.Booking> tourContext = _context.bookings.Include(b => b.Tour).ToList();
 
             return View(tourContext.ToPagedList(pageNumber, pageSize));
 
 
         }
 
-        // GET: Admin/Bookings/Details/5
+        //GET: Admin/Bookings/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.bookings == null)
@@ -106,7 +106,7 @@ namespace BookingTour.Areas.Admin.Controllers
                 _context.Add(booking);
                 await _context.SaveChangesAsync();
                 //fff
-                await _userActionHistoryHelper.AddUserActionHistory("Create", "Thêm mới một Booking trong danh sách Booking có mã là: "+ booking.Id);
+                await _userActionHistoryHelper.AddUserActionHistory("Create", "Thêm mới một Booking trong danh sách Booking có mã là: " + booking.Id);
                 return RedirectToAction(nameof(Index));
             }
             ViewData["TourID"] = new SelectList(_context.tours, "Id", "Id", booking.TourID);
@@ -120,7 +120,7 @@ namespace BookingTour.Areas.Admin.Controllers
                     Text = "Đã hủy"
                 },
             };
-           
+
             return View(booking);
         }
 
@@ -193,7 +193,7 @@ namespace BookingTour.Areas.Admin.Controllers
                         throw;
                     }
                 }
-               
+
                 return RedirectToAction(nameof(Index));
             }
             ViewData["TourID"] = new SelectList(_context.tours, "Id", "Id", booking.TourID);
@@ -269,7 +269,7 @@ namespace BookingTour.Areas.Admin.Controllers
 
         public async Task<IActionResult> ExportPdfBooking()
         {
-            
+
             // Render Partial View thành chuỗi HTML
             X.PagedList.IPagedList<Booking> model = (X.PagedList.IPagedList<Booking>)GetBookingData();
             string partialViewHtml = await _viewRenderService.RenderToStringAsync("partialViewBooking", model);

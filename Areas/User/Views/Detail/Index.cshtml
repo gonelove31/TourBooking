@@ -23,8 +23,8 @@
 <body>
     <div class="ml-[100px] mr-[100px]">
         <!-- phan dau nut thanh toan + ten -->
-        <div class="flex justify-between">
-            <div class="ml-[100px]">
+        <div class="flex justify-between grid grid-cols-3 gap-4">
+            <div class="col-span-2">
                 <div>
                     <!-- name -->
                     <h1 class="text-4xl font-bold text-blue-500">@Model.Name</h1>
@@ -34,30 +34,27 @@
                     <span class="flex items-center bg-[#fdc432] w-[65px] justify-center h-[30px] rounded-[12px] font-bold">
                         @Model.Rate     <i class="fas fa-star"></i>
                     </span>
-                    <p class="ml-[10px]">
-                        Tuyệt vời
-                    </p>
+                    
                 </div>
 
             </div>
-            <div>
-                <div>
-                </div>
-                <div class="content-center flex mt-[20px]">
-                    <div class="mr-[20px]">
+            
+                <div class="content-center  mt-[20px]">
+                    <div class="">
                         <!-- gia tr em + guoi lon -->
-                        <p class="text-red-400 font-bold">
-                            @Model.PriceChildren ₫/ Trẻ em
+                    <p class="text-red-400 font-bold text-[20px]">
+                        @string.Format("{0:N0}", Model.PriceAdult ) VNĐ/ Người lớn
+                    </p>
+                        <p class="text-red-400 font-bold text-[20px]">
+                            
+                            @string.Format("{0:N0}", Model.PriceChildren ) VNĐ/ Trẻ em
                         </p>
-                        <p class="text-red-400 font-bold">
-                            @Model.PriceAdult ₫/ Người lớn
-                        </p>
+                        
 
                     </div>
-                    <div>  <a asp-action="Booking" asp-route-id="@Model.Id" class="!no-underline block rounded-[12px] w-[240px] h-[50px] bg-red-600 text-center leading-[50px] text-white font-bold">Đặt ngay</a></div>
+                    <div class="mt-3">  <a asp-action="Booking" asp-route-id="@Model.Id" class="!no-underline block rounded-[12px] w-[240px] h-[50px] bg-red-600 text-center leading-[50px] text-white font-bold">Đặt ngay</a></div>
 
                 </div>
-            </div>
         </div>
 
         <!-- image -->
@@ -67,7 +64,7 @@
 
 
         <!-- gio khoi hanh + tap trung -->
-        <div class="mt-[50px] bg-gray-200 shadow-lg px-[48px] py-[12px] rounded-lg border border-gray-300">
+        <div class="mt-[50px]   px-[48px] py-[12px] rounded-lg border border-gray-300">
             <div class="text-center text-2xl font-semibold text-blue-500">
                 <h3>Thông tin chuyến đi</h3>
             </div>
@@ -140,9 +137,9 @@
                     <div class="">
                         <p class="font-bold mb-[20px]">Giá Tour</p>
                         <!-- gia nguoi lon -->
-                        <p class="text-red-400">@Model.PriceAdult </p>
+                        <p class="text-red-400 font-bold">@string.Format("{0:N0}", @Model.PriceAdult) VNĐ  </p>
                         <!-- gia tre em -->
-                        <p class="text-red-400">@Model.PriceChildren</p>
+                        <p class="text-red-400 font-bold">@string.Format("{0:N0}", @Model.PriceChildren) VNĐ  </p>
                     </div>
                 </div>
 
@@ -152,16 +149,16 @@
         <div class="flex justify-between mt-[40px] gap-4">
             <div class="bg-gray-200 shadow-lg p-6 rounded-full w-1/2">
                 <h3 class=" text-center text-2xl font-semibold text-blue-500">Thông Tin Khách Sạn</h3>
-                <div>
-                    <p>
+                <div class="px-4 py-2">
+                    <p class="font-bold text-[20px] ">
                         @Model.HotelInfo
                     </p>
                 </div>
             </div>
             <div class="bg-gray-200 shadow-lg p-6 rounded-full w-1/2">
-                <h3 class=" text-center text-2xl font-semibold text-blue-500">Thông Tin Nhân Viên</h3>
-                <div>
-                    <p>
+                <h3 class=" text-center text-2xl font-semibold text-blue-500">Thông Tin Hướng Dẫn Viên</h3>
+                <div class="px-4 py-2">
+                    <p class="font-bold text-[20px] ">
                        @Model.HDVName
                     </p>
                 </div>
@@ -170,7 +167,4 @@
     </div>
 
 </body>
-<footer class="h-[200px]">
-    day la footer
-</footer>
 </html>

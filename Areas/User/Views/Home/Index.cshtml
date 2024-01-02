@@ -19,8 +19,14 @@
                 </div>
                 <div class="absolute top-[10px] left-[3%]">
                     <div class="p-[6px] bg-[red] flex justify-center rounded-[10px]">
-                        <span class="text-[12px] text-white font-bold">Còn chỗ </span>
-                        <!-- <span class="text-[12px] text-white font-bold">Hết chỗ </span> -->
+                        @if(item.AvailableSeats > 0 )
+                        {
+                            
+                            <span class="text-[12px] text-white font-bold">Còn chỗ </span>
+                        }else
+                        { 
+                        <span class="text-[12px] text-white font-bold">Hết chỗ </span> 
+                        }
                     </div>
                 </div>
             </div>
@@ -39,10 +45,10 @@
                     <span class="">Nơi khởi hành: @item.FocusPlace</span>
                 </div>
                 <div class="text-[#e01600] text-[16px] font-bold mt-[8px]">
-                    Giá người lớn: @item.PriceAdult
+                    Giá người lớn: @string.Format("{0:N0}", item.PriceAdult) VNĐ
                 </div>
                 <div class="text-[#e01600] text-[16px] font-bold mt-[8px]">
-                    Giá người lớn: @item.PriceChildren
+                    Giá người lớn: @string.Format("{0:N0}", item.PriceChildren) VNĐ
                 </div>
             </div>
         </div>

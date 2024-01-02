@@ -39,15 +39,16 @@
                 @Html.DisplayNameFor(model => model.PriceAdult)
             </div>
             <div class="w-[50%]">
-                @Html.DisplayFor(model => model.PriceAdult) VND
+                @string.Format("{0:N0}", Model.PriceAdult) VNĐ
             </div>
         </div>
         <div class="flex">
             <div class="w-[50%] font-medium">
+
                 @Html.DisplayNameFor(model => model.PriceChildren)
             </div>
             <div class="w-[50%]">
-                @Html.DisplayFor(model => model.PriceChildren)  VND
+                @string.Format("{0:N0}", Model.PriceChildren) VNĐ
             </div>
         </div>
         <div class="flex">

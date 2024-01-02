@@ -43,6 +43,8 @@ namespace BookingTour.Areas.User.Controllers
 
             return View(tour);
         }
+
+        [HttpGet]
         public IActionResult Booking(int? id) {
             var tour = (from t in _context.tours
                         where t.Id == id
@@ -52,25 +54,58 @@ namespace BookingTour.Areas.User.Controllers
             return View();
         }
 
-        public IActionResult confirmBooking([Bind("CustomerName", "CustomerEmail", "CustomerPhone", "CustomerAddress, NumberOfAdult, NumberOfChildren")] Booking booking ,int id)
+        [HttpPost]
+        public IActionResult Booking([Bind("CustomerName", "CustomerEmail", "CustomerPhone", "CustomerAddress, NumberOfAdult, NumberOfChildren")] Booking booking ,int id)
         {
-            booking.Status = 1;
-            booking.CustomerId = _userManager.GetUserId(User);
+            var tour = (from b in _context.tours
+                        where b.Id == id
+                        select b).FirstOrDefault();
+            
             booking.TourID = id;
 
-            
-            
-                var tour = (from b in _context.tours
-                            where b.Id == id
-                            select b).FirstOrDefault();
+            if (ModelState.IsValid)
+            {
+                booking.Status = 1;
+                booking.CustomerId = _userManager.GetUserId(User);
                 booking.CreatedBy = booking.ModifierBy = "Cuong";
                 booking.CreatedDate = booking.ModifierDate = DateTime.Now;
                 booking.TotalAmount = booking.NumberOfAdult * tour.PriceAdult + booking.NumberOfChildren * tour.PriceChildren;
                 booking.BookingDate = DateTime.Now;
                 _context.bookings.Add(booking);
                 _context.SaveChanges();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Cart));
+            }
+            else
+            {
+                ViewData["tour"] = tour;
+                return View();
+            }
             
+        }
+        
+        
+        [HttpGet]    
+        public IActionResult Cart()
+        {
+            var userId = _userManager.GetUserId(User);
+            var tourSuccess = _context.bookings.Where(b => b.Status == 1 && b.CustomerId == userId).Include(t => t.Tour);
+                //from t in _context.bookings
+                //              where t.Status == 1 && t.CustomerId == userId
+                //              select t;
+
+            return View(tourSuccess);
+        }
+
+        [HttpPost]
+        public IActionResult Cart(int? id)
+        {
+            var tourSuccess = (from t in _context.bookings
+                              where t.Id == id
+                              select t).FirstOrDefault();
+            tourSuccess.Status = 2;
+            _context.bookings.Update(tourSuccess);
+            _context.SaveChanges();
+            return RedirectToAction("Cart");
         }
     }
 }

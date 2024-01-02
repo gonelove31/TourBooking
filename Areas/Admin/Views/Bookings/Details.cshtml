@@ -83,7 +83,7 @@
             @Html.DisplayNameFor(model => model.TotalAmount)
         </div>
         <div class="w-[50%]">
-            @Html.DisplayFor(model => model.TotalAmount)
+            @string.Format("{0:N0}", Model.TotalAmount) VNĐ
         </div>
     </div>
     <div class="flex">

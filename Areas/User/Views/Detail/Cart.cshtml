@@ -1,0 +1,38 @@
+﻿@model IEnumerable<BookingTour.Models.Booking>
+@inject TourContext _context;
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+
+<form asp-action="Cart" class="max-w-[1200px] m-auto mt-[100px]">
+    @foreach (var item in Model)
+    {
+        <div class="flex w-full items-center justify-between px-[12px] py-[8px] border border-solid border-[#ccc] rounded-[16px] mb-[12px]">
+            <div class="flex w-[90%] items-center gap-4">
+                <div class="">
+                    <img src="@item.Tour.Image" alt="" class="h-[80px] w-[80px] object-cover">
+                </div>
+                <div class="w-full">
+                    <div class="font-bold text-[20px]">@item.Tour.Name</div>
+                    <div class="">
+                        <div class="flex"><span class="w-[150px] block"> Ngày đặt:</span> <span class="font-bold">@item.BookingDate</span> </div>
+                        <div class="flex"><span class="w-[150px] block">Ngày bắt đầu:</span>  <span class="font-bold">@item.Tour.StartDate</span></div>
+                    </div>
+                    <div class="flex justify-between">
+                        <div class="">
+                            <div class="flex"><span class="w-[150px] block">Tổng tiền người lớn:</span> <span class="font-bold">@item.NumberOfAdult (Người) * @string.Format("{0:N0}", @item.Tour.PriceAdult) VNĐ  = @string.Format("{0:N0}", @item.NumberOfAdult * @item.Tour.PriceAdult) VNĐ  </span> </div>
+                            <div class="flex"><span class="w-[150px] block">Tổng tiền trẻ em:</span> <span class="font-bold">@item.NumberOfChildren (Người) * @string.Format("{0:N0}", @item.Tour.PriceChildren) VNĐ = @string.Format("{0:N0}", @item.NumberOfChildren * @item.Tour.PriceChildren) VNĐ </span> </div>
+                        </div>
+
+                        <div class=""> <span>Tổng tiền: </span> <span class="text-[red] font-bold">@string.Format("{0:N0}", @item.TotalAmount) VNĐ</span> </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="">
+                <button type="submit" asp-route-id="@item.Id" class="bg-[red] text-white font-bold px-[12px] py-[8px] rounded-[12px]">Hủy</button>
+            </div>
+        </div>
+    }
+    
+
+</form>

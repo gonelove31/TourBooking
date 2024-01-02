@@ -31,44 +31,54 @@
     
     
         </div>
-        <div class="flex grid grid-cols-3 gap-6">
+        <div class="flex grid grid-cols-3 gap-6 mt-5">
             <div class="col-span-2">
-                <h3 style="box-sizing: border-box; margin-top: 0px; margin-bottom: 0.5rem; font-weight: 500; line-height: 40px; font-size: 20px; color: #2d4271; font-family: Roboto, sans-serif; background-color: #ffffff;">Thông tin liên lạc</h3>
+                <h3 style="box-sizing: border-box; margin-top: 0px; margin-bottom: 0.5rem; font-weight: 500; line-height: 40px; font-size: 20px; color: #2d4271; font-family: Roboto, sans-serif; background-color: #ffffff; ">Thông tin liên lạc</h3>
 
                 <div class="customer-contact mb-3" style="box-sizing: border-box; color: #2d4271; font-family: Roboto, sans-serif; font-size: 15px; background-color: #ffffff; margin-bottom: 1rem !important;">
-                <form asp-action="confirmBooking" asp-route-id="@tour.Id" id="form" class="customer-contact-inner" style="box-sizing: border-box; align-items: center; background: #f9f9f9; border-radius: 10px; display: flex; flex-wrap: wrap; justify-content: space-between; " method="post">
+                <form asp-action="Booking" asp-route-id="@tour.Id" id="form" class="customer-contact-inner" style="box-sizing: border-box; align-items: center; background: #f9f9f9; border-radius: 10px; display: flex; flex-wrap: wrap; justify-content: space-between; " method="post">
                         
                     <div class="flex gap-4">
                             <div class="name" style="box-sizing: border-box; display: flex; flex-direction: column; margin-bottom: 20px; width: 386.875px;">
                                 <label style="box-sizing: border-box; display: flex; align-items: center; font-size: 13px; line-height: 16px; margin-bottom: 5px;">Họ và Tên<span style="box-sizing: border-box; font-weight: bold; color: red; font-size: 10px; margin-left: 3px; margin-top: -2px;">*</span></label>
                                 <input asp-for="CustomerName" class="form-control" style="box-sizing: border-box; font-family: inherit; font-size: 1rem; line-height: 1.5; margin: 0px; overflow: visible; color: #2d4271; font-style: inherit; font-variant: inherit; font-weight: 400; font-stretch: inherit; font-optical-sizing: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; display: block; width: 386.875px; padding: 0px 10px; background: #ffffff; appearance: none; border-radius: 5px; transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s; height: 40px; border: 1px solid #e7e7e7;"  />
+                            <span asp-validation-for="CustomerName" class="text-danger"></span>
                             </div>
                     
                             <div class="mail" style="box-sizing: border-box; display: flex; flex-direction: column; margin-bottom: 20px; width: 386.875px;">
                                 <label style="box-sizing: border-box; display: flex; align-items: center; font-size: 13px; line-height: 16px; margin-bottom: 5px;">Email<span style="box-sizing: border-box; font-weight: bold; color: red; font-size: 10px; margin-left: 3px; margin-top: -2px;">*</span></label>
                             <input asp-for="CustomerEmail" class="form-control" style="box-sizing: border-box; font-family: inherit; font-size: 1rem; line-height: 1.5; margin: 0px; overflow: visible; color: #2d4271; font-style: inherit; font-variant: inherit; font-weight: 400; font-stretch: inherit; font-optical-sizing: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; display: block; width: 386.875px; padding: 0px 10px; background: #ffffff; appearance: none; border-radius: 5px; transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s; height: 40px; border: 1px solid #e7e7e7;"  />
-                            </div>
+                            <span asp-validation-for="CustomerEmail" class="text-danger"></span>
+                        </div>
                         </div>
                        <div class="flex gap-4">
                             <div class="phone" style="box-sizing: border-box; display: flex; flex-direction: column; margin-bottom: 20px; width: 386.875px;">
                                 <label style="box-sizing: border-box; display: flex; align-items: center; font-size: 13px; line-height: 16px; margin-bottom: 5px;">Số điện thoại<span style="box-sizing: border-box; font-weight: bold; color: red; font-size: 10px; margin-left: 3px; margin-top: -2px;">*</span></label>
                                 <input  asp-for="CustomerPhone" class="form-control" style="box-sizing: border-box; font-family: inherit; font-size: 1rem; line-height: 1.5; margin: 0px; overflow: visible; color: #2d4271; font-style: inherit; font-variant: inherit; font-weight: 400; font-stretch: inherit; font-optical-sizing: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; display: block; width: 386.875px; padding: 0px 10px; background: #ffffff; appearance: none; border-radius: 5px; transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s; height: 40px; border: 1px solid #e7e7e7;"  />
-                            </div>
+                            <span asp-validation-for="CustomerPhone" class="text-danger"></span>
+
+                        </div>
                             <div class="phone" style="box-sizing: border-box; display: flex; flex-direction: column; margin-bottom: 20px; width: 386.875px;">
                                 <label style="box-sizing: border-box; display: flex; align-items: center; font-size: 13px; line-height: 16px; margin-bottom: 5px;">Địa chỉ</label>
                             <input asp-for="CustomerAddress"  class="form-control" style="box-sizing: border-box; font-family: inherit; font-size: 1rem; line-height: 1.5; margin: 0px; overflow: visible; color: #2d4271; font-style: inherit; font-variant: inherit; font-weight: 400; font-stretch: inherit; font-optical-sizing: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; display: block; width: 386.875px; padding: 0px 10px; background: #ffffff; appearance: none; border-radius: 5px; transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s; height: 40px; border: 1px solid #e7e7e7;"  />
-                            </div>
+                            <span asp-validation-for="CustomerAddress" class="text-danger"></span>
+
+                        </div>
 
                        </div>
                        <div class="flex gap-4">
                             <div class="phone" style="box-sizing: border-box; display: flex; flex-direction: column; margin-bottom: 20px; width: 386.875px;">
                                 <label  style="box-sizing: border-box; display: flex; align-items: center; font-size: 13px; line-height: 16px; margin-bottom: 5px;">Số lượng người lớn<span style="box-sizing: border-box; font-weight: bold; color: red; font-size: 10px; margin-left: 3px; margin-top: -2px;">*</span></label>
                             <input asp-for="NumberOfAdult" class ="form-control" style="box-sizing: border-box; font-family: inherit; font-size: 1rem; line-height: 1.5; margin: 0px; overflow: visible; color: #2d4271; font-style: inherit; font-variant: inherit; font-weight: 400; font-stretch: inherit; font-optical-sizing: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; display: block; width: 386.875px; padding: 0px 10px; background: #ffffff; appearance: none; border-radius: 5px; transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s; height: 40px; border: 1px solid #e7e7e7;"  />
-                            </div>
+                            <span asp-validation-for="NumberOfAdult" class="text-danger"></span>
+
+                        </div>
                             <div class="phone" style="box-sizing: border-box; display: flex; flex-direction: column; margin-bottom: 20px; width: 386.875px;">
                                 <label style="box-sizing: border-box; display: flex; align-items: center; font-size: 13px; line-height: 16px; margin-bottom: 5px;">Số lượng trẻ em<span style="box-sizing: border-box; font-weight: bold; color: red; font-size: 10px; margin-left: 3px; margin-top: -2px;">*</span></label>
                                 <input asp-for="NumberOfChildren" class="form-control" style="box-sizing: border-box; font-family: inherit; font-size: 1rem; line-height: 1.5; margin: 0px; overflow: visible; color: #2d4271; font-style: inherit; font-variant: inherit; font-weight: 400; font-stretch: inherit; font-optical-sizing: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; display: block; width: 386.875px; padding: 0px 10px; background: #ffffff; appearance: none; border-radius: 5px; transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s; height: 40px; border: 1px solid #e7e7e7;" />
-                            </div>
+                            <span asp-validation-for="NumberOfChildren" class="text-danger"></span>
+
+                        </div>
 
                        </div>
 
@@ -104,10 +114,16 @@
                     </div>
                 </div>
 
-            <div class="text-[#2d4271] ">Giá người lớn: <span class="font-bold">@tour.PriceAdult VND</span> </div>
-                <div class="text-[#2d4271]">Giá trẻ em: <span class="font-bold">@tour.PriceChildren VND</span></div>
+            <div class="text-[#2d4271] ">Giá người lớn: <span class="font-bold">@string.Format("{0:N0}", @tour.PriceAdult) VNĐ  </span> </div>
+            <div class="text-[#2d4271]">Giá trẻ em: <span class="font-bold">@string.Format("{0:N0}", @tour.PriceChildren) VNĐ</span></div>
 
                
             </div>
         </div>
     </div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

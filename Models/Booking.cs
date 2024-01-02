@@ -17,6 +17,8 @@ namespace BookingTour.Models
         public string? CustomerName { get; set; }
 
         [Display(Name = "Email người đặt")]
+        [Required(ErrorMessage = "Bắt buộc phải nhập email người đặt")]
+        [EmailAddress(ErrorMessage ="Vui lòng nhập đúng email")]
         public string? CustomerEmail { get; set; }
 
         [Display(Name = "Số điện thoại người đặt")]
