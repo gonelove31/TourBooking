@@ -1,0 +1,32 @@
+﻿@model BookingTour.Models.ImageTour
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.URL)
+        </dt>
+        <dd class="col-sm-10">
+            <td>
+                <img class="anh1" src="@Html.DisplayFor(modelItem => Model.URL)" alt="Image"
+                     style=" max-width: 150px;height: 150px; object-fit: cover;" />
+            </td>
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Tours)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Tours.Name)
+        </dd>
+    </dl>
+    
+    <form class="mt-[24px]" asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Xóa" class="btn btn-danger bg-[#c82333]" /> |
+        <a class="btn btn-primary" asp-action="Index">Quay lại</a>
+    </form>
+</div>

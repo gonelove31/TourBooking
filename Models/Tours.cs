@@ -72,7 +72,7 @@ namespace BookingTour.Models
         [Display(Name = "Chi tiết tour")]
         public string Note { set; get; }
 
-
+        public ICollection<ImageTour> imgs { get; set; }
 
     }
 }

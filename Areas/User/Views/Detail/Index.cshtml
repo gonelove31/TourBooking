@@ -1,4 +1,5 @@
 ﻿@model BookingTour.Models.Tours
+@inject TourContext _context;
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -58,8 +59,15 @@
         </div>
 
         <!-- image -->
-        <div class="mt-[50px]">
-            <img class="h-[735px]" src="@Model.Image" alt="">
+        <div class="mt-[50px] grid grid-cols-2 gap-4">
+            <img class=" w-full object-cover" src="@Model.Image" alt="">
+            @{
+                var imgs = _context.image.Where(i => i.TourID == Model.Id);
+                foreach (var img in imgs)
+                {
+                    <img class=" w-full object-cover" src="@img.URL" alt="">
+                };
+            }
         </div>
 
 
