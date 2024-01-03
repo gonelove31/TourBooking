@@ -2,8 +2,50 @@
 @inject TourContext _context;
 <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
+<style>
+    /* CSS cho thông báo xác nhận */
+    .confirmation-dialog {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff;
+        border: 1px solid #ccc;
+        padding: 20px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        z-index: 999;
+    }
 
-<form asp-action="Cart" class="max-w-[1200px] m-auto mt-[100px]">
+        .confirmation-dialog h2 {
+            margin-top: 0;
+        }
+
+    .confirmation-dialog-buttons {
+        margin-top: 20px;
+    }
+
+        .confirmation-dialog-buttons button {
+            margin-right: 10px;
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+        }
+
+            .confirmation-dialog-buttons button.cancel-button {
+                background-color: #ccc;
+            }
+
+    /* Khi hiển thị thông báo */
+    .confirmation-dialog.visible {
+        display: block;
+    }
+
+</style>
+
     @foreach (var item in Model)
     {
         <div class="flex w-full items-center justify-between px-[12px] py-[8px] border border-solid border-[#ccc] rounded-[16px] mb-[12px]">
@@ -27,12 +69,109 @@
                     </div>
                 </div>
             </div>
-
-            <div class="">
-                <button type="submit" asp-route-id="@item.Id" class="bg-[red] text-white font-bold px-[12px] py-[8px] rounded-[12px]">Hủy</button>
-            </div>
+        <div class="">
+            @if (item.Status == 1)
+            {
+                <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded cancel-button" data-booking-id="@item.Id">
+                    Hủy
+                </button>
+            }
+            else
+            {
+                <div class="text-center">
+                    <span class="inline-block bg-red-300 text-white font-bold py-2 px-4 rounded">
+                        Đã hủy
+                    </span>
+                </div>
+            }
+        </div>
         </div>
     }
-    
+     
 
-</form>
+<script>
+
+    document.addEventListener('DOMContentLoaded', function () {
+        var cancelButtons = document.querySelectorAll('.cancel-button');
+
+        cancelButtons.forEach(function (button) {
+            button.addEventListener('click', function () {
+                // Hiển thị thông báo xác nhận hủy
+                confirmCancel().then(function (isConfirmed) {
+                    if (isConfirmed) {
+                        var bookingId = button.getAttribute('data-booking-id');
+                        handleCancelBooking(bookingId);
+                    }
+                });
+            });
+        });
+
+        function confirmCancel() {
+            // Tạo một div mới cho thông báo xác nhận
+            var confirmationDialog = document.createElement('div');
+            confirmationDialog.className = 'confirmation-dialog';
+            confirmationDialog.innerHTML = `
+                <h2>Xác nhận hủy đặt hàng</h2>
+                <p>Bạn có chắc chắn muốn hủy không?</p>
+                <div class="confirmation-dialog-buttons">
+                    <button id="confirmButton">OK</button>
+                    <button id="cancelButton" class="cancel-button">Hủy</button>
+                </div>
+            `;
+
+            // Thêm dialog vào body
+            document.body.appendChild(confirmationDialog);
+
+            // Thêm lớp visible để hiển thị dialog
+            confirmationDialog.classList.add('visible');
+
+            // Trả về một Promise để xử lý xác nhận
+            return new Promise((resolve) => {
+                document.getElementById('confirmButton').addEventListener('click', function () {
+                    // Xóa dialog sau khi người dùng chọn OK
+                    confirmationDialog.classList.remove('visible');
+                    document.body.removeChild(confirmationDialog);
+                    // Giải quyết Promise với giá trị true
+                    resolve(true);
+                });
+
+                document.getElementById('cancelButton').addEventListener('click', function () {
+                    // Xóa dialog sau khi người dùng chọn Hủy
+                    confirmationDialog.classList.remove('visible');
+                    document.body.removeChild(confirmationDialog);
+                    // Giải quyết Promise với giá trị false
+                    resolve(false);
+                });
+            });
+        }
+
+        function handleCancelBooking(bookingId) {
+            console.log('ok${bookingId}')
+            // Gửi yêu cầu cập nhật trạng thái đến máy chủ
+            fetch('/User/Detail/CancelBooking/' + bookingId, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    // Kiểm tra kết quả và cập nhật trang nếu cần
+                    if (data.success) {
+                        // Cập nhật trạng thái hiển thị trên trang
+                        alert('Đã hủy thành công!');
+                        // Cập nhật DOM hoặc chuyển hướng đến trang khác
+                        window.location.href = '/User/Detail/Cart';  // Thay thế bằng đường dẫn đúng
+                    } else {
+                        alert('Không thể hủy. Đã xảy ra lỗi!');
+                    }
+                })
+                .catch(error => {
+                    console.error('Lỗi khi gửi yêu cầu cập nhật trạng thái:', error);
+                });
+        }
+    });
+
+
+</script>
