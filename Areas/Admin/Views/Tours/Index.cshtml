@@ -1,5 +1,5 @@
-﻿@model X.PagedList.IPagedList<Tours>
-@inject TourContext _context;
+﻿@model X.PagedList.IPagedList<BookingTour.Models.Tours>
+@inject BookingTour.Models.TourContext _context;
 <link rel="stylesheet" href="~/css/custom-paging.css">
 @{
     @using X.PagedList.Mvc.Core;
@@ -124,7 +124,7 @@
                     <img  class="anh1" src="@Html.DisplayFor(modelItem => item.Image)" alt="Image"
                         style=" max-width: 80px;height: 80px; object-fit: cover;" />
                 </td>
-                <td>
+                <td class="w-[560px]">
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
                 
@@ -157,12 +157,7 @@
     <img class="modal-content" id="img01">
 </div>
 
-@if (Model.Count() >= 1)
-{
-    <ul class="pagination pagination-sm">
-        @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
-    </ul>
-}
+
 
 
 <script>

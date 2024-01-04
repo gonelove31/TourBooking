@@ -39,7 +39,7 @@ namespace BookingTour.Areas.Admin.Controllers
         // GET: Admin/Tours
         public async Task<IActionResult> Index(int? page, string? searchString)
         {
-            int pageSize = 10;
+            int pageSize = 100000;
             int pageNumber = page ?? 1;
             IEnumerable<BookingTour.Models.Tours> tourContext = _context.tours.Include(t => t.Location).ToList();
             if (!String.IsNullOrEmpty(searchString))

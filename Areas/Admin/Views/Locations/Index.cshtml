@@ -1,4 +1,4 @@
-﻿@model X.PagedList.IPagedList<Location>
+﻿@model X.PagedList.IPagedList<BookingTour.Models.Location>
 <link rel="stylesheet" href="~/css/custom-paging.css">
 @{
     @using X.PagedList.Mvc.Core;
@@ -166,12 +166,7 @@
     <span class="close">&times;</span>
     <img class="modal-content" id="img01">
 </div>
-@if (Model.Count() >= 1)
-{
-    <ul class="pagination pagination-sm">
-        @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
-    </ul>
-}
+
 
 <script>
     var modal = document.getElementById("myModal");

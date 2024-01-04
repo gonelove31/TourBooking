@@ -35,7 +35,7 @@ namespace BookingTour.Areas.Admin.Controllers
         // GET: Admin/Bookings
         public async Task<IActionResult> Index(int? page)
         {
-            int pageSize = 10;
+            int pageSize = 100000;
             int pageNumber = page ?? 1;
             IEnumerable<BookingTour.Models.Booking> tourContext = _context.bookings.Include(b => b.Tour).ToList();
 

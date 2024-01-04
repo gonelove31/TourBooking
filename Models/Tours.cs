@@ -45,9 +45,11 @@ namespace BookingTour.Models
         [Display(Name = "Thời gian kết thúc")]
         public DateTime? EndDate { get; set; }
 
+        [Display(Name = "Địa điểm")]
         public int? LocationID { get; set; }
 
         [ForeignKey("LocationID")]
+        [Display(Name = "Địa điểm")]
         public Location? Location { set; get; }
 
         [Display(Name = "Hình ảnh")]
@@ -55,13 +57,13 @@ namespace BookingTour.Models
 
 
         [Display(Name = "Thông tin khách sạn")]
-        public string HotelInfo { set; get; }
+        public string? HotelInfo { set; get; }
 
         [Display(Name = "Tên hướng dẫn viên")]
-        public string HDVName {  get; set; }
+        public string? HDVName {  get; set; }
 
         [Display(Name = "Lịch trình")]
-        public string Schedule { get; set; }
+        public string? Schedule { get; set; }
 
         [Display(Name = "Ngày tập trung")]
         public DateTime? FocusDay { get; set; }
@@ -70,9 +72,9 @@ namespace BookingTour.Models
         public string? FocusPlace { get; set; }
 
         [Display(Name = "Chi tiết tour")]
-        public string Note { set; get; }
+        public string? Note { set; get; }
 
-        public ICollection<ImageTour> imgs { get; set; }
+        public ICollection<ImageTour>? imgs { get; set; }
 
     }
 }
