@@ -7,6 +7,9 @@
 <div class="grid grid-cols-3 gap-4 w-[1200px] m-auto mt-[100px]">
     @foreach (var item in Model)
     {
+
+        <a asp-are asp-controller="Detail" asp-action="Index" asp-route-id="@item.Id" class="text-[#2d4271] font-bold block mb-[12px] mt-[12px]">
+           
         <div class=" bg-white border border-[#dddfe2] border-solid rounded-[10px]">
             <div class="relative h-[250px]">
                 <div class="absolute h-full w-full">
@@ -38,10 +41,8 @@
                     </span>
                 </div>
                 <div class="">
-
-                    <a asp-are asp-controller="Detail" asp-action="Index" asp-route-id="@item.Id" class="text-[#2d4271] font-bold block mb-[12px] mt-[12px]">
-                       @item.Name
-                    </a>
+                        @item.Name
+                  
                     <span class="">Nơi khởi hành: @item.FocusPlace</span>
                 </div>
                 <div class="text-[#e01600] text-[16px] font-bold mt-[8px]">
@@ -52,6 +53,7 @@
                 </div>
             </div>
         </div>
+        </a>
     }
 
 </div>

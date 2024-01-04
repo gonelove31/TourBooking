@@ -1,6 +1,7 @@
 ﻿
 using BookingTour.Models;
 using BookingTour.Services;
+using iText.Commons.Actions.Contexts;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -55,14 +56,13 @@ namespace BookingTour.Areas.User.Controllers
         }
 
         [HttpPost]
-        public IActionResult Booking([Bind("CustomerName", "CustomerEmail", "CustomerPhone", "CustomerAddress, NumberOfAdult, NumberOfChildren")] Booking booking ,int id)
+        public IActionResult Booking([Bind("CustomerName", "CustomerEmail", "CustomerPhone", "CustomerAddress, NumberOfAdult, NumberOfChildren")] Booking booking, int id)
         {
             var tour = (from b in _context.tours
                         where b.Id == id
                         select b).FirstOrDefault();
-            
             booking.TourID = id;
-
+            tour.AvailableSeats = tour.AvailableSeats - 1;
             if (ModelState.IsValid)
             {
                 booking.Status = 1;
@@ -80,15 +80,42 @@ namespace BookingTour.Areas.User.Controllers
                 ViewData["tour"] = tour;
                 return View();
             }
-            
         }
-        
-        
+        [HttpPost("/user/detail/CancelBooking/{bookingId}")]
+        public IActionResult CancelBooking(int bookingId)
+        {
+            try
+            {
+                // Lấy Booking từ cơ sở dữ liệu bằng ID
+                var booking = _context.bookings.Find(bookingId);
+
+                // Kiểm tra xem Booking có tồn tại không
+                if (booking == null)
+                {
+                    return Json(new { success = false, message = "Không tìm thấy Booking." });
+                }
+
+                // Cập nhật trạng thái thành 'Đã hủy'
+                booking.Status = 2;
+                var tour = (from b in _context.tours where b.Id==booking.TourID select b).FirstOrDefault();
+                tour.AvailableSeats = tour.AvailableSeats + 1;
+                // Lưu thay đổi vào cơ sở dữ liệu
+                _context.SaveChanges();
+
+                return Json(new { success = true });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = $"Lỗi:kk {ex.Message}" });
+            }
+        }
+
+
         [HttpGet]    
         public IActionResult Cart()
         {
             var userId = _userManager.GetUserId(User);
-            var tourSuccess = _context.bookings.Where(b => b.Status == 1 && b.CustomerId == userId).Include(t => t.Tour);
+            var tourSuccess = _context.bookings.Where(b => b.CustomerId == userId).Include(t => t.Tour);
                 //from t in _context.bookings
                 //              where t.Status == 1 && t.CustomerId == userId
                 //              select t;
@@ -96,7 +123,7 @@ namespace BookingTour.Areas.User.Controllers
             return View(tourSuccess);
         }
 
-        [HttpPost]
+
         public IActionResult Cart(int? id)
         {
             var tourSuccess = (from t in _context.bookings

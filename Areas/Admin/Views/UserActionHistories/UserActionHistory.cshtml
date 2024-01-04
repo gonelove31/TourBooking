@@ -160,13 +160,13 @@
     
         $.ajax({
             type: 'GET',
-            url: '@Url.Action("SearchHistory", "UserActionHistories", new { area = "Admin"})',
+            url: '@Url.Action("SearchHistory", "UserActionHistories")',
             data: { username: username, action: action, date: date },
             
             success: function (result) {
                 // Hiển thị kết quả tìm kiếm, ví dụ: cập nhật nội dung trang
-
-                $('#historyTable tbody').html(result);
+                console.log(result);
+              
             },
             error: function (error) {
                 console.error('Lỗi khi tìm kiếm lịch sử:', error);
@@ -175,20 +175,17 @@
     }
 </script>
 
-@* <div id="searchForm">
-    <form >
+<div id="searchForm">
+    <form asp-action="SearchHistory">
         <label for="username">Username:</label>
-        <input type="text" id="username" name="username">
+        <input type="text" id="username" name="UserName">
 
         <label for="action">Action:</label>
-        <input type="text" id="action" name="action">
+        <input type="text" id="action" name="Action">
 
-        <label for="date">Ngày:</label>
-        <input type="text" id="date" name="date" placeholder="dd/MM/yyyy">
-
-        <button type="button" onclick="searchHistory()">Tìm Kiếm</button>
+        <button type="submit" >Tìm Kiếm</button>
     </form>
-</div> *@
+</div>
 
 <button class="delete-btn" onclick="deleteAllHistories()">Xóa Tất Cả Lịch Sử</button>
     <table class="table">
@@ -204,7 +201,17 @@
             @foreach (var history in Model)
             {
                 <tr>
-                    <td>@history.User.UserName</td>
+                    <td>
+                @if (history != null && history.User != null)
+                {
+                    @history.User.UserName
+                }
+                else
+                {
+                    <!-- Xử lý trường hợp null, ví dụ: -->
+                    <p>null</p>
+            }
+                </td>
                 <td class="GetActionClass(history.Action)">@history.Action</td>
                     <td>@history.Timestamp</td>
                     <td>@history.Details</td>

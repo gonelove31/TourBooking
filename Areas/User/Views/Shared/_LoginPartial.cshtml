@@ -2,31 +2,50 @@
 @inject SignInManager<AppUser> SignInManager;
 @inject UserManager<AppUser> UserManager;
 
-@{
+<style>
+    /* Thêm CSS để tùy chỉnh giao diện */
+    .navbar-nav {
+        display: flex;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
 
+    .nav-item {
+        margin-right: 10px;
+    }
 
-}
+    .nav-link {
+        color: white;
+      
+    }
+
+        .nav-link:hover {
+            color: #ffcc00; /* Màu khi hover */
+        }
+
+      
+</style>
+
 <ul class="navbar-nav">
     @if (SignInManager.IsSignedIn(User))
     {
-
         <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index">
-                xin chao @UserManager.GetUserName(User)
+            <a class="nav-link" asp-area="Identity" asp-page="/Account/Manage/Index">
+                Xin chào @UserManager.GetUserName(User)
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Logout">Đăng Xuất</a>
+            <a class="nav-link" asp-area="Identity" asp-page="/Account/Logout">Đăng Xuất</a>
         </li>
     }
     else
     {
         <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Đăng ký</a>
+            <a class="nav-link" asp-area="Identity" asp-page="/Account/Register">Đăng ký</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Đăng nhập</a>
+            <a class="nav-link" asp-area="Identity" asp-page="/Account/Login">Đăng nhập</a>
         </li>
     }
-
 </ul>

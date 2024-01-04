@@ -45,27 +45,21 @@ namespace BookingTour.Areas.Admin.Controllers
             return RedirectToAction("UserActionHistory");
         }
      
-        public IActionResult SearchHistory(string username, string action, string date)
+        public IActionResult SearchHistory([Bind("UserName", "Action")] UserActionHistory us)
         {
-            var query = _context.UserActionHistories.Include(history => history.User).AsQueryable();
-
-            if (!string.IsNullOrEmpty(username))
+            var query = from b in _context.UserActionHistories.Include(history => history.User) select b;
+            if (!string.IsNullOrEmpty(us.UserName))
             {
-                query = query.Where(history => history.User.UserName.Contains(username));
+               query =from b in _context.UserActionHistories.Include(history => history.User) where b.UserName.Contains(us.UserName) select b;
             }
 
-            if (!string.IsNullOrEmpty(action))
+            if (!string.IsNullOrEmpty(us.Action))
             {
-                query = query.Where(history => history.Action.Contains(action));
+                query = from b in _context.UserActionHistories.Include(history => history.User) where b.Action.Contains(us.Action) select b;
+
             }
 
-            if (!string.IsNullOrEmpty(date))
-            {
-                if (DateTime.TryParseExact(date, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out var parsedDate))
-                {
-                    query = query.Where(history => history.Timestamp.Date == parsedDate.Date);
-                }
-            }
+         
 
             var foundHistory = query.ToList();
             return View("UserActionHistory", foundHistory);

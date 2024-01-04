@@ -3,7 +3,33 @@
 
 @inject SignInManager<AppUser> SignInManager
 @inject UserManager<AppUser> UserManager
+<style>
+    /* Thêm CSS để tùy chỉnh giao diện */
+    .navbar-nav {
+        display: flex;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
 
+    .nav-item {
+        margin-right: 10px;
+    }
+
+    .nav-link {
+        color: white;
+        text-decoration: none;
+        transition: color 0.3s ease; /* Hiệu ứng màu khi hover */
+    }
+
+        .nav-link:hover {
+            color: #ffcc00; /* Màu khi hover */
+        }
+
+        .nav-link:hover {
+            color: #007bff; /* Màu chữ khi di chuột qua */
+        }
+</style>
 <ul class="navbar-nav">
 @if (SignInManager.IsSignedIn(User))
 {
