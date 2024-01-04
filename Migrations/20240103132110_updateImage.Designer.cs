@@ -4,6 +4,7 @@ using BookingTour.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BookingTour.Migrations
 {
     [DbContext(typeof(TourContext))]
-    partial class TourContextModelSnapshot : ModelSnapshot
+    [Migration("20240103132110_updateImage")]
+    partial class updateImage
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -150,7 +152,7 @@ namespace BookingTour.Migrations
                     b.ToTable("Booking");
                 });
 
-            modelBuilder.Entity("BookingTour.Models.ImageTour", b =>
+            modelBuilder.Entity("BookingTour.Models.Image", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -169,7 +171,7 @@ namespace BookingTour.Migrations
 
                     b.HasIndex("TourID");
 
-                    b.ToTable("ImageTour");
+                    b.ToTable("Image");
                 });
 
             modelBuilder.Entity("BookingTour.Models.Location", b =>
@@ -457,7 +459,7 @@ namespace BookingTour.Migrations
                     b.Navigation("Tour");
                 });
 
-            modelBuilder.Entity("BookingTour.Models.ImageTour", b =>
+            modelBuilder.Entity("BookingTour.Models.Image", b =>
                 {
                     b.HasOne("BookingTour.Models.Tours", "Tours")
                         .WithMany("imgs")

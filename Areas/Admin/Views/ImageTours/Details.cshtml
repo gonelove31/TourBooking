@@ -1,0 +1,31 @@
+﻿@model BookingTour.Models.ImageTour
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div>
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.URL)
+        </dt>
+        <dd class = "col-sm-10">
+            <td>
+                <img class="anh1" src="@Html.DisplayFor(modelItem => Model.URL)" alt="Image"
+                     style=" max-width: 150px;height: 150px; object-fit: cover;" />
+            </td>
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Tours)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Tours.Name)
+        </dd>
+    </dl>
+</div>
+<div class="mt-[20px]">
+    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model?.Id">Sửa</a> |
+    <a class="btn btn-primary" asp-action="Index">Quay lại</a>
+</div>
