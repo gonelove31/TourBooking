@@ -120,10 +120,7 @@ namespace BookingTour.Areas.Admin.Controllers
         // GET: Admin/Locations/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (!IsAdminUser())
-            {
-                return Forbid(); // Hoặc chuyển hướng đến trang không có quyền
-            }
+            
             if (id == null || _context.locations == null)
             {
                 return NotFound();

@@ -108,6 +108,7 @@ namespace BookingTour.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CustomerEmail")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CustomerId")
@@ -147,6 +148,28 @@ namespace BookingTour.Migrations
                     b.HasIndex("TourID");
 
                     b.ToTable("Booking");
+                });
+
+            modelBuilder.Entity("BookingTour.Models.ImageTour", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int?>("TourID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("URL")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TourID");
+
+                    b.ToTable("ImageTour");
                 });
 
             modelBuilder.Entity("BookingTour.Models.Location", b =>
@@ -434,6 +457,15 @@ namespace BookingTour.Migrations
                     b.Navigation("Tour");
                 });
 
+            modelBuilder.Entity("BookingTour.Models.ImageTour", b =>
+                {
+                    b.HasOne("BookingTour.Models.Tours", "Tours")
+                        .WithMany("imgs")
+                        .HasForeignKey("TourID");
+
+                    b.Navigation("Tours");
+                });
+
             modelBuilder.Entity("BookingTour.Models.Tours", b =>
                 {
                     b.HasOne("BookingTour.Models.Location", "Location")
@@ -513,6 +545,11 @@ namespace BookingTour.Migrations
             modelBuilder.Entity("BookingTour.Models.Location", b =>
                 {
                     b.Navigation("Tours");
+                });
+
+            modelBuilder.Entity("BookingTour.Models.Tours", b =>
+                {
+                    b.Navigation("imgs");
                 });
 #pragma warning restore 612, 618
         }

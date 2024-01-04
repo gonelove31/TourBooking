@@ -1,0 +1,32 @@
+﻿@model BookingTour.Models.ImageTour
+
+@{
+    ViewData["Title"] = "Tạo mới ảnh của tour";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="URL" class="control-label"></label>
+                <input type="file" name="file" asp-for="URL" class="block border-[2px] mt-1 focus:border-[green] rounded-md outline-none w-[100%] text-[16px] border-[#ccc] px-4 py-2" />
+                <span asp-validation-for="URL" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TourID" class="control-label"></label>
+                <select asp-for="TourID" class="block border-[2px] mt-1 focus:border-[green] rounded-md outline-none w-[100%] text-[16px] border-[#ccc] px-4 py-2" asp-items="ViewBag.TourID"></select>
+            </div>
+            <div class="form-group mt-4 gap-3 flex">
+                <input type="submit" value="Tạo" class="btn btn-primary bg-[#007bff]" />
+
+                <a class="btn btn-primary" asp-action="Index">Quay lại</a>
+
+            </div>
+        </form>
+    </div>
+</div>
+
+
