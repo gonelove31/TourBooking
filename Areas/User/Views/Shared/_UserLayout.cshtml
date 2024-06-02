@@ -61,18 +61,13 @@
             padding: 1rem; /* Khoảng trắng giữa header và nội dung chính */
         }
 
-        footer {
-            margin-top: auto; /* Đẩy footer xuống cuối trang */
-            background-color: #333; /* Màu nền của footer */
-            color: #fff; /* Màu chữ của footer */
-            padding: 1rem;
-        }
+       
     </style>
 </head>
 <body class="bg-gray-100">
 
         <nav class="sticky top-0 bg-blue-500 shadow-md flex !justify-between items-center text-white ">
-        <a asp-area="User" asp-controller="Home" asp-action="Index" class="text-4xl font-bold text-center text-white">Tour Ba Miền</a>
+        <a asp-area="User" asp-controller="Home" asp-action="Index" class="text-4xl font-bold text-center text-white">Tour Duy Đạo</a>
         <div>
         @if (ViewContext.RouteData.Values["controller"].ToString() == "Home" && ViewContext.RouteData.Values["action"].ToString() == "Index")
             {
@@ -84,14 +79,13 @@
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
                 </svg>
             </div>
-                        @Html.TextBox("SearchString", null, new { @class = "bg-transparent outline-none", placeholder = "Search..." })
+                        @Html.TextBox("SearchString", null, new { @class = "bg-transparent outline-none text-black", placeholder = "Search..." })
                         <button type="submit" class="text-white end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
                     </div>
                 }
             }
 
         </div>
-        @* tim kiem  *@
        
         <div class="flex gap-3">
             <div class="flex space-x-4 items-center">
@@ -110,12 +104,13 @@
     <div class="container mx-auto mt-8">
         <main class="pb-8">
             @RenderBody()
+            
         </main>
     </div>
 
     <footer class="bg-blue-500 text-white text-center py-4">
         <!-- Nội dung footer -->
-        <p>&copy; 2024 BookingTour. All rights reserved.</p>
+        <partial name="_Footer" />
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-rbs5bnWdIHsuV2+5PXjkF24t2dIFfRl5aFbG9Ckh5CXcpq4g+u7x4L7gVoZGpPdW" crossorigin="anonymous"></script>

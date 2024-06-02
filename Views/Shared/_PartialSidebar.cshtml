@@ -3,30 +3,28 @@
 
 @inject SignInManager<AppUser> SignInManager;
 @inject UserManager<AppUser> UserManager;
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
 
-@{
-
-    
-}
-<ul class="navbar-nav">
+<ul class="navbar-nav flex flex-row gap-4">
     @if (SignInManager.IsSignedIn(User))
     {
         
-        <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index">
+        <li class="nav-item ">
+            <a class="nav-link text-white" asp-area="Identity" asp-page="/Account/Manage/Index">
                 Xin chào @UserManager.GetUserName(User)
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Logout">Đăng Xuất</a>
+            <a class="nav-link text-white" asp-area="Identity" asp-page="/Account/Logout">Đăng Xuất</a>
         </li>
     }else
     {
         <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Đăng ký</a>
+            <a class="nav-link text-white" asp-area="Identity" asp-page="/Account/Register">Đăng ký</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Đăng nhập</a>
+            <a class="nav-link text-white" asp-area="Identity" asp-page="/Account/Login">Đăng nhập</a>
         </li>
 }
    
