@@ -110,9 +110,9 @@
                     </div>
                 </div>
                 <div class="col-span-2">
-                    <h5 class="text-lg font-bold text-black-500">Mô Tả</h5>
+                    @* <h5 class="text-lg font-bold text-black-500">Mô Tả</h5> *@
                     <p>
-                        @Model.Description
+                        @Html.Raw(Model.Description)
                     </p>
                 </div>
             </div>
@@ -121,24 +121,24 @@
         <!-- Lich trình -->
         <div class="container mt-[50px] bg-gray-200 shadow-lg p-6 rounded-lg border border-gray-300">
             <h3 class=" text-center text-2xl font-semibold text-blue-500">Lịch Trình</h3>
-            <div class="flex">
+            <div class="">
                 @Html.Raw(Model.Schedule)
             </div>
         </div>
         <!-- chi tiet tour + giá tour -->
-        <div class="flex justify-between mt-[40px] grid grid-cols-2 gap-4">
+        <div class="flex justify-between mt-[40px]  gap-4">
             <div class="bg-gray-200 shadow-lg p-6  rounded-[12px]">
                 <h3 class=" text-center text-2xl font-semibold text-blue-500">Chi tiết Tour</h3>
                 <div class="flex mt-[40px] text-center">
                    @Html.Raw(Model.Note)
                 </div>
             </div>
-            <div class="bg-gray-200 shadow-lg p-6 rounded-[12px]">
+            <div class="bg-gray-200 shadow-lg p-6 rounded-[12px] w-[40%]">
                 <h3 class=" text-center text-2xl font-semibold text-blue-500">Giá Tour</h3>
                 <div class="flex justify-around mt-[40px]">
                     <div class="ml-[10px]">
                         <p class="font-bold mb-[20px]">Loại khách</p>
-                        <p>Người Lớn (Từ 12 tuổi trở lên) </p>
+                        <p>Người Lớn (12 tuổi trở lên) </p>
                         <p>Trẻ em (Dưới 12 Tuổi) </p>
 
                     </div>

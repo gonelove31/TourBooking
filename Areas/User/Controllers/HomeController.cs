@@ -1,6 +1,8 @@
 ﻿using BookingTour.Models;
 using BookingTour.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 using X.PagedList;
 
 namespace BookingTour.Areas.User.Controllers
@@ -16,12 +18,15 @@ namespace BookingTour.Areas.User.Controllers
             _evn = evn;
             _context = context;
         }
-        public async Task<IActionResult> Index()
+       
+        public async Task<IActionResult> Index(string? searchString)
         {
-           var data = from t in _context.tours
-                      select t;
-            
-            return View(data);
+            IEnumerable<BookingTour.Models.Tours> tourContext = _context.tours.Include(t => t.Location).ToList();
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                tourContext = tourContext.Where(t => t.Name.Contains(searchString));
+            }
+            return View(tourContext.ToPagedList());
         }
     }
 }

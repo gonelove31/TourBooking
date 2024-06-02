@@ -71,16 +71,40 @@
 </head>
 <body class="bg-gray-100">
 
-        <nav class="sticky top-0 bg-blue-500 shadow-md flex justify-between items-center text-white ">
-            <div class="flex space-x-4 items-center">
-                <a class="text-lg font-bold" asp-area="User" asp-controller="Home" asp-action="Index">Trang chủ</a>
-            
-                <a class="text-lg" asp-area="User" asp-controller="Detail" asp-action="Cart">Giỏ hàng</a>
+        <nav class="sticky top-0 bg-blue-500 shadow-md flex !justify-between items-center text-white ">
+        <a asp-area="User" asp-controller="Home" asp-action="Index" class="text-4xl font-bold text-center text-white">Tour Ba Miền</a>
+        <div>
+        @if (ViewContext.RouteData.Values["controller"].ToString() == "Home" && ViewContext.RouteData.Values["action"].ToString() == "Index")
+            {
+                @using (Html.BeginForm())
+                {
+                    <div class="flex bg-white items-center h-[40px] px-2 py-4 rounded-[8px] gap-2">
+                        <div class="">
+                <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                </svg>
             </div>
-            <h1 class="text-4xl font-bold text-center text-white flex-grow">Tour Ba Miền</h1>
+                        @Html.TextBox("SearchString", null, new { @class = "bg-transparent outline-none", placeholder = "Search..." })
+                        <button type="submit" class="text-white end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
+                    </div>
+                }
+            }
+
+        </div>
+        @* tim kiem  *@
+       
+        <div class="flex gap-3">
+            <div class="flex space-x-4 items-center">
+
+                <a class="text-[16px]" asp-area="User" asp-controller="Detail" asp-action="Cart">Giỏ hàng</a>
+            </div>
+
             <div>
                 <partial name="_LoginPartial" />
             </div>
+
+        </div>
+           
         </nav>
 
     <div class="container mx-auto mt-8">

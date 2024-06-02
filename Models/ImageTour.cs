@@ -8,11 +8,16 @@ namespace BookingTour.Models
     {
         [Key]
         public int Id { get; set; }
+
+        [Display(Name = "Ảnh")]
         public string? URL { set; get; }
 
+        [Display(Name  = "Tên tour")]
         public int? TourID { get; set; }
 
         [ForeignKey("TourID")]
+        [Display(Name = "Tên tour")]
+
         public Tours? Tours { set; get; }
     }
 }

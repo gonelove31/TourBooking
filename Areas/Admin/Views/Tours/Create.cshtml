@@ -157,4 +157,14 @@
             'removeformat | help',
         content_style: 'body { font-family: "Arial", sans-serif; font-size: 14px; }'
     });
+    tinymce.init({
+        selector: ' textarea#Description', // ID của trường mô tả
+        height: 300,
+
+        toolbar: 'undo redo | formatselect | ' +
+            'bold italic backcolor | alignleft aligncenter ' +
+            'alignright alignjustify | bullist numlist outdent indent | ' +
+            'removeformat | help',
+        content_style: 'body { font-family: "Arial", sans-serif; font-size: 14px; }'
+    });
 </script>

@@ -28,6 +28,7 @@ namespace BookingTour.Areas.User.Controllers
     
         public async Task<IActionResult> Index(int? id)
         {
+
             if (id == null || _context.tours == null)
             {
                 return NotFound();

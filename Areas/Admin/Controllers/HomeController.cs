@@ -1,5 +1,7 @@
-﻿using BookingTour.Models;
+﻿using BookingTour.Areas.Admin.Models.Role;
+using BookingTour.Models;
 using iText.Commons.Actions.Contexts;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
@@ -8,6 +10,7 @@ namespace BookingTour.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Route("/admin/home/[action]/{id?}")]
+    
     public class HomeController : Controller
     {
         private readonly TourContext _context;
